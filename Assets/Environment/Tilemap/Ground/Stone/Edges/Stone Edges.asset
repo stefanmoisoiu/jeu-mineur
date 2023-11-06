@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bef1d27a427d444b9a1b9ec3177358, type: 3}
+  m_Name: Stone Edges
+  m_EditorClassIdentifier: 
+  baseTiles:
+  - {fileID: 11400000, guid: ab9e544485c4f69408086b17f6a22768, type: 2}
+  - {fileID: 11400000, guid: f426b802c1a72f7479e57acddad536f0, type: 2}
+  - {fileID: 11400000, guid: 2f3dfe9547f08b143bea9648ea114d01, type: 2}
+  - {fileID: 11400000, guid: b1d830dc84e228143a2a204fa893b95d, type: 2}
+  - {fileID: 11400000, guid: e134b6f7050faf347998230beb1bf566, type: 2}
+  - {fileID: 11400000, guid: a43a0f37da851be4180ea97716f39396, type: 2}
+  edgeTiles:
+  - {fileID: 11400000, guid: 422fd9e04a6f2d347b70ab940e6ad126, type: 2}
+  - {fileID: 11400000, guid: b159eb70f6b2dbe46bd80707aa1ce5ac, type: 2}
+  - {fileID: 11400000, guid: 06e517fec878c9a40bb7bd97f3b52f10, type: 2}
+  - {fileID: 11400000, guid: 2164709db25d271489c6c0033e3eabff, type: 2}
+  - {fileID: 11400000, guid: f6860cc03ef34b44d8b359e0233231e4, type: 2}
+  - {fileID: 11400000, guid: 1e9ebe435ac91494ebc536a84eab6ecc, type: 2}

@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bef1d27a427d444b9a1b9ec3177358, type: 3}
+  m_Name: Rock Edges
+  m_EditorClassIdentifier: 
+  baseTiles:
+  - {fileID: 11400000, guid: 116b9cee209a3ca4eab2b0afefcfa24e, type: 2}
+  - {fileID: 11400000, guid: 24a59895b79dd214780d15fc7f077aee, type: 2}
+  - {fileID: 11400000, guid: 65743e5c624e57a47a16cbbabb9ba022, type: 2}
+  - {fileID: 11400000, guid: 7e3bca883c06c654cba5f7cbc7b99811, type: 2}
+  - {fileID: 11400000, guid: 2d098aba4ccaf2e4098fa8960b6aa2de, type: 2}
+  - {fileID: 11400000, guid: 269d2949ab286194faaa7336d4971d73, type: 2}
+  edgeTiles:
+  - {fileID: 11400000, guid: 78c395986c361c34982a77caeb89eac2, type: 2}
+  - {fileID: 11400000, guid: 7bf3e825c89ce89498731631090e9b71, type: 2}
+  - {fileID: 11400000, guid: e88a3db7e9bac2f4cae6c94ecee8060a, type: 2}
+  - {fileID: 11400000, guid: ed4139c6fca56014db676f36c5734bff, type: 2}
+  - {fileID: 11400000, guid: e1e6cd471a2e14841b5635b294d8b525, type: 2}
+  - {fileID: 11400000, guid: 86c3e94fd0eda3d4e93b5093b6ed598e, type: 2}

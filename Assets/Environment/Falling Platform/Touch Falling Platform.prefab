@@ -1,0 +1,139 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &9219963601433287598
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3570618040861050256, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894528596413915462, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: groundLayer
+      value: Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894528596413915462, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: movingGroundLayer
+      value: Moving Ground
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894528596413915462, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: groundLayer.m_Bits
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3894528596413915462, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: movingGroundLayer.m_Bits
+      value: 4096
+      objectReference: {fileID: 0}
+    - target: {fileID: 4208255052404883721, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -723887886, guid: c394478d9cfed524da63e361ecfa7429, type: 3}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -13.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 17.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5201726951914281761, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6649327784395097774, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      propertyPath: m_Name
+      value: Touch Falling Platform
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6649327784395097774, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6575483813495614455}
+  m_SourcePrefab: {fileID: 100100000, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+--- !u!114 &1325755922221795398 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7896468173733549032, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+  m_PrefabInstance: {fileID: 9219963601433287598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02feefdc111c4d31abfaeac65b148d5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &2572906034745515264 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6649327784395097774, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+  m_PrefabInstance: {fileID: 9219963601433287598}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6575483813495614455
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2572906034745515264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 92bd3bbfb8df42a980885f7e7e821c74, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fallingPlatform: {fileID: 5332192775971306216}
+  playerGroundedEvents: {fileID: 8873993932226926785}
+  playerWallStickEvents: {fileID: 1325755922221795398}
+--- !u!114 &5332192775971306216 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3894528596413915462, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+  m_PrefabInstance: {fileID: 9219963601433287598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2572906034745515264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2ecfb2a68fa8414e9a296a48914780b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8873993932226926785 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 348226863634432879, guid: 0c9ab24672939a0469ee4db50930c67e, type: 3}
+  m_PrefabInstance: {fileID: 9219963601433287598}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676a4ea8c9e5a7742b31868741146272, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

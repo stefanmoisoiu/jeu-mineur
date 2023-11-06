@@ -1,0 +1,52 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!78 &1
+TagManager:
+  serializedVersion: 2
+  tags: []
+  layers:
+  - Default
+  - TransparentFX
+  - Ignore Raycast
+  - Ground
+  - Water
+  - UI
+  - Player
+  - Death
+  - Checkpoint
+  - Point of interest
+  - Railing
+  - Bounce
+  - Moving Ground
+  - Slide
+  - Grapple Point
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  m_SortingLayers:
+  - name: Default
+    uniqueID: 0
+    locked: 0
+  - name: Main
+    uniqueID: 3284920159
+    locked: 0
+  - name: Blends
+    uniqueID: 1731054697
+    locked: 0
+  - name: Edges
+    uniqueID: 4113085961
+    locked: 0

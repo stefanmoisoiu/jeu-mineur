@@ -1,0 +1,828 @@
+fileFormatVersion: 2
+guid: 57340bf15a8549f43a2168d32f1589d2
+ScriptedImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 2
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+  script: {fileID: 11500000, guid: 62a9f0aa5b59740cfbadc7e5f9823bb0, type: 3}
+  textureImporterSettings:
+    alphaSource: 1
+    mipMapMode: 0
+    enableMipMap: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+    convertToNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+    swizzle: 50462976
+    isReadable: 0
+    streamingMipmaps: 0
+    streamingMipmapsPriority: 0
+    vTOnly: 0
+    ignoreMipmapLimit: 0
+    nPOTScale: 1
+    sRGBTexture: 1
+    spriteMode: 2
+    spriteExtrude: 1
+    spriteMeshType: 1
+    alignment: 0
+    spritePivot: {x: 0.5, y: 0.5}
+    spritePixelsToUnits: 18
+    spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+    spriteGenerateFallbackPhysicsShape: 0
+    generateCubemap: 6
+    cubemapConvolution: 0
+    seamlessCubemap: 0
+    alphaIsTransparency: 1
+    spriteTessellationDetail: -1
+    textureType: 8
+    textureShape: 1
+    singleChannelComponent: 0
+    flipbookRows: 0
+    flipbookColumns: 0
+    ignorePngGamma: 0
+    cookieMode: 0
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+    normalMap: 0
+    textureFormat: 0
+    maxTextureSize: 0
+    lightmap: 0
+    compressionQuality: 0
+    linearTexture: 0
+    grayScaleToAlpha: 0
+    rGBM: 0
+    cubemapConvolutionSteps: 0
+    cubemapConvolutionExponent: 0
+    maxTextureSizeSet: 0
+    compressionQualitySet: 0
+    textureFormatSet: 0
+    applyGammaDecoding: 0
+  previousAsepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  asepriteImporterSettings:
+    fileImportMode: 1
+    importHiddenLayers: 0
+    layerImportMode: 1
+    defaultPivotSpace: 0
+    defaultPivotAlignment: 7
+    customPivotPosition: {x: 0.5, y: 0.5}
+    spritePadding: 0
+    generateModelPrefab: 1
+    generateAnimationClips: 1
+    addSortingGroup: 1
+    addShadowCasters: 0
+  importFileNodeState: 1
+  platformSettingsDirtyTick: 638338423553098201
+  textureAssetName: 
+  singleSpriteImportData:
+  - name: 
+    originalName: 
+    pivot: {x: 0, y: 0}
+    alignment: 0
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 0
+      height: 0
+    spriteID: 
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 0, y: 0}
+  animatedSpriteImportData:
+  - name: dwarf
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.047619052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 4
+      width: 17
+      height: 21
+    spriteID: f6a4bd91a4d00524aa5599a4e59ca06f
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 4}
+  - name: dwarf_Frame_1
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.047619052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 172
+      width: 18
+      height: 21
+    spriteID: 5d02886e44659a74390e43d927b40f8a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 172}
+  - name: dwarf_Frame_2
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 230
+      width: 18
+      height: 20
+    spriteID: 6dac18ddada56b7499dc6c20a8583368
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 230}
+  - name: dwarf_Frame_3
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.047619052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 201
+      width: 18
+      height: 21
+    spriteID: 789bb9f1c6fa74c4db36249c8f3db467
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 201}
+  - name: dwarf_Frame_4
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 33
+      width: 17
+      height: 20
+    spriteID: d567dbec8ccc2b24ba2f3e026febda10
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 33}
+  - name: dwarf_Frame_5
+    originalName: 
+    pivot: {x: 0.4210526, y: -0.1}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 144
+      width: 19
+      height: 20
+    spriteID: 52ac1e4ba6a96814781742c8a317da7b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 144}
+  - name: dwarf_Frame_6
+    originalName: 
+    pivot: {x: 0.4210526, y: -0.047619052}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 88
+      width: 19
+      height: 21
+    spriteID: e09d7a645989aac4cac50b09b354b885
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 88}
+  - name: dwarf_Frame_7
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 61
+      width: 17
+      height: 20
+    spriteID: 4b53a95c396bd0f4db74928bd667d966
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 61}
+  - name: dwarf_Frame_8
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 89
+      width: 17
+      height: 20
+    spriteID: c0dbe3ae3fc9582479f740abbb4444b6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 89}
+  - name: dwarf_Frame_9
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.052631583}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 173
+      width: 17
+      height: 19
+    spriteID: d820a6be5562fb249ac6dd9199441ff3
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 173}
+  - name: dwarf_Frame_10
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.052631583}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 200
+      width: 17
+      height: 19
+    spriteID: 89a56555fe5512544b6bd06df8cfa20b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 200}
+  - name: dwarf_Frame_11
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 117
+      width: 17
+      height: 20
+    spriteID: 965bbd76e2b02a843934df642311f522
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 117}
+  - name: dwarf_Frame_12
+    originalName: 
+    pivot: {x: 0.47619045, y: -0.105263166}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 117
+      width: 21
+      height: 19
+    spriteID: d6d61390efb801b47804b6b93979e40b
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 117}
+  - name: dwarf_Frame_13
+    originalName: 
+    pivot: {x: 0.38888887, y: -0.105263166}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 4
+      width: 18
+      height: 19
+    spriteID: d1d52a97db608f34db9f558d52c9edae
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 4}
+  - name: dwarf_Frame_14
+    originalName: 
+    pivot: {x: 0.35294116, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 145
+      width: 17
+      height: 20
+    spriteID: 01b6833fbb7c253459059a67d1d6a9f1
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 145}
+  - name: dwarf_Frame_15
+    originalName: 
+    pivot: {x: 0.65000004, y: -0.23529413}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 87
+      y: 4
+      width: 20
+      height: 17
+    spriteID: a6a9bdbc33482a548824d798781437be
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 87, y: 4}
+  - name: dwarf_Frame_16
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.105263166}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 227
+      width: 14
+      height: 19
+    spriteID: 5058c4535b0d7f7498a83cdb95f0bbe7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 227}
+  - name: dwarf_Frame_17
+    originalName: 
+    pivot: {x: 0.46153843, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 31
+      width: 13
+      height: 20
+    spriteID: 16ead3fa93857a846b2cae8cf039b572
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 31}
+  - name: dwarf_Frame_18
+    originalName: 
+    pivot: {x: 0.46153843, y: -0.052631583}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 59
+      width: 13
+      height: 19
+    spriteID: e72cefe263d51ab4eac1ba0e90bb0fb7
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 59}
+  - name: dwarf_Frame_19
+    originalName: 
+    pivot: {x: 0.46153843, y: -0.052631583}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 86
+      width: 13
+      height: 19
+    spriteID: 5fa2fec85f160ad4ebc831ae7bf68e46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 86}
+  - name: dwarf_Frame_20
+    originalName: 
+    pivot: {x: 0.7083333, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 4
+      width: 24
+      height: 20
+    spriteID: 9afeb89770684a848b6e6e8e1e0ac70c
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 4}
+  - name: dwarf_Frame_20
+    originalName: 
+    pivot: {x: 0.7083333, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 32
+      width: 24
+      height: 20
+    spriteID: 082186a3e4bb51b4c97ded7c9e652f16
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 32}
+  - name: dwarf_Frame_20
+    originalName: 
+    pivot: {x: 0.7083333, y: -0.05}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 4
+      y: 60
+      width: 24
+      height: 20
+    spriteID: 74fa61b3a1ef9d04e9d3fc14934121d5
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 4, y: 60}
+  spriteSheetImportData: []
+  asepriteLayers:
+  - layerIndex: 0
+    guid: -56022514
+    name: dwarf
+    layerFlags: 0
+    layerType: 0
+    blendMode: 0
+    cells:
+    - name: dwarf_Frame_0
+      frameIndex: 0
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 21
+      spriteId: f6a4bd91a4d00524aa5599a4e59ca06f
+    - name: dwarf_Frame_1
+      frameIndex: 1
+      cellRect:
+        x: 10
+        y: 1
+        width: 18
+        height: 21
+      spriteId: 5d02886e44659a74390e43d927b40f8a
+    - name: dwarf_Frame_3
+      frameIndex: 3
+      cellRect:
+        x: 10
+        y: 2
+        width: 18
+        height: 20
+      spriteId: 6dac18ddada56b7499dc6c20a8583368
+    - name: dwarf_Frame_4
+      frameIndex: 4
+      cellRect:
+        x: 10
+        y: 1
+        width: 18
+        height: 21
+      spriteId: 789bb9f1c6fa74c4db36249c8f3db467
+    - name: dwarf_Frame_5
+      frameIndex: 5
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 20
+      spriteId: d567dbec8ccc2b24ba2f3e026febda10
+    - name: dwarf_Frame_6
+      frameIndex: 6
+      cellRect:
+        x: 9
+        y: 2
+        width: 19
+        height: 20
+      spriteId: 52ac1e4ba6a96814781742c8a317da7b
+    - name: dwarf_Frame_7
+      frameIndex: 7
+      cellRect:
+        x: 9
+        y: 1
+        width: 19
+        height: 21
+      spriteId: e09d7a645989aac4cac50b09b354b885
+    - name: dwarf_Frame_8
+      frameIndex: 8
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 20
+      spriteId: 4b53a95c396bd0f4db74928bd667d966
+    - name: dwarf_Frame_9
+      frameIndex: 9
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 20
+      spriteId: c0dbe3ae3fc9582479f740abbb4444b6
+    - name: dwarf_Frame_10
+      frameIndex: 10
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 19
+      spriteId: d820a6be5562fb249ac6dd9199441ff3
+    - name: dwarf_Frame_11
+      frameIndex: 11
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 19
+      spriteId: 89a56555fe5512544b6bd06df8cfa20b
+    - name: dwarf_Frame_12
+      frameIndex: 12
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 20
+      spriteId: 965bbd76e2b02a843934df642311f522
+    - name: dwarf_Frame_21
+      frameIndex: 21
+      cellRect:
+        x: 7
+        y: 2
+        width: 21
+        height: 19
+      spriteId: d6d61390efb801b47804b6b93979e40b
+    - name: dwarf_Frame_22
+      frameIndex: 22
+      cellRect:
+        x: 10
+        y: 2
+        width: 18
+        height: 19
+      spriteId: d1d52a97db608f34db9f558d52c9edae
+    - name: dwarf_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 11
+        y: 1
+        width: 17
+        height: 20
+      spriteId: 01b6833fbb7c253459059a67d1d6a9f1
+    - name: dwarf_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 4
+        y: 4
+        width: 20
+        height: 17
+      spriteId: a6a9bdbc33482a548824d798781437be
+    - name: dwarf_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 10
+        y: 2
+        width: 14
+        height: 19
+      spriteId: 5058c4535b0d7f7498a83cdb95f0bbe7
+    - name: dwarf_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 11
+        y: 1
+        width: 13
+        height: 20
+      spriteId: 16ead3fa93857a846b2cae8cf039b572
+    - name: dwarf_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 11
+        y: 1
+        width: 13
+        height: 19
+      spriteId: e72cefe263d51ab4eac1ba0e90bb0fb7
+    - name: dwarf_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 11
+        y: 1
+        width: 13
+        height: 19
+      spriteId: 5fa2fec85f160ad4ebc831ae7bf68e46
+    - name: dwarf_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 1
+        width: 24
+        height: 20
+      spriteId: 9afeb89770684a848b6e6e8e1e0ac70c
+    - name: dwarf_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 1
+        width: 24
+        height: 20
+      spriteId: 082186a3e4bb51b4c97ded7c9e652f16
+    - name: dwarf_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 1
+        width: 24
+        height: 20
+      spriteId: 74fa61b3a1ef9d04e9d3fc14934121d5
+    linkedCells: []
+    parentIndex: -1
+  platformSettings:
+  - name: DefaultTexturePlatform
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Standalone
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: Server
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  - name: WebGL
+    overridden: 0
+    ignorePlatformSupport: 0
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    androidETC2FallbackOverride: 0
+  secondarySpriteTextures: []
+  spritePackingTag: 
+  canvasSize: {x: 34, y: 26}
