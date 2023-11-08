@@ -467,7 +467,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 61
-      y: 31
+      y: 58
       width: 13
       height: 20
     spriteID: 16ead3fa93857a846b2cae8cf039b572
@@ -478,28 +478,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 61, y: 31}
+    uvTransform: {x: 61, y: 58}
   - name: dwarf_Frame_18
-    originalName: 
-    pivot: {x: 0.46153843, y: -0.052631583}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 61
-      y: 59
-      width: 13
-      height: 19
-    spriteID: e72cefe263d51ab4eac1ba0e90bb0fb7
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 61, y: 59}
-  - name: dwarf_Frame_19
     originalName: 
     pivot: {x: 0.46153843, y: -0.052631583}
     alignment: 9
@@ -510,7 +490,7 @@ ScriptedImporter:
       y: 86
       width: 13
       height: 19
-    spriteID: 5fa2fec85f160ad4ebc831ae7bf68e46
+    spriteID: e72cefe263d51ab4eac1ba0e90bb0fb7
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -519,6 +499,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 61, y: 86}
+  - name: dwarf_Frame_19
+    originalName: 
+    pivot: {x: 0.46153843, y: -0.052631583}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 113
+      width: 13
+      height: 19
+    spriteID: 5fa2fec85f160ad4ebc831ae7bf68e46
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 113}
   - name: dwarf_Frame_20
     originalName: 
     pivot: {x: 0.7083333, y: -0.05}
@@ -579,6 +579,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 60}
+  - name: dwarf_Frame_23
+    originalName: 
+    pivot: {x: 0.7142857, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 61
+      y: 31
+      width: 14
+      height: 19
+    spriteID: 706fc15450c1d6840844a01eb2c147d2
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 61, y: 31}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -772,6 +792,14 @@ ScriptedImporter:
         width: 24
         height: 20
       spriteId: 74fa61b3a1ef9d04e9d3fc14934121d5
+    - name: dwarf_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 7
+        y: 0
+        width: 14
+        height: 19
+      spriteId: 706fc15450c1d6840844a01eb2c147d2
     linkedCells: []
     parentIndex: -1
   platformSettings:

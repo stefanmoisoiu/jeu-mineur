@@ -16,6 +16,8 @@ public class PInputManager : MonoBehaviour
     public Action OnDownPress;
     
     public Action OnJump,OnStopJump;
+    public bool Jump { get; private set; }
+    
     
     public Action OnMainAction,OnStopMainAction;
     public bool MainAction { get; private set; }
@@ -56,6 +58,9 @@ public class PInputManager : MonoBehaviour
         
         _controls.Movement.Jump.started += _ => OnJump?.Invoke();
         _controls.Movement.Jump.canceled += _ => OnStopJump?.Invoke();
+        
+        _controls.Movement.Jump.started += _ => Jump = true;
+        _controls.Movement.Jump.canceled += _ => Jump = false;
         
         _controls.Actions.Main.started += _ => OnMainAction?.Invoke();
         _controls.Actions.Main.canceled += _ => OnStopMainAction?.Invoke();

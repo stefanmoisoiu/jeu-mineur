@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5bd4a853c42e6bf27303d9bbb7142, type: 3}
+  m_Name: Dynamite End
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 74e658cc737628147a359797cf610036, type: 3}
+  - {fileID: 8300000, guid: f360faa0f427cef4a8829b424c1fdddb, type: 3}
+  volume: 1
+  pitch: 1
+  pitchVariation: 0.1

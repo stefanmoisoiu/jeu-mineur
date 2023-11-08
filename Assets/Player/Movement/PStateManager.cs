@@ -14,6 +14,7 @@ public class PStateManager : MonoBehaviour
         Grappling,
         WallBounce,
         SlipperyMovement,
+        Dynamite,
     }
     public State CurrentState { get; private set; }
     
