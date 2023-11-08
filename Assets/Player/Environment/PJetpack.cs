@@ -45,17 +45,21 @@ public class PJetpack : MovementState
             RemoveJetpack();
             return;
         }
+        jetpackSlider.value = _currentTankCapacitySeconds;
         
         jetpackAudioSource.mute = !inputManager.Jump;
+        if (!inputManager.Jump) return;
+        _currentTankCapacitySeconds -= Time.deltaTime;
+        
+        if (_currentTankCapacitySeconds <= 0) RemoveJetpack();
+    }
+    protected override void ActiveStateFixedUpdate()
+    {
+        if (_jetpack == null) return;
         if (!inputManager.Jump) return;
         
         rb.velocity = new Vector2(rb.velocity.x,Mathf.Clamp(rb.velocity.y,minYVelocity,maxYVelocity));
         rb.AddForce(Vector2.up * _jetpack.Force,ForceMode2D.Force);
-        
-        _currentTankCapacitySeconds -= Time.deltaTime;
-        jetpackSlider.value = _currentTankCapacitySeconds;
-        
-        if (_currentTankCapacitySeconds <= 0) RemoveJetpack();
     }
 
     private void CheckJetpackPickup(Collider2D obj)

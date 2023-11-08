@@ -108,12 +108,14 @@ public class Dynamite : MonoBehaviour
     
     public Vector2 GetVelocityExplosion()
     {
-        return transform.up * curve.Evaluate(1) * distance / moveLength;
+        return transform.up * curve.Evaluate(1);
     }
 
-    public Vector2 GetCurrentVelocity()
+    public Vector2 GetCurrentVelocity(float offset)
     {
-        return transform.up * curve.Evaluate(advancement) * distance / moveLength;
+        Vector2 previousPosition = _startPosition + transform.up * curve.Evaluate(advancement - offset) * distance;
+        Vector2 currentPosition = _startPosition + transform.up * curve.Evaluate(advancement) * distance;
+        return (currentPosition - previousPosition) / offset;
     }
 
     private void OnDrawGizmos()

@@ -33,12 +33,19 @@ public class PDynamite : MovementState
         rb.gravityScale = 0;
         
         rb.transform.position = _dynamite.AttachPoint.position;
+        
+        rb.isKinematic = true;
     }
 
     protected override void ActiveStateUpdate()
     {
-        if(Vector3.Distance(rb.position,_dynamite.AttachPoint.position) > 0.1f) Detach();
-        rb.velocity = _dynamite.GetCurrentVelocity();
+        //if(Vector3.Distance(rb.position,_dynamite.AttachPoint.position) > 0.1f) Detach();
+        rb.position = _dynamite.AttachPoint.position;
+    }
+
+    protected override void ActiveStateFixedUpdate()
+    {
+        //rb.velocity = _dynamite.GetCurrentVelocity();
     }
 
     protected override void OnStateExit()
@@ -47,6 +54,7 @@ public class PDynamite : MovementState
         inputManager.OnJump -= Detach;
         
         rb.gravityScale = _startGravityScale;
+        rb.isKinematic = false;
     }
 
     private void CheckDynamite(Collider2D other)
