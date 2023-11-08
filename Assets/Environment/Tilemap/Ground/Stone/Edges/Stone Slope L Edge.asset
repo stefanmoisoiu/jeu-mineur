@@ -150,23 +150,5 @@ MonoBehaviour:
     - {x: 0, y: 1, z: 0}
     m_RuleTransform: 0
   alwaysConnect: 1
-  tilesToConnect:
-  - {fileID: 11400000, guid: 422fd9e04a6f2d347b70ab940e6ad126, type: 2}
-  - {fileID: 11400000}
-  - {fileID: 11400000, guid: 06e517fec878c9a40bb7bd97f3b52f10, type: 2}
-  - {fileID: 11400000, guid: 2164709db25d271489c6c0033e3eabff, type: 2}
-  - {fileID: 11400000, guid: f6860cc03ef34b44d8b359e0233231e4, type: 2}
-  - {fileID: 11400000, guid: 1e9ebe435ac91494ebc536a84eab6ecc, type: 2}
-  - {fileID: 11400000, guid: 86c3e94fd0eda3d4e93b5093b6ed598e, type: 2}
-  - {fileID: 11400000, guid: 78c395986c361c34982a77caeb89eac2, type: 2}
-  - {fileID: 11400000, guid: 7bf3e825c89ce89498731631090e9b71, type: 2}
-  - {fileID: 11400000, guid: e88a3db7e9bac2f4cae6c94ecee8060a, type: 2}
-  - {fileID: 11400000, guid: ed4139c6fca56014db676f36c5734bff, type: 2}
-  - {fileID: 11400000, guid: e1e6cd471a2e14841b5635b294d8b525, type: 2}
-  - {fileID: 11400000, guid: 88883a9b07d5068418d8233d3ef55317, type: 2}
-  - {fileID: 11400000, guid: 892edca59746efa45b8156e6b8edb586, type: 2}
-  - {fileID: 11400000, guid: 2bbaae6edbc12754d813b047829db06d, type: 2}
-  - {fileID: 11400000, guid: fce1cb7fca1e58f44b5b92cba97cb203, type: 2}
-  - {fileID: 11400000, guid: c85ec70b591cbec47bbd7617067d1fcf, type: 2}
-  - {fileID: 11400000, guid: 633fddaa685ee964dbf30cebf50be55f, type: 2}
+  tilesToConnect: {fileID: 11400000, guid: 236fa7ffd4ae11640b8086bb568b6c95, type: 2}
   checkSelf: 1

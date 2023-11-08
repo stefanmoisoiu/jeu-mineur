@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
@@ -91,8 +92,8 @@ public class TilemapBlend : MonoBehaviour
     [System.Serializable]
     private class TileBlendGroup
     {
-        public TileBase[] tilesInGroup;
-        public TileBase[] blendTiles;
+        [AssetSelector]public TileBase[] tilesInGroup;
+        [AssetSelector]public TileBase[] blendTiles;
         
         public int priority;
     }

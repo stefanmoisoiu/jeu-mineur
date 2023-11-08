@@ -13,6 +13,8 @@ public class PJetpack : MovementState
     [SerializeField] private Slider jetpackSlider;
     [SerializeField] private GameObject jetpackGraphics;
     [SerializeField] private AudioSource jetpackAudioSource;
+    [SerializeField] private ParticleSystem jetpackParticles;
+    
     
     
     
@@ -48,6 +50,9 @@ public class PJetpack : MovementState
         jetpackSlider.value = _currentTankCapacitySeconds;
         
         jetpackAudioSource.mute = !inputManager.Jump;
+        if (inputManager.Jump && !jetpackParticles.isPlaying) jetpackParticles.Play();
+        if (!inputManager.Jump && jetpackParticles.isPlaying) jetpackParticles.Stop();
+        
         if (!inputManager.Jump) return;
         _currentTankCapacitySeconds -= Time.deltaTime;
         
@@ -69,13 +74,13 @@ public class PJetpack : MovementState
         
         _currentTankCapacitySeconds = _jetpack.TankCapacitySeconds;
         
-        jetpackSlider.gameObject.SetActive(true);
-        jetpackGraphics.SetActive(true);
-        
         jetpackSlider.maxValue = _jetpack.TankCapacitySeconds;
         jetpackSlider.value = _jetpack.TankCapacitySeconds;
         
         _jetpack.Pickup();
+        
+        jetpackSlider.gameObject.SetActive(true);
+        jetpackGraphics.SetActive(true);
     }
 
     private void RemoveJetpack()
@@ -84,6 +89,7 @@ public class PJetpack : MovementState
             
         jetpackSlider.gameObject.SetActive(false);
         jetpackGraphics.SetActive(false);
+        jetpackParticles.Stop();
         jetpackAudioSource.mute = true;
     }
 }

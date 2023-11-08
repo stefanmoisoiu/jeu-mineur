@@ -9932,6 +9932,9 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   respawnTime: 1
+  collisionLayer:
+    serializedVersion: 2
+    m_Bits: 4104
   startSFX: {fileID: 11400000, guid: 7a8911a9b0c163f4184492d84106bb11, type: 2}
   endSFX: {fileID: 11400000, guid: f9cefbc5231643a41aeb077be9631c49, type: 2}
   moveAnimation:

@@ -11,8 +11,15 @@ public class PDynamite : MovementState
     [SerializeField] private PInputManager inputManager;
     private Dynamite _dynamite;
     
-    [Header("Properties")]
+    [Header("Detach Properties")]
     [SerializeField] private float detachJumpForce = 5;
+    [SerializeField] private Vector2 checkSize;
+    [SerializeField] private LayerMask detachLayer;
+    
+    [Header("Debug")] [SerializeField]
+    private bool debug;
+
+    
 
     private float _startGravityScale;
 
@@ -33,19 +40,15 @@ public class PDynamite : MovementState
         rb.gravityScale = 0;
         
         rb.transform.position = _dynamite.AttachPoint.position;
-        
         rb.isKinematic = true;
     }
 
     protected override void ActiveStateUpdate()
     {
-        //if(Vector3.Distance(rb.position,_dynamite.AttachPoint.position) > 0.1f) Detach();
-        rb.position = _dynamite.AttachPoint.position;
-    }
-
-    protected override void ActiveStateFixedUpdate()
-    {
-        //rb.velocity = _dynamite.GetCurrentVelocity();
+        rb.transform.position = _dynamite.AttachPoint.position;
+        
+        if(Physics2D.BoxCast(transform.position, checkSize, 0, Vector2.down, 0, detachLayer))
+            Detach();
     }
 
     protected override void OnStateExit()
@@ -54,7 +57,6 @@ public class PDynamite : MovementState
         inputManager.OnJump -= Detach;
         
         rb.gravityScale = _startGravityScale;
-        rb.isKinematic = false;
     }
 
     private void CheckDynamite(Collider2D other)
@@ -63,17 +65,28 @@ public class PDynamite : MovementState
         if(IsActiveState && _dynamite == dynamite) return;
 
         _dynamite = dynamite;
+        rb.transform.position = _dynamite.AttachPoint.position;
         stateManager.SetState(PStateManager.State.Dynamite);
     }
 
     private void DynamiteExploded()
     {
-        rb.AddForce(_dynamite.GetVelocityExplosion(), ForceMode2D.Impulse);
+        rb.isKinematic = false;
+        rb.velocity += _dynamite.GetCurrentVelocity();
         Detach();
     }
     private void Detach()
     {
-        rb.AddForce(Vector2.up * detachJumpForce, ForceMode2D.Impulse);
+        rb.isKinematic = false;
+        rb.velocity += Vector2.up * detachJumpForce;
         stateManager.SetState(PStateManager.State.Normal);
+    }
+
+    private new void OnDrawGizmos()
+    {
+        base.OnDrawGizmos();
+        if(!debug) return;
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(transform.position, checkSize);
     }
 }

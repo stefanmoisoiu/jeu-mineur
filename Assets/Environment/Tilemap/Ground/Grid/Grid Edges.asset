@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15bef1d27a427d444b9a1b9ec3177358, type: 3}
+  m_Name: Grid Edges
+  m_EditorClassIdentifier: 
+  baseTiles:
+  - {fileID: 11400000, guid: 8dfdd9ef172ebbc4baa51e0f99df0b0e, type: 2}
+  - {fileID: 11400000, guid: b73a7834a7117c44da6f192da6a3200a, type: 2}
+  - {fileID: 11400000, guid: 5e0d2bee46d1f2c4f85aca043a52eff2, type: 2}
+  - {fileID: 11400000, guid: cc58df647da0b0f41bd39443491c6ae0, type: 2}
+  - {fileID: 11400000, guid: 4828b9f058624c942a9273aa56c33931, type: 2}
+  - {fileID: 11400000, guid: 189b531646339754c9da6f223157a530, type: 2}
+  edgeTiles:
+  - {fileID: 11400000, guid: 8dfdd9ef172ebbc4baa51e0f99df0b0e, type: 2}
+  - {fileID: 11400000, guid: b73a7834a7117c44da6f192da6a3200a, type: 2}
+  - {fileID: 11400000, guid: 5e0d2bee46d1f2c4f85aca043a52eff2, type: 2}
+  - {fileID: 11400000, guid: cc58df647da0b0f41bd39443491c6ae0, type: 2}
+  - {fileID: 11400000, guid: 4828b9f058624c942a9273aa56c33931, type: 2}
+  - {fileID: 11400000, guid: 189b531646339754c9da6f223157a530, type: 2}

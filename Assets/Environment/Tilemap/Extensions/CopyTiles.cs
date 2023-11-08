@@ -1,14 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
 public class CopyTiles : MonoBehaviour
 {
     [SerializeField] private Tilemap origin, destination;
-    [SerializeField] private TileBase[] tilesToInclude;
+    [AssetSelector][SerializeField] private TileBase[] tilesToInclude;
     
+    [Button]
     public void Copy()
     {
         if (origin == null || destination == null) return;

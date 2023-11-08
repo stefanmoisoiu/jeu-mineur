@@ -7,14 +7,14 @@ public class Dynamite : MonoBehaviour
     [Header("References")]
     
     [SerializeField] private GameObject graphics;
-
+    
     [SerializeField] private Transform attachPoint;
     public Transform AttachPoint => attachPoint;
     
     [SerializeField] private ParticleSystem moveParticles;
     [SerializeField] private ParticleSystem endParticles;
 
-    [SerializeField] private Collider2D collider2D;
+    [SerializeField] private BoxCollider2D collider2D;
     
     
     private Vector3 _startPosition;
@@ -24,6 +24,8 @@ public class Dynamite : MonoBehaviour
     [SerializeField] private float moveLength = 1;
     [SerializeField] private AnimationCurve curve;
     [SerializeField] private float respawnTime = 1;
+    [SerializeField] private LayerMask collisionLayer;
+    
     
     
     [Header("Audio")]
@@ -73,7 +75,11 @@ public class Dynamite : MonoBehaviour
 
     public void Use()
     {
-        if(_moveCoroutine != null) StopCoroutine(_moveCoroutine);
+        if(_moveCoroutine != null)
+        {
+            if (advancement < 1) return;
+            StopCoroutine(_moveCoroutine);
+        }
         _moveCoroutine = StartCoroutine(UseCoroutine());
     }
     private IEnumerator UseCoroutine()
@@ -83,11 +89,15 @@ public class Dynamite : MonoBehaviour
         while (advancement < 1)
         {
             advancement += Time.deltaTime / moveLength;
+
+            if (Physics2D.BoxCast(transform.TransformPoint(collider2D.offset), collider2D.size,
+                    transform.eulerAngles.z, transform.right, 0, collisionLayer).collider != null)
+                break;
+            
             transform.position = _startPosition + transform.up * curve.Evaluate(advancement) * distance;
             yield return null;
         }
-        transform.position = _startPosition + transform.up * distance;
-        
+        advancement = 1;
         End();
         
         endAnimation.OnAnimationEnd += () => graphics.SetActive(false);
@@ -105,17 +115,10 @@ public class Dynamite : MonoBehaviour
         
         Respawn();
     }
-    
-    public Vector2 GetVelocityExplosion()
-    {
-        return transform.up * curve.Evaluate(1);
-    }
 
-    public Vector2 GetCurrentVelocity(float offset)
+    public Vector2 GetCurrentVelocity()
     {
-        Vector2 previousPosition = _startPosition + transform.up * curve.Evaluate(advancement - offset) * distance;
-        Vector2 currentPosition = _startPosition + transform.up * curve.Evaluate(advancement) * distance;
-        return (currentPosition - previousPosition) / offset;
+        return transform.right * curve.Evaluate(advancement) * distance / moveLength;
     }
 
     private void OnDrawGizmos()
