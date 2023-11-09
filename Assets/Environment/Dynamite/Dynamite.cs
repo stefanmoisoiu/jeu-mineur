@@ -39,7 +39,7 @@ public class Dynamite : MonoBehaviour
     
     private Coroutine _moveCoroutine;
 
-    private float advancement = 0;
+    private float _advancement = 0;
 
     private void Start()
     {
@@ -77,7 +77,7 @@ public class Dynamite : MonoBehaviour
     {
         if(_moveCoroutine != null)
         {
-            if (advancement < 1) return;
+            if (_advancement < 1) return;
             StopCoroutine(_moveCoroutine);
         }
         _moveCoroutine = StartCoroutine(UseCoroutine());
@@ -85,19 +85,19 @@ public class Dynamite : MonoBehaviour
     private IEnumerator UseCoroutine()
     {
         StartJetpack();
-        advancement = 0;
-        while (advancement < 1)
+        _advancement = 0;
+        while (_advancement < 1)
         {
-            advancement += Time.deltaTime / moveLength;
+            _advancement += Time.deltaTime / moveLength;
 
             if (Physics2D.BoxCast(transform.TransformPoint(collider2D.offset), collider2D.size,
                     transform.eulerAngles.z, transform.right, 0, collisionLayer).collider != null)
                 break;
             
-            transform.position = _startPosition + transform.up * curve.Evaluate(advancement) * distance;
+            transform.position = _startPosition + transform.up * curve.Evaluate(_advancement) * distance;
             yield return null;
         }
-        advancement = 1;
+        _advancement = 1;
         End();
         
         endAnimation.OnAnimationEnd += () => graphics.SetActive(false);
@@ -118,7 +118,11 @@ public class Dynamite : MonoBehaviour
 
     public Vector2 GetCurrentVelocity()
     {
-        return transform.right * curve.Evaluate(advancement) * distance / moveLength;
+        float valueAtTime = curve.Evaluate(_advancement);
+        float valueAtPreviousTime = curve.Evaluate(_advancement - Time.deltaTime / moveLength);
+        float velocity = (valueAtTime - valueAtPreviousTime) * distance / Time.deltaTime;
+        
+        return transform.up * velocity;
     }
 
     private void OnDrawGizmos()

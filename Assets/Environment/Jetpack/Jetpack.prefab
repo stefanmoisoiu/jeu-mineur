@@ -176,7 +176,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collider2D: {fileID: 8743611814991592050}
-  force: 5
+  force: 35
   tankCapacitySeconds: 3
   respawnTime: 1
   pickupSFX: {fileID: 11400000, guid: 2130fcdc6a6ebff4a988bbce01008e11, type: 2}

@@ -2,4 +2,3 @@ sol lianes sur lequel on peut s'accrocher
 ennemis
 truc qui reset ton dash
 boost distance dash (powerup / drogue)
-jetpack

@@ -15,6 +15,8 @@ public class PDynamite : MovementState
     [SerializeField] private float detachJumpForce = 5;
     [SerializeField] private Vector2 checkSize;
     [SerializeField] private LayerMask detachLayer;
+    [SerializeField] private float attachCooldown = 0.3f;
+    private float _attachCooldown;
     
     [Header("Debug")] [SerializeField]
     private bool debug;
@@ -31,7 +33,7 @@ public class PDynamite : MovementState
 
     protected override void OnStateEnter()
     {
-        _dynamite.OnExplode += DynamiteExploded;
+        _dynamite.OnExplode += Detach;
         inputManager.OnJump += Detach;
         
         _dynamite.Use();
@@ -43,17 +45,22 @@ public class PDynamite : MovementState
         rb.isKinematic = true;
     }
 
+    private new void Update()
+    {
+        _attachCooldown -= Time.deltaTime;
+        base.Update();
+    }
     protected override void ActiveStateUpdate()
     {
         rb.transform.position = _dynamite.AttachPoint.position;
         
-        if(Physics2D.BoxCast(transform.position, checkSize, 0, Vector2.down, 0, detachLayer))
+        if(Physics2D.BoxCast(transform.position, checkSize, 0, Vector2.down, 0, detachLayer).collider != null)
             Detach();
     }
 
     protected override void OnStateExit()
     {
-        _dynamite.OnExplode -= DynamiteExploded;
+        _dynamite.OnExplode -= Detach;
         inputManager.OnJump -= Detach;
         
         rb.gravityScale = _startGravityScale;
@@ -61,24 +68,20 @@ public class PDynamite : MovementState
 
     private void CheckDynamite(Collider2D other)
     {
+        if (_attachCooldown > 0) return;
         if (!other.TryGetComponent(out Dynamite dynamite)) return;
-        if(IsActiveState && _dynamite == dynamite) return;
+        if (IsActiveState && _dynamite == dynamite) return;
+        if (Physics2D.BoxCast(transform.position, checkSize, 0, Vector2.down, 0, detachLayer).collider != null) return;
 
         _dynamite = dynamite;
         rb.transform.position = _dynamite.AttachPoint.position;
         stateManager.SetState(PStateManager.State.Dynamite);
     }
-
-    private void DynamiteExploded()
-    {
-        rb.isKinematic = false;
-        rb.velocity += _dynamite.GetCurrentVelocity();
-        Detach();
-    }
     private void Detach()
     {
         rb.isKinematic = false;
-        rb.velocity += Vector2.up * detachJumpForce;
+        rb.velocity = _dynamite.GetCurrentVelocity() + Vector2.up * detachJumpForce;
+        _attachCooldown = attachCooldown;
         stateManager.SetState(PStateManager.State.Normal);
     }
 

@@ -3,7 +3,7 @@
 public class PFlipSprite : MonoBehaviour
 {
     [Header("References")]
-    [SerializeField] private SpriteRenderer sprite;
+    [SerializeField] private Transform sprite;
 
     [Header("Properties")]
     [SerializeField] private bool invert;
