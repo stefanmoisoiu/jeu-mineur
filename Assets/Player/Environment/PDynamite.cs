@@ -9,6 +9,7 @@ public class PDynamite : MovementState
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private ColliderEvents colliderEvents;
     [SerializeField] private PInputManager inputManager;
+    [SerializeField] private PPickaxe pickaxe;
     private Dynamite _dynamite;
     
     [Header("Detach Properties")]
@@ -43,6 +44,17 @@ public class PDynamite : MovementState
         
         rb.transform.position = _dynamite.AttachPoint.position;
         rb.isKinematic = true;
+        
+        pickaxe.ResetPickaxe();
+    }
+    protected override void OnStateExit()
+    {
+        _dynamite.OnExplode -= Detach;
+        inputManager.OnJump -= Detach;
+        
+        rb.gravityScale = _startGravityScale;
+        
+        pickaxe.ResetPickaxe();
     }
 
     private new void Update()
@@ -56,14 +68,6 @@ public class PDynamite : MovementState
         
         if(Physics2D.BoxCast(transform.position, checkSize, 0, Vector2.down, 0, detachLayer).collider != null)
             Detach();
-    }
-
-    protected override void OnStateExit()
-    {
-        _dynamite.OnExplode -= Detach;
-        inputManager.OnJump -= Detach;
-        
-        rb.gravityScale = _startGravityScale;
     }
 
     private void CheckDynamite(Collider2D other)

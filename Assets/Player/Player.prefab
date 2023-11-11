@@ -870,6 +870,7 @@ MonoBehaviour:
   rb: {fileID: 2958054563617303837}
   colliderEvents: {fileID: 6664590386673884067}
   inputManager: {fileID: 4639865335127513026}
+  pickaxe: {fileID: 6732281535619972600}
   detachJumpForce: 10
   checkSize: {x: 1, y: 1.2}
   detachLayer:

@@ -9905,7 +9905,7 @@ MonoBehaviour:
   moveParticles: {fileID: 6264783796925349918}
   endParticles: {fileID: 408264643312666000}
   collider2D: {fileID: 2802460818041617945}
-  distance: 3
+  distance: 5
   moveLength: 1
   curve:
     serializedVersion: 2
