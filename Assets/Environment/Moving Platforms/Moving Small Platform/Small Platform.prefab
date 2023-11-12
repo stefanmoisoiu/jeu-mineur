@@ -22,11 +22,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -1.2572349
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 1.554837
       objectReference: {fileID: 0}
     - target: {fileID: 7878350319992209165, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
       propertyPath: m_LocalPosition.z
@@ -67,6 +67,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2250671519643566031}
+    - targetCorrespondingSourceObject: {fileID: -2253911629886400664, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7055579791273959623}
   m_SourcePrefab: {fileID: -8435245712485981826, guid: af2d265260e83d64ba0f9ac398dabb6d, type: 3}
 --- !u!1 &8589196328590582805 stripped
 GameObject:
@@ -103,7 +106,7 @@ BoxCollider2D:
     serializedVersion: 2
     m_Bits: 4294967295
   m_IsTrigger: 0
-  m_UsedByEffector: 0
+  m_UsedByEffector: 1
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0.029697634}
   m_SpriteTilingProperty:
@@ -118,3 +121,22 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.3333334, y: 0.50124186}
   m_EdgeRadius: 0
+--- !u!251 &7055579791273959623
+PlatformEffector2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8589196328590582805}
+  m_Enabled: 1
+  m_UseColliderMask: 1
+  m_ColliderMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_RotationalOffset: 0
+  m_UseOneWay: 1
+  m_UseOneWayGrouping: 0
+  m_SurfaceArc: 180
+  m_UseSideFriction: 0
+  m_UseSideBounce: 0
+  m_SideArc: 1

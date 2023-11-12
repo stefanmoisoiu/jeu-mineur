@@ -1,4 +1,5 @@
-﻿using Sirenix.OdinInspector;
+﻿#if UNITY_EDITOR
+using Sirenix.OdinInspector;
 using UnityEditor;
 using UnityEngine;
 
@@ -117,3 +118,4 @@ public class ScriptableNote : ScriptableObject
         return new Vector2(worldSizeWidth, worldSizeHeight);
     }
 }
+#endif
