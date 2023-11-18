@@ -100,8 +100,7 @@ public class PGroundStick : MovementState
                 }
                 float targetY = grounded.CloseGroundHit.point.y + _playerHeight / 2;
                 stickToGroundSpring.target = targetY;
-                float force = stickToGroundSpring.GetSpring();
-                stickToGroundSpring.velocity += force;
+                stickToGroundSpring.UpdateSpring(Time.fixedDeltaTime);
                 rb.position += Vector2.up * stickToGroundSpring.velocity;
         }
         /// <summary>

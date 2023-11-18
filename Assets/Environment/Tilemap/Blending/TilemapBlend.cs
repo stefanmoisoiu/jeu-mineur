@@ -36,7 +36,7 @@ public class TilemapBlend : MonoBehaviour
         {
             if (!mainTilemap.HasTile(pos)) continue;
             
-            TileBase centerTile = mainTilemap.GetTile(pos);
+            UnityEngine.Tilemaps.TileBase centerTile = mainTilemap.GetTile(pos);
             TileBlendGroup centerTileBlendGroup = GetTileBlendGroup(centerTile);
             
             if (centerTileBlendGroup == null) continue;
@@ -47,12 +47,12 @@ public class TilemapBlend : MonoBehaviour
 
                 if (neighbor.x != 0 && neighbor.y != 0)
                 {
-                    TileBase xNeighborTile = mainTilemap.GetTile(pos + new Vector3Int(neighbor.x, 0, 0));
+                    UnityEngine.Tilemaps.TileBase xNeighborTile = mainTilemap.GetTile(pos + new Vector3Int(neighbor.x, 0, 0));
                     TileBlendGroup xNeighborTileBlendGroup = GetTileBlendGroup(xNeighborTile);
 
                     if (xNeighborTileBlendGroup == null || centerTileBlendGroup == xNeighborTileBlendGroup) continue;
                     
-                    TileBase yNeighborTile = mainTilemap.GetTile(pos + new Vector3Int(0, neighbor.y, 0));
+                    UnityEngine.Tilemaps.TileBase yNeighborTile = mainTilemap.GetTile(pos + new Vector3Int(0, neighbor.y, 0));
                     TileBlendGroup yNeighborTileBlendGroup = GetTileBlendGroup(yNeighborTile);
                     
                     if (yNeighborTileBlendGroup == null || centerTileBlendGroup == yNeighborTileBlendGroup) continue;
@@ -61,21 +61,21 @@ public class TilemapBlend : MonoBehaviour
                 Vector3Int neighborPos = pos + neighbor;
                 if (!mainTilemap.HasTile(neighborPos)) continue;
 
-                TileBase neighborTile = mainTilemap.GetTile(neighborPos);
+                UnityEngine.Tilemaps.TileBase neighborTile = mainTilemap.GetTile(neighborPos);
                 TileBlendGroup neighborTileBlendGroup = GetTileBlendGroup(neighborTile);
                 
                 if (neighborTileBlendGroup == null) continue;
                 if (centerTileBlendGroup == neighborTileBlendGroup) continue;
                 if(neighborTileBlendGroup.priority > centerTileBlendGroup.priority) continue;
                 
-                TileBase blendTile = centerTileBlendGroup.blendTiles[neighbors.Length - i - 1];
+                UnityEngine.Tilemaps.TileBase blendTile = centerTileBlendGroup.blendTiles[neighbors.Length - i - 1];
                 
                 blendTilemaps[i].SetTile(neighborPos, blendTile);
             }
         }
     }
 
-    private TileBlendGroup GetTileBlendGroup(TileBase tile)
+    private TileBlendGroup GetTileBlendGroup(UnityEngine.Tilemaps.TileBase tile)
     {
         foreach (TileBlendGroup tileBlendGroup in tileBlendGroups)
             if (tileBlendGroup.tilesInGroup.Contains(tile))
@@ -92,8 +92,8 @@ public class TilemapBlend : MonoBehaviour
     [System.Serializable]
     private class TileBlendGroup
     {
-        [AssetSelector]public TileBase[] tilesInGroup;
-        [AssetSelector]public TileBase[] blendTiles;
+        [AssetSelector]public UnityEngine.Tilemaps.TileBase[] tilesInGroup;
+        [AssetSelector]public UnityEngine.Tilemaps.TileBase[] blendTiles;
         
         public int priority;
     }

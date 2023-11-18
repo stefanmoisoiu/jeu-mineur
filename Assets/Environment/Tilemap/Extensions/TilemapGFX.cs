@@ -6,6 +6,9 @@ using UnityEngine.UIElements;
 
 public class TilemapGFX : EditorWindow
 {
+    public VisualTreeAsset layout;
+    private Toggle _showEdgesToggle, _showBlendsToggle, _showAllToggle;
+    private VisualElement _previewEdges, _previewBlends;
     [MenuItem("Window/Tilemap GFX")]
     public static void ShowWindow()
     {
@@ -15,82 +18,47 @@ public class TilemapGFX : EditorWindow
     }
     public void CreateGUI()
     {
+        layout.CloneTree(rootVisualElement);
         VisualElement root = rootVisualElement;
         
-        Button updateCopyTilesButton = new();
-        updateCopyTilesButton.name = "Update Colliders";
-        updateCopyTilesButton.text = "Update Colliders";
-        updateCopyTilesButton.clicked += UpdateCopyTiles;
-        root.Add(updateCopyTilesButton);
+        root.Q("CollisionsUpdate").RegisterCallback<MouseUpEvent>(evt => UpdateCopyTiles());
         
-        root.Add(new Label(" "));
+        root.Q("EdgesUpdate").RegisterCallback<MouseUpEvent>(evt => UpdateCopyTiles());
+        _showEdgesToggle = root.Q("EdgesVisibleToggle") as Toggle;
+        _showEdgesToggle.RegisterValueChangedCallback(evt => ShowEdges(evt.newValue));
         
-        Button updateEdgesButton = new();
-        updateEdgesButton.name = "Update Edges";
-        updateEdgesButton.text = "Update Edges";
-        updateEdgesButton.clicked += UpdateEdges;
-        root.Add(updateEdgesButton);
+        root.Q("BlendUpdate").RegisterCallback<MouseUpEvent>(evt => UpdateBlends());
+        _showBlendsToggle = root.Q("BlendVisibleToggle") as Toggle;
+        _showBlendsToggle.RegisterValueChangedCallback(evt => ShowBlends(evt.newValue));
         
-        // toggle show
-        Toggle showEdgesToggle = new();
-        showEdgesToggle.name = "Show Edges";
-        showEdgesToggle.text = "Show Edges";
-        showEdgesToggle.value = true;
-        showEdgesToggle.RegisterValueChangedCallback(evt => ShowEdges(evt.newValue));
-        root.Add(showEdgesToggle);
-        
-        root.Add(new Label(" "));
-        
-        Button updateBlendsButton = new();
-        updateBlendsButton.name = "Update Blends";
-        updateBlendsButton.text = "Update Blends";
-        updateBlendsButton.clicked += UpdateBlends;
-        root.Add(updateBlendsButton);
-        
-        // toggle show
-        Toggle showBlendsToggle = new();
-        showBlendsToggle.name = "Show Blends";
-        showBlendsToggle.text = "Show Blends";
-        showBlendsToggle.value = true;
-        showBlendsToggle.RegisterValueChangedCallback(evt => ShowBlends(evt.newValue));
-        root.Add(showBlendsToggle);
-        
-        root.Add(new Label(" "));
-        
-        Button updateTilemapButton = new();
-        updateTilemapButton.name = "Update Tilemap";
-        updateTilemapButton.text = "Update Tilemap";
-        updateTilemapButton.clicked += UpdateAll;
-        root.Add(updateTilemapButton);
-        
-        // toggle show
-        Toggle showAllToggle = new();
-        showAllToggle.name = "Show All";
-        showAllToggle.text = "Show All";
-        showAllToggle.value = true;
-        showAllToggle.RegisterValueChangedCallback(evt =>
+        root.Q("AllUpdate").RegisterCallback<MouseUpEvent>(evt => UpdateAll());
+        _showAllToggle = root.Q("AllVisibleToggle") as Toggle;
+        _showAllToggle.RegisterValueChangedCallback(evt =>
         {
             ShowEdges(evt.newValue);
             ShowBlends(evt.newValue);
         });
-        root.Add(showAllToggle);
+        
+        _previewEdges = root.Q("PreviewEdges");
+        _previewBlends = root.Q("PreviewBlend");
     }
 
     private void UpdateAll()
     {
-        Debug.Log("Updating Tilemaps...");
         UpdateCopyTiles();
-        Debug.Log("Updated Copy Tiles \u2714\ufe0f️");
+        
         UpdateEdges();
-        Debug.Log("Updated Edges \u2714\ufe0f️");
+        
         UpdateBlends();
-        Debug.Log("Updated Blends \u2714\ufe0f️");
+        
+        Debug.Log("Updated Tilemap \u2714\ufe0f️");
     }
     private void UpdateCopyTiles()
     {
         CopyTiles[] copyTiles = FindObjectsOfType<CopyTiles>();
         foreach (CopyTiles copyTile in copyTiles)
             copyTile.Copy();
+        Debug.Log("Updated Copy Tiles \u2714\ufe0f️");
     }
 
     private void UpdateEdges()
@@ -98,22 +66,27 @@ public class TilemapGFX : EditorWindow
         TilemapEdgeFill[] tilemapEdgeFills = FindObjectsOfType<TilemapEdgeFill>();
         foreach (TilemapEdgeFill tilemapEdgeFill in tilemapEdgeFills)
             tilemapEdgeFill.Connect();
+        Debug.Log("Updated Edges \u2714\ufe0f️");
     }
-    private void ShowEdges(bool show)
-    {
-        TilemapEdgeFill[] tilemapEdgeFills = FindObjectsOfType<TilemapEdgeFill>();
-        foreach (TilemapEdgeFill tilemapEdgeFill in tilemapEdgeFills)
-            tilemapEdgeFill.Show(show);
-    }
-
     private void UpdateBlends()
     {
         TilemapBlend[] tilemapBlends = FindObjectsOfType<TilemapBlend>();
         foreach (TilemapBlend tilemapBlend in tilemapBlends)
             tilemapBlend.Blend();
+        Debug.Log("Updated Blends \u2714\ufe0f️");
+    }
+    private void ShowEdges(bool show)
+    {
+        _showEdgesToggle.SetValueWithoutNotify(show);
+        _previewEdges.visible = show;
+        TilemapEdgeFill[] tilemapEdgeFills = FindObjectsOfType<TilemapEdgeFill>();
+        foreach (TilemapEdgeFill tilemapEdgeFill in tilemapEdgeFills)
+            tilemapEdgeFill.Show(show);
     }
     private void ShowBlends(bool show)
     {
+        _showBlendsToggle.SetValueWithoutNotify(show);
+        _previewBlends.visible = show;
         TilemapBlend[] tilemapBlends = FindObjectsOfType<TilemapBlend>();
         foreach (TilemapBlend tilemapBlend in tilemapBlends)
             tilemapBlend.Show(show);

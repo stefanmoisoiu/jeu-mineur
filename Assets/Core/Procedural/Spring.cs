@@ -3,7 +3,7 @@ using UnityEngine;
 
 public static class Spring
 {
-    public static float GetSpring(float offsetFromTarget, float velocity, float strength, float damping) => offsetFromTarget * strength - damping * velocity;
+    public static float GetSpringForce(float offsetFromTarget, float velocity, float strength, float damping) => offsetFromTarget * strength - damping * velocity;
 }
 
 [Serializable]
@@ -15,7 +15,13 @@ public class FloatSpringComponent
     public float strength;
     public float damping;
 
-    public float GetSpring() => Spring.GetSpring(target - currentPosition, velocity, strength, damping);
+    public float UpdateSpring(float deltaTime)
+    {
+        float force = Spring.GetSpringForce(target - currentPosition, velocity, strength, damping) * deltaTime;
+        velocity += force;
+        currentPosition += velocity * deltaTime;
+        return force;
+    }
     
     public FloatSpringComponent(float target, float currentPosition, float velocity, float strength, float damping)
     {

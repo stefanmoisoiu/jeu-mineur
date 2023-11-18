@@ -8,7 +8,7 @@ using UnityEngine.Tilemaps;
 public class CopyTiles : MonoBehaviour
 {
     [SerializeField] private Tilemap origin, destination;
-    [AssetSelector][SerializeField] private TileBase[] tilesToInclude;
+    [AssetSelector][SerializeField] private UnityEngine.Tilemaps.TileBase[] tilesToInclude;
     
     [Button]
     public void Copy()
@@ -19,7 +19,7 @@ public class CopyTiles : MonoBehaviour
         {
             if (!origin.HasTile(pos)) continue;
             
-            TileBase tile = origin.GetTile(pos);
+            UnityEngine.Tilemaps.TileBase tile = origin.GetTile(pos);
             if (tilesToInclude != null && tilesToInclude.Length > 0 && !tilesToInclude.Contains(tile)) continue;
             
             destination.SetTile(pos, tile);

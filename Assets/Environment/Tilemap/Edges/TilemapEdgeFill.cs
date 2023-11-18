@@ -17,7 +17,7 @@ public class TilemapEdgeFill : MonoBehaviour
         {
             if (!baseTilemap.HasTile(pos)) continue;
             
-            TileBase tile = baseTilemap.GetTile(pos);
+            UnityEngine.Tilemaps.TileBase tile = baseTilemap.GetTile(pos);
 
             foreach (ScriptableEdgeConnector edgeConnector in edgeConnectors)
             {

@@ -6,10 +6,10 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(fileName = "Edge Connector", menuName = "Tilemaps/Edge Connector", order = 1)]
 public class ScriptableEdgeConnector : ScriptableObject
 {
-    public TileBase[] baseTiles;
-    public TileBase[] edgeTiles;
+    public UnityEngine.Tilemaps.TileBase[] baseTiles;
+    public UnityEngine.Tilemaps.TileBase[] edgeTiles;
 
-    public TileBase GetEdgeFromBase(TileBase tileBase)
+    public UnityEngine.Tilemaps.TileBase GetEdgeFromBase(UnityEngine.Tilemaps.TileBase tileBase)
     {
         for(int i = 0; i < baseTiles.Length; i++)
         {
@@ -18,7 +18,7 @@ public class ScriptableEdgeConnector : ScriptableObject
         }
         return null;
     }
-    public TileBase GetBaseFromEdge(TileBase tileEdge)
+    public UnityEngine.Tilemaps.TileBase GetBaseFromEdge(UnityEngine.Tilemaps.TileBase tileEdge)
     {
         for (int i = 0; i < edgeTiles.Length; i++)
         {
@@ -30,11 +30,11 @@ public class ScriptableEdgeConnector : ScriptableObject
         return null;
     }
     
-    public void TryPlaceCorrespondingEdgeTile(TileBase tileBase, Tilemap tilemap, Vector3Int pos, out bool placed)
+    public void TryPlaceCorrespondingEdgeTile(UnityEngine.Tilemaps.TileBase tileBase, Tilemap tilemap, Vector3Int pos, out bool placed)
     {
         placed = false;
         
-        TileBase tileEdge = GetEdgeFromBase(tileBase);
+        UnityEngine.Tilemaps.TileBase tileEdge = GetEdgeFromBase(tileBase);
         if (tileEdge == null) return;
         
         tilemap.SetTile(pos, tileEdge);

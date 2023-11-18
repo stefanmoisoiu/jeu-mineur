@@ -96,8 +96,7 @@ public class PGrappling : MovementState
     {
         grapplingDistanceSpring.target = _attachedGrapplePoint.TargetGrappleDistance;
         grapplingDistanceSpring.currentPosition = Vector2.Distance(transform.position, _attachedGrapplePoint.GrapplePivotPoint.position);
-        float force = grapplingDistanceSpring.GetSpring() * Time.fixedDeltaTime;
-        grapplingDistanceSpring.velocity += force;
+        float force = grapplingDistanceSpring.UpdateSpring(Time.fixedDeltaTime);
         
         return -force;
     }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UnityEditor
 {
-    [CustomEditor(typeof(AdvancedRuleTile))]
+    [CustomEditor(typeof(TileBase))]
     [CanEditMultipleObjects]
     public class AdvancedRuleTileEditor : RuleTileEditor
     {
@@ -15,13 +15,13 @@ namespace UnityEditor
         {
             switch (neighbor)
             {
-                case AdvancedRuleTile.Neighbor.Any:
+                case TileBase.Neighbor.Any:
                     GUI.DrawTexture(rect, AnyIcon);
                     return;
-                case AdvancedRuleTile.Neighbor.Specified:
+                case TileBase.Neighbor.Specified:
                     GUI.DrawTexture(rect, SpecifiedIcon);
                     return;
-                case AdvancedRuleTile.Neighbor.Nothing:
+                case TileBase.Neighbor.Nothing:
                     GUI.DrawTexture(rect, NothingIcon);
                     return;
             }

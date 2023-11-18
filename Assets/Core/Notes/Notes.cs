@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 
 public class Notes : EditorWindow
 {
+    public VisualTreeAsset layout;
     private ScriptableLevelNotes _levelNotes;
     private ScriptableNote _selectedNote;
     
@@ -21,13 +22,13 @@ public class Notes : EditorWindow
     }
     public void CreateGUI()
     {
+        layout.CloneTree(rootVisualElement);
         VisualElement root = rootVisualElement;
         // select _levelNotes
-        ObjectField levelNotesField = new ("Level Notes");
-        levelNotesField.objectType = typeof(ScriptableLevelNotes);
+        ObjectField levelNotesField = rootVisualElement.Q<ObjectField>("LevelNotes");
         
         string selectedLevelNotes = PlayerPrefs.GetString("SelectedLevelNotes");
-        if (!string.IsNullOrEmpty(selectedLevelNotes))
+        if (!string.IsNullOrEmpty(selectedLevelNotes) && levelNotesField != null)
         {
             _levelNotes = AssetDatabase.LoadAssetAtPath<ScriptableLevelNotes>(selectedLevelNotes);
             levelNotesField.value = _levelNotes;
@@ -40,34 +41,18 @@ public class Notes : EditorWindow
             Debug.Log("Selected " + _levelNotes);
             _onLevelNoteSelected?.Invoke(_levelNotes);
         });
-        root.Add(levelNotesField);
         
-        Button createNewNoteButton = new(CreateNewNote)
-        {
-            text = "Create New Note"
-        };
+        Button createNewNoteButton = rootVisualElement.Q<Button>("AddNote");
+        createNewNoteButton.clicked += CreateNewNote;
         createNewNoteButton.SetEnabled(ShowCreateNewNoteButton());
-        _onNoteSelected += note => createNewNoteButton.SetEnabled(ShowCreateNewNoteButton());
-        _onLevelNoteSelected += levelNotes => createNewNoteButton.SetEnabled(ShowCreateNewNoteButton());
+        _onNoteSelected += _ => createNewNoteButton.SetEnabled(ShowCreateNewNoteButton());
+        _onLevelNoteSelected += _ => createNewNoteButton.SetEnabled(ShowCreateNewNoteButton());
         
-        Button deleteSelectedNoteButton = new(DeleteSelectedNote)
-        {
-            text = "Delete Selected Note"
-        };
+        Button deleteSelectedNoteButton = rootVisualElement.Q<Button>("RemoveNote");
+        deleteSelectedNoteButton.clicked += DeleteSelectedNote;
         deleteSelectedNoteButton.SetEnabled(ShowDeleteSelectedNoteButton());
-        _onNoteSelected += note => deleteSelectedNoteButton.SetEnabled(ShowDeleteSelectedNoteButton());
-        _onLevelNoteSelected += levelNotes => deleteSelectedNoteButton.SetEnabled(ShowDeleteSelectedNoteButton());
-        
-        VisualElement horizontalButtons = new();
-        horizontalButtons.Add(createNewNoteButton);
-        horizontalButtons.Add(deleteSelectedNoteButton);
-        
-        // horizontalButtons.style.width = 120;
-        horizontalButtons.style.height = 60;
-        horizontalButtons.style.justifyContent = Justify.Center;
-        horizontalButtons.style.flexDirection = FlexDirection.Row;
-        
-        root.Add(horizontalButtons);
+        _onNoteSelected += _ => deleteSelectedNoteButton.SetEnabled(ShowDeleteSelectedNoteButton());
+        _onLevelNoteSelected += _ => deleteSelectedNoteButton.SetEnabled(ShowDeleteSelectedNoteButton());
     }
     private bool ShowCreateNewNoteButton()
     {
