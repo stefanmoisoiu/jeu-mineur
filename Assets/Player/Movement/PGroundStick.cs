@@ -18,6 +18,10 @@ public class PGroundStick : MovementState
         private float _startPlayerCapsuleHeight;
         private float _playerHeight = 1;
         [SerializeField] private FloatSpringComponent stickToGroundSpring;
+        [SerializeField] private LayerMask oneWayPlatformLayer;
+        
+        
+        
         
         
         private Quaternion _currentUpQuaternion;
@@ -126,8 +130,10 @@ public class PGroundStick : MovementState
             /// </summary>
             private void LandedVelocityUpdate(bool wasGrounded, bool isGrounded)
             {
-                if(!wasGrounded && isGrounded)
-                    rb.velocity = new Vector2(rb.velocity.x, 0);
+                    if (wasGrounded || !isGrounded) return;
+                    int layer = grounded.GroundHit.collider.gameObject.layer;
+                    if (oneWayPlatformLayer != (oneWayPlatformLayer | (1 << layer)))
+                            rb.velocity = new Vector2(rb.velocity.x, 0);
             }
             #endregion
             

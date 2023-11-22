@@ -22,7 +22,7 @@ TagManager:
   - Grapple Point
   - Grid
   - Pixel
-  - 
+  - One Way Platform
   - 
   - 
   - 
@@ -38,15 +38,33 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 2070091831
+    locked: 0
+  - name: Front Background
+    uniqueID: 1193371261
+    locked: 0
+  - name: Back Environment
+    uniqueID: 2985165053
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
   - name: Main
     uniqueID: 3284920159
     locked: 0
+  - name: Front Environment
+    uniqueID: 267404985
+    locked: 0
+  - name: Lights
+    uniqueID: 1614449649
+    locked: 0
   - name: Blends
     uniqueID: 1731054697
     locked: 0
   - name: Edges
     uniqueID: 4113085961
+    locked: 0
+  - name: UI
+    uniqueID: 328157097
     locked: 0

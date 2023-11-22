@@ -28,8 +28,8 @@ public class GenerateWaterPlane : MonoBehaviour
             vertices[i * 2 + 1] = new Vector3(x, size.y / 2, 0);
 
             float uvX = (float)i / precision;
-            uv[i * 2] = new Vector2(uvX, 0);
-            uv[i * 2 + 1] = new Vector2(uvX, 1);
+            uv[i * 2] = new Vector2(uvX, 0);      // Adjusted to start from bottom
+            uv[i * 2 + 1] = new Vector2(uvX, 1);  // Adjusted to end at top
         }
 
         for (int i = 0; i < precision; i++)

@@ -13,6 +13,9 @@ GameObject:
   - component: {fileID: 2375671581458852927}
   - component: {fileID: 4492259694407178140}
   - component: {fileID: 8884517917670840123}
+  - component: {fileID: 1717185745623944688}
+  - component: {fileID: 321719425204738957}
+  - component: {fileID: 7644673268945677674}
   m_Layer: 16
   m_Name: Water
   m_TagString: Untagged
@@ -63,7 +66,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: de46435622c937a4bbc5c6d418b3e304, type: 2}
+  - {fileID: 2100000, guid: 91457d8bcb997b4409f595870dd488b3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -99,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 5689001999579569623}
   precision: 20
-  size: {x: 8, y: 2}
+  size: {x: 7, y: 2}
 --- !u!114 &8884517917670840123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -120,3 +123,114 @@ MonoBehaviour:
   influence: 1.25
   testSplashInfluenceSize: 2
   testSplashForce: 1
+--- !u!61 &1717185745623944688
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176476270654647834}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.7188566}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 7, y: 0.56228685}
+  m_EdgeRadius: 0
+--- !u!114 &321719425204738957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176476270654647834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a4b26f4d3114b4f458683257c22d19e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnityOnTriggerEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnTriggerStay:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnTriggerExit:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionStay:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionExit:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnTriggerEnterValue:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnTriggerStayValue:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnTriggerExitValue:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionEnterValue:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionStayValue:
+    m_PersistentCalls:
+      m_Calls: []
+  UnityOnCollisionExitValue:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &7644673268945677674
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2176476270654647834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40778bd3b998d9040bb5410f8f9553be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colliderEvents: {fileID: 321719425204738957}
+  waterSplash: {fileID: 8884517917670840123}
+  velocityForceMult: 0.2
+  defaultForce: 2.5
+  defaultInfluenceSize: 2
+  influenceSizeMult: 0.1

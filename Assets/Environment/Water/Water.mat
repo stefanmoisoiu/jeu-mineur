@@ -1,0 +1,88 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-1505747608924057244
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Water
+  m_Shader: {fileID: -6465566751694194690, guid: cd48254bd7ca4bd41a55102dcdb70a63, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _Light_Ray_Tex:
+        m_Texture: {fileID: 2800000, guid: 92a7e227f3afde547be3bc6821a5049b, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Background_Alpha: 0.7
+    - _Deep_Water_Alpha: 0.8
+    - _Deep_Water_Max_Height: 3
+    - _Deep_Water_Min_Height: 5
+    - _Deep_Water_Scale: 1.8
+    - _Deep_Water_Speed: 1
+    - _Deep_Water_Threshold: 0.52
+    - _Highlight_Alpha: 1
+    - _Light_Ray_Height: 0.5
+    - _Light_Ray_HeightPower: 1
+    - _Light_Ray_Scale: 1
+    - _Light_Ray_Size_Variation: 0.25
+    - _Light_Ray_Size_Variation_Noise_Scale: 0.4
+    - _Light_Ray_Size_Variation_Speed: 0.75
+    - _QueueControl: 0
+    - _QueueOffset: 0
+    - _TopHighlightSize: 0.0625
+    - _Underwater_Bubble_Alpha: 0.7
+    - _Underwater_Bubble_Height_Power: 2.11
+    - _Underwater_Bubble_Max_Height: 3
+    - _Underwater_Bubble_Min_Height: 6
+    - _Underwater_Bubble_Scale: 3.87
+    - _Underwater_Bubble_Speed: 0.1
+    - _Underwater_Bubble_Threshold: 0.61
+    - _Unederwater_Bubble_Height_Power: 1.48
+    - _Unerwater_Bubble_Scale: 0
+    m_Colors:
+    - _Background_Color: {r: 0, g: 0.6, b: 0.85882354, a: 1}
+    - _Deep_Water_Color: {r: 0.07058824, g: 0.30588236, b: 0.5372549, a: 1}
+    - _Highlight_Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Underwater_Bubble_Color: {r: 0.77647066, g: 0.9686275, b: 1, a: 1}
+  m_BuildTextureStacks: []

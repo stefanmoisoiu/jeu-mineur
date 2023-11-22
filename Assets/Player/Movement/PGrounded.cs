@@ -5,8 +5,12 @@ public class PGrounded : MonoBehaviour
 {
     [Header("Ground Check Properties")]
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float groundCheckDistance = 0.25f;
+
+    [SerializeField] private float groundStartCheckDistance = 0f;
+    [SerializeField] private float airStartCheckDistance = -0.3f;
+    [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private float closeGroundCheckDistance = 0.5f;
+    
     [SerializeField] private PDebug debug;
     private PDebug.DebugText _debugText;
     
@@ -33,8 +37,9 @@ public class PGrounded : MonoBehaviour
 
     private void Update()
     {
-        _groundHit = Physics2D.Raycast(transform.position, Vector2.down, groundCheckDistance, groundLayer);
-        _closeGroundHit = Physics2D.Raycast(transform.position, Vector2.down, closeGroundCheckDistance, groundLayer);
+        float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
+        _groundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
         
         IsGrounded = _groundHit.collider != null;
         IsGroundClose = _closeGroundHit.collider != null;
@@ -59,8 +64,10 @@ public class PGrounded : MonoBehaviour
     {
         if (!showGizmos) return;
         Gizmos.color = Color.green;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * closeGroundCheckDistance);
+        float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
+        Vector3 startPos = transform.position + Vector3.down * checkDistance;
+        Gizmos.DrawLine(startPos, startPos + Vector3.down * closeGroundCheckDistance);
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(startPos, startPos + Vector3.down * groundCheckDistance);
     }
 }

@@ -140,6 +140,7 @@ public class WaterSplash : MonoBehaviour
         return new Vector3(posX,posY,0);
     }
 
+    #if UNITY_EDITOR
     private void OnDrawGizmos()
     {
         UnityEditor.Handles.color = Color.blue;
@@ -149,4 +150,5 @@ public class WaterSplash : MonoBehaviour
             UnityEditor.Handles.ArrowHandleCap(i,GetSpringWorldPosition(i),Quaternion.Euler(-90,0,0),size,EventType.Repaint);
         }
     }
+    #endif
 }
