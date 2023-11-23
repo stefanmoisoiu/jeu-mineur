@@ -60,7 +60,7 @@ public class PWallBounce : MovementState
             bounce *= wallBounceRight.BounceForceMult;
 
         Vector2 force = new Vector2(jumpDirection * 0.5f,1).normalized * bounce;
-        stateManager.SetState(PStateManager.State.WallBounce);
+        stateManager.SetState(PStateManager.State.BouncyMushroom);
         rb.velocity = force;
     }
     private bool BounceLeft(out RaycastHit2D raycastHit)

@@ -12,7 +12,7 @@ public class PStateManager : MonoBehaviour
         Railing,
         Slide,
         Grappling,
-        WallBounce,
+        BouncyMushroom,
         SlipperyMovement,
         Dynamite,
     }

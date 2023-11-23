@@ -90,4 +90,32 @@ SpriteAtlasAsset:
     - {fileID: 1439321743, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
     - {fileID: 329079555, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
     - {fileID: -420111408, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -315703681, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 736996110, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 636170208, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -650265130, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 845400543, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 664595799, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -1876063465, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 2103804481, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1179419231, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1670860370, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -1651107801, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1065293631, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -1484337693, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 351752843, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -1221914301, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 2127268946, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1308791854, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -507227275, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 938723795, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 2020954512, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 2067590198, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -1564783094, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 960775797, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1800114946, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1146187070, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: -597335832, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 423717962, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
+    - {fileID: 1730346836, guid: e6b7dcb4b65ffe64aab6ef7ac08a9185, type: 3}
   m_IsVariant: 0

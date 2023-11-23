@@ -9,10 +9,10 @@ public class PPickaxeDash : MovementState
     [SerializeField] private PPickaxe pickaxe;
     [SerializeField] private PWallStick wallStick;
     [SerializeField] private PRailing railing;
-    [SerializeField] private PWallBounce wallBounce;
+    // [SerializeField] private PWallBounce wallBounce;
     [SerializeField] private PGrounded grounded;
     [SerializeField] private PGrappling grappling;
-    [SerializeField] private PFlipSprite flipSprite;
+    // [SerializeField] private PFlipSprite flipSprite;
     [SerializeField] private PAnimator animator;
     [SerializeField] private Rigidbody2D rb;
     
@@ -58,9 +58,6 @@ public class PPickaxeDash : MovementState
         wallStick.TryWallStick(out bool startWallStickSuccess);
         if (startWallStickSuccess) yield break;
             
-        wallBounce.TryBounce(out bool startWallBounceSuccess);
-        if (startWallBounceSuccess) yield break;
-            
         railing.TryAttachToNearbyRailing(out bool startRailingSuccess);
         if (startRailingSuccess) yield break;
         
@@ -89,9 +86,6 @@ public class PPickaxeDash : MovementState
                 stateManager.SetState(PStateManager.State.Normal);
                 yield break;
             }
-            
-            wallBounce.TryBounce(out bool wallBounceSuccess);
-            if (wallBounceSuccess) yield break;
             
             wallStick.TryWallStick(out bool wallStickSuccess);
             if (wallStickSuccess) yield break;

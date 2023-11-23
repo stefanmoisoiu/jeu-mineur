@@ -21,18 +21,23 @@ public class PSlide : MovementState
         [SerializeField] private float maxFallSpeed;
         [SerializeField] private float gravityScale = 1;
         [SerializeField] private string slideAnimationName = "Slide";
-        private float slideVelocity;
+        private float _slideVelocity;
+        
+        [Header("Stop Slide Properties")] [SerializeField] [Range(1,3)]
+        private float stopSlideVelMult = 2;
+
+        
 
         private void Start()
         {
-                _debugText = () => $"Slide Vel: {slideVelocity}";
+                _debugText = () => $"Slide Vel: {_slideVelocity}";
         }
 
         protected override void OnStateEnter()
         {
                 Vector2 groundedVelocity = groundStick.GroundRelativeVector(rb.velocity) * Vector2.right;
                 float gravityToAdd = Vector2.Dot(groundedVelocity, Vector2.right) * gravityScale;
-                slideVelocity = gravityToAdd;
+                _slideVelocity = gravityToAdd;
                 animator.PlayAnimation(slideAnimationName);
                 debug.AddDebugText(_debugText);
         }
@@ -50,9 +55,9 @@ public class PSlide : MovementState
         protected override void ActiveStateFixedUpdate()
         {
                 float gravityToAdd = Vector2.Dot(grounded.CloseGroundHit.normal, Vector2.right) * gravityScale;
-                slideVelocity += gravityToAdd;
-                slideVelocity = Mathf.Clamp(slideVelocity, -maxFallSpeed, maxFallSpeed);
-                rb.velocity = groundStick.WorldRelativeVector(Vector2.right * slideVelocity);
+                _slideVelocity += gravityToAdd;
+                _slideVelocity = Mathf.Clamp(_slideVelocity, -maxFallSpeed, maxFallSpeed);
+                rb.velocity = groundStick.WorldRelativeVector(Vector2.right * _slideVelocity);
         }
 
         public void TryStartSlide(out bool success)
@@ -67,6 +72,7 @@ public class PSlide : MovementState
                 success = false;
                 if (CanSlide()) return;
                 success = true;
+                rb.velocity = groundStick.WorldRelativeVector(Vector2.right * _slideVelocity * stopSlideVelMult);
                 stateManager.SetState(PStateManager.State.Normal);
         }
 
