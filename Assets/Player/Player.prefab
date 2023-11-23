@@ -575,7 +575,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 2958054563617303837}
   grounded: {fileID: 3564569547695131043}
-  pickaxeDash: {fileID: 0}
+  pickaxeDash: {fileID: 3857846961794624158}
   debug: {fileID: 3634688616546587093}
 --- !u!1 &1527879315517422198
 GameObject:
@@ -821,10 +821,10 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 178184
-  groundStartCheckDistance: 0
-  airStartCheckDistance: 0
-  groundCheckDistance: 0.85
-  closeGroundCheckDistance: 1.15
+  groundStartCheckDistance: 0.3
+  airStartCheckDistance: 0.3
+  groundCheckDistance: 0.5
+  closeGroundCheckDistance: 0.8
   debug: {fileID: 3634688616546587093}
   showGizmos: 1
 --- !u!1 &2015205746739394261
@@ -1369,8 +1369,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.5, y: 0.5}
+  m_Offset: {x: 0, y: -0.1}
+  m_Size: {x: 0.5, y: 0.7}
   m_Direction: 0
 --- !u!114 &6664590386673884067
 MonoBehaviour:
@@ -23281,10 +23281,8 @@ MonoBehaviour:
   pickaxe: {fileID: 6732281535619972600}
   wallStick: {fileID: 6928671163620535023}
   railing: {fileID: 4841105967518330622}
-  wallBounce: {fileID: 0}
   grounded: {fileID: 3564569547695131043}
   grappling: {fileID: 8280977209559388108}
-  flipSprite: {fileID: 0}
   animator: {fileID: 2286398244325802652}
   rb: {fileID: 2958054563617303837}
   dashVel: 11
@@ -23338,7 +23336,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stateManager: {fileID: 6846737646687674246}
   activeStates: 02000000
-  pickaxeDash: {fileID: 0}
+  pickaxeDash: {fileID: 3857846961794624158}
   graphicsCenterPivot: {fileID: 6257127756765020089}
   graphicsBottomPivot: {fileID: 6231312365599463743}
   tiltLerpSpeed: 50

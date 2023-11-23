@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb35558ff7ca426e96ccb36db1c8f479, type: 3}
   m_Name: Game Notes
   m_EditorClassIdentifier: 
-  notes: []
+  notes:
+  - {fileID: 11400000, guid: aec9352a0a4a52d4cb75e57bc6dc395e, type: 2}
+  - {fileID: 11400000, guid: b8341c7ad217bfb49b15e138fa27179a, type: 2}
+  - {fileID: 11400000, guid: 0c0b01d3bda86344a9c651024eafb857, type: 2}
+  - {fileID: 11400000, guid: 8154de55cc2cc1b4ea83ca3976919a5c, type: 2}
+  - {fileID: 11400000, guid: 2b4356a9e9b320642abe7a03c0e04826, type: 2}

@@ -84,6 +84,7 @@ public class Notes : EditorWindow
         
         Array.Resize(ref _levelNotes.notes, _levelNotes.notes.Length + 1);
         _levelNotes.notes[^1] = newNote;
+        
         _selectedNote = newNote;
         _onNoteSelected?.Invoke(newNote);
         
