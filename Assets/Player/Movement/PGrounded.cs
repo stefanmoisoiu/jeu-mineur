@@ -17,7 +17,7 @@ public class PGrounded : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool showGizmos;
     
-    public bool WasGrounded { get; private set; }
+    public bool WasGrounded { get; private set; } = true;
     public bool IsGrounded { get; private set; }
     
     public bool WasGroundClose { get; private set; }

@@ -44,6 +44,7 @@ public class ProceduralAnimation
 
     public void StartAnimation(MonoBehaviour monoBehaviour)
     {
+        SetAnimation(0);
         if (_animationCoroutine != null) monoBehaviour.StopCoroutine(_animationCoroutine);
         _animationCoroutine = monoBehaviour.StartCoroutine(AnimateCoroutine());
     }

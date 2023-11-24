@@ -28,6 +28,8 @@ public class PGroundStick : MovementState
         public Quaternion CurrentUpQuaternion => _currentUpQuaternion;
         public Action<Quaternion,Quaternion> OnUpQuaternionChanged;
         public float HorizontalVelocity => GroundRelativeVector(rb.velocity).x;
+        
+        public Action OnStartStick, OnEndStick;
 
         private void Start()
         {
