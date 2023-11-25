@@ -147,15 +147,15 @@ MonoBehaviour:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
-        inSlope: 6.278177
-        outSlope: 6.278177
+        value: 0.75
+        inSlope: 2.9738505
+        outSlope: 2.9738505
         tangentMode: 0
         weightedMode: 0
         inWeight: 0
-        outWeight: 0.14634146
+        outWeight: 0.18627489
       - serializedVersion: 3
-        time: 0.3014706
+        time: 0.25
         value: 1
         inSlope: -0.000008483265
         outSlope: -0.000008483265
@@ -164,13 +164,22 @@ MonoBehaviour:
         inWeight: 0.33333334
         outWeight: 0.21078432
       - serializedVersion: 3
-        time: 1
-        value: 0
-        inSlope: 0
-        outSlope: 0
+        time: 0.7315288
+        value: -0.015934244
+        inSlope: -1.4357092
+        outSlope: -1.4357092
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 1
+        value: 0
+        inSlope: 2.0966127
+        outSlope: 2.0966127
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.2757803
         outWeight: 0
       m_PreInfinity: 2
       m_PostInfinity: 2
@@ -281,6 +290,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     startPosition: {x: 0, y: 0, z: 0}
     endPosition: {x: 0, y: 0, z: 0}
+  bounceSFX: {fileID: 11400000, guid: e52d09845f0f0d64bbdb91cf0b3dcaca, type: 2}
   preview: 1
   previewDistance: 1.5
   previewPointsPerUnit: 20

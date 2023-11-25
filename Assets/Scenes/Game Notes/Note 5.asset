@@ -12,12 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d3b366ab5ca47daacddcce2dc91656d, type: 3}
   m_Name: Note 5
   m_EditorClassIdentifier: 
-  note: 'toutes les mechas
+  note: 'la jsp quoi faire
 
-    de base du joueur'
-  worldCenterPosition: {x: 41, y: 36.5}
+    mais on peut tomber
+
+    ici'
+  worldCenterPosition: {x: 54.5, y: 57.5}
   textColor: {r: 1, g: 1, b: 1, a: 1}
-  textFontSize: 12
+  textFontSize: 22.06
   textStyle:
     m_Name: 
     m_Normal:
@@ -73,7 +75,7 @@ MonoBehaviour:
       m_Top: 0
       m_Bottom: 0
     m_Font: {fileID: 0}
-    m_FontSize: 10
+    m_FontSize: 24
     m_FontStyle: 1
     m_Alignment: 4
     m_WordWrap: 0

@@ -10,6 +10,11 @@ public class BouncyMushroom : MonoBehaviour
     
     [Header("Visual")]
     [SerializeField] private ProceduralAnimation bounceAnimation;
+    
+    [Header("Audio")]
+    [SerializeField] private ScriptableSFX bounceSFX;
+
+    
 
     
     
@@ -25,6 +30,7 @@ public class BouncyMushroom : MonoBehaviour
         rb.velocity = transform.up * force;
         bounceAnimation.StopAnimation(this);
         bounceAnimation.StartAnimation(this);
+        bounceSFX.Play();
     }
 
     private void OnDrawGizmos()
