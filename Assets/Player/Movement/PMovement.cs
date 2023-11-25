@@ -50,6 +50,7 @@ public class PMovement : MovementState
     [Header("Debug")] [SerializeField] private bool debug;
 
     public Action OnJump;
+    public static Action OnJumpStatic;
     private void Start()
     {
         inputManager.OnJump += RestartBufferTimer;
@@ -130,6 +131,7 @@ public class PMovement : MovementState
         rb.velocity = new Vector2(rb.velocity.x, jumpForce);
         
         OnJump?.Invoke();
+        OnJumpStatic?.Invoke();
     }
 
     #endregion

@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &5517015068265019937
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1652367421262969889, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 439745b0979fc71478b216f4d4f9842a, type: 2}
+    - target: {fileID: 3732505223275665964, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: startOpened
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721727434833613905, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721727434833613905, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_SpriteTilingProperty.pivot.y
+      value: 0.9444445
+      objectReference: {fileID: 0}
+    - target: {fileID: 6721727434833613905, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 55.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 68
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7585876022550601672, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7951443022869158107, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_Name
+      value: Red Jump Hatch
+      objectReference: {fileID: 0}
+    - target: {fileID: 8590848808520704068, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5833754056497202249, guid: 5b419ce7ffb4a384b9edbca653fde6a4, type: 3}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 01e10fa4844a7f946ad68465626d7fbe, type: 3}

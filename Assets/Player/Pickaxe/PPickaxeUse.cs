@@ -9,15 +9,18 @@ public class PPickaxeUse : MovementState
     protected override void OnStateEnter()
     {
         inputManager.OnMainAction += pickaxe.UsePickaxe;
+        grounded.OnGroundedChanged += TryResetPickaxe;
     }
 
     protected override void OnStateExit()
     {
         inputManager.OnMainAction -= pickaxe.UsePickaxe;
+        grounded.OnGroundedChanged -= TryResetPickaxe;
     }
 
-    protected override void ActiveStateUpdate()
+    private void TryResetPickaxe(bool wasGrounded, bool isGrounded)
     {
-        if (grounded.IsGrounded) pickaxe.ResetPickaxe();
+        if (!wasGrounded && isGrounded)
+            pickaxe.ResetPickaxe();
     }
 }

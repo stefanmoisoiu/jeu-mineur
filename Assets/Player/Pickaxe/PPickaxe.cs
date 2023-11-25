@@ -8,10 +8,13 @@ public class PPickaxe : MonoBehaviour
     private PDebug.DebugText _debugText;
     
     [Header("Pickaxe Properties")]
-    [SerializeField] private int maxAirborneHits = 3;
+    [SerializeField] private int maxHits = 3;
     private int _hitsRemaining;
+    public int MaxHits => maxHits;
+    public int HitsRemaining => _hitsRemaining;
 
     public Action<int> OnPickaxeUsed;
+    public Action OnPickaxeReset;
     private void Start()
     {
         _debugText = () => $"Pickaxe Hits Remaining: {_hitsRemaining}";
@@ -27,6 +30,7 @@ public class PPickaxe : MonoBehaviour
     
     public void ResetPickaxe()
     {
-        _hitsRemaining = maxAirborneHits;
+        _hitsRemaining = maxHits;
+        OnPickaxeReset?.Invoke();
     }
 }

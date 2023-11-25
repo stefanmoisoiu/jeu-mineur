@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: aae44cd3803e3b94699d8504c623eddf
+guid: f09b517ef742b854f9dcea95dd340ae3
 ScriptedImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -95,7 +95,7 @@ ScriptedImporter:
     addSortingGroup: 0
     addShadowCasters: 0
   importFileNodeState: 1
-  platformSettingsDirtyTick: 638365072083712319
+  platformSettingsDirtyTick: 638365100827755817
   textureAssetName: 
   singleSpriteImportData:
   - name: 
@@ -119,7 +119,7 @@ ScriptedImporter:
     tessellationDetail: 0
     uvTransform: {x: 0, y: 0}
   animatedSpriteImportData:
-  - name: hatch_Frame_0
+  - name: hatch_blue_Frame_0
     originalName: 
     pivot: {x: 0.5, y: 0.9444445}
     alignment: 9
@@ -130,7 +130,7 @@ ScriptedImporter:
       y: 4
       width: 72
       height: 36
-    spriteID: 8d3c3565f6c8f2049802eb96509f9c84
+    spriteID: 17b1e892c38837746873c58604a7f82b
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -139,7 +139,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 4}
-  - name: hatch_Frame_1
+  - name: hatch_blue_Frame_1
     originalName: 
     pivot: {x: 0.5, y: 0.923077}
     alignment: 9
@@ -150,7 +150,7 @@ ScriptedImporter:
       y: 48
       width: 72
       height: 26
-    spriteID: 6991c4b6ae1f53f4d824ba5b09e537a5
+    spriteID: 41af333d5cf32074eb51cca6e22457ad
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -159,7 +159,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 48}
-  - name: hatch_Frame_2
+  - name: hatch_blue_Frame_2
     originalName: 
     pivot: {x: 0.5, y: 0.8}
     alignment: 9
@@ -170,7 +170,7 @@ ScriptedImporter:
       y: 82
       width: 72
       height: 10
-    spriteID: 35a0ecffb8cd4a54dab6bf7db9d7e065
+    spriteID: 4eb615613fac0fe449870e9acbdde41e
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -182,36 +182,36 @@ ScriptedImporter:
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
-    guid: 415857444
-    name: hatch
+    guid: 1615794623
+    name: hatch_blue
     layerFlags: 0
     layerType: 0
     blendMode: 0
     cells:
-    - name: hatch_Frame_0
+    - name: hatch_blue_Frame_0
       frameIndex: 0
       cellRect:
         x: 0
         y: 0
         width: 72
         height: 36
-      spriteId: 8d3c3565f6c8f2049802eb96509f9c84
-    - name: hatch_Frame_1
+      spriteId: 17b1e892c38837746873c58604a7f82b
+    - name: hatch_blue_Frame_1
       frameIndex: 1
       cellRect:
         x: 0
         y: 10
         width: 72
         height: 26
-      spriteId: 6991c4b6ae1f53f4d824ba5b09e537a5
-    - name: hatch_Frame_2
+      spriteId: 41af333d5cf32074eb51cca6e22457ad
+    - name: hatch_blue_Frame_2
       frameIndex: 2
       cellRect:
         x: 0
         y: 26
         width: 72
         height: 10
-      spriteId: 35a0ecffb8cd4a54dab6bf7db9d7e065
+      spriteId: 4eb615613fac0fe449870e9acbdde41e
     linkedCells: []
     parentIndex: -1
   platformSettings:
