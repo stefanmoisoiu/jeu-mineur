@@ -79,7 +79,7 @@ public class PWallStick : MovementState
         if(!leftSuccess && !rightSuccess) return;
         
         _wallSticklookDirection = leftSuccess ? 1 : -1;
-        if (rb.velocity.x * _wallSticklookDirection > 0) return;
+        if ((int)Mathf.Sign(rb.velocity.x) == (int)Mathf.Sign(_wallSticklookDirection)) return;
         
         success = true;
         

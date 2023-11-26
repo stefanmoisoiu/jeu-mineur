@@ -9,7 +9,7 @@ public class PPickaxeUse : MovementState
 
     private void Start()
     {
-        grounded.OnGroundedChanged += TryResetPickaxe;grounded.OnGroundedChanged += TryResetPickaxe;
+        grounded.OnGroundedChanged += TryResetPickaxe;
     }
 
     protected override void OnStateEnter()
