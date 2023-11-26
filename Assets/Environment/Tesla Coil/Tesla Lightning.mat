@@ -37,12 +37,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Amplitude: 2.25
-    - _Horizontal_Speed: 9.28
+    - _Amplitude: 2
+    - _Horizontal_Speed: 98.25
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Speed: 20
-    - _Speed_2: 0
+    - _Speed: 50
+    - _Speed_2: 1
     - _Threshold: 0.52
     m_Colors:
     - _Color: {r: 5.3403134, g: 4.6946015, b: 1.4862194, a: 0}

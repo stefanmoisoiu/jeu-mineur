@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PPickaxeUse : MovementState
 {
@@ -6,16 +7,21 @@ public class PPickaxeUse : MovementState
     [SerializeField] private PInputManager inputManager;
     [SerializeField] private PPickaxe pickaxe;
 
+    private void Start()
+    {
+        grounded.OnGroundedChanged += TryResetPickaxe;grounded.OnGroundedChanged += TryResetPickaxe;
+    }
+
     protected override void OnStateEnter()
     {
         inputManager.OnMainAction += pickaxe.UsePickaxe;
-        grounded.OnGroundedChanged += TryResetPickaxe;
+        
     }
 
     protected override void OnStateExit()
     {
         inputManager.OnMainAction -= pickaxe.UsePickaxe;
-        grounded.OnGroundedChanged -= TryResetPickaxe;
+        // grounded.OnGroundedChanged -= TryResetPickaxe;
     }
 
     private void TryResetPickaxe(bool wasGrounded, bool isGrounded)

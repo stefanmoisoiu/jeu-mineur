@@ -18,6 +18,7 @@ public class PWallStick : MovementState
     [SerializeField] private float wallStickCheckMaxDistance = 0.5f;
     [SerializeField] private float playerRadius = 0.5f;
     [SerializeField] private LayerMask wallStickLayerMask;
+    [SerializeField] private float angleRange = 15f;
     private int _wallSticklookDirection;
     public int WallStickLookDirection => _wallSticklookDirection;
     
@@ -60,13 +61,13 @@ public class PWallStick : MovementState
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.left, wallStickCheckMaxDistance, wallStickLayerMask);
         raycastHit = hit;
-        return hit.collider != null;
+        return hit.collider != null && Vector2.Angle(hit.normal, Vector2.right) < angleRange;
     }
     private bool WallStickRight(out RaycastHit2D raycastHit)
     {
         RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.right, wallStickCheckMaxDistance, wallStickLayerMask);
         raycastHit = hit;
-        return hit.collider != null;
+        return hit.collider != null && Vector2.Angle(hit.normal, Vector2.left) < angleRange;
     }
     public void TryWallStick(out bool success)
     {

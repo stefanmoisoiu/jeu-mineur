@@ -6,6 +6,8 @@ public class PPickaxe : MonoBehaviour
     [Header("References")]
     [SerializeField] private PDebug debug;
     private PDebug.DebugText _debugText;
+    [SerializeField] private PMovement movement;
+    
     
     [Header("Pickaxe Properties")]
     [SerializeField] private int maxHits = 3;
@@ -17,12 +19,15 @@ public class PPickaxe : MonoBehaviour
     public Action OnPickaxeReset;
     private void Start()
     {
+        _hitsRemaining = maxHits;
         _debugText = () => $"Pickaxe Hits Remaining: {_hitsRemaining}";
         debug.AddDebugText(_debugText);
     }
     public void UsePickaxe()
     {
         if (_hitsRemaining <= 0)
+            return;
+        if (movement.IsFullyOnGround)
             return;
         _hitsRemaining--;
         OnPickaxeUsed?.Invoke(_hitsRemaining);

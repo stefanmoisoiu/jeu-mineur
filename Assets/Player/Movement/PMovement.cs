@@ -13,6 +13,7 @@ public class PMovement : MovementState
     [SerializeField] private PGrounded grounded;
     [SerializeField] private PGroundStick groundStick;
     [SerializeField] private PGrappling grappling;
+    [SerializeField] private PUncontrollableFall uncontrollableFall;
     [SerializeField] private PAnimator pAnimator;
     
 
@@ -79,6 +80,8 @@ public class PMovement : MovementState
             Jump();
             return;
         }
+        uncontrollableFall.TryUncontrollableFall(out bool uncontrollableFallSuccess);
+        if (uncontrollableFallSuccess) return;
         
         slide.TryStartSlide(out bool slideSuccess);
         if (slideSuccess) return;

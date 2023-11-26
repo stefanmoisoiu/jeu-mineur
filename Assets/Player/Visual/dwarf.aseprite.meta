@@ -161,26 +161,6 @@ ScriptedImporter:
     uvTransform: {x: 4, y: 85}
   - name: dwarf_Frame_2
     originalName: 
-    pivot: {x: 0.35294116, y: 0}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 57
-      width: 17
-      height: 19
-    spriteID: 71d16f1c849ec944a9e4dd6205e7a064
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 36, y: 57}
-  - name: dwarf_Frame_3
-    originalName: 
     pivot: {x: 0.38888887, y: -0.052631576}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,7 +170,7 @@ ScriptedImporter:
       y: 4
       width: 18
       height: 19
-    spriteID: 9b2916af4667bf84fb6087429565f302
+    spriteID: 71d16f1c849ec944a9e4dd6205e7a064
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -199,7 +179,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 36, y: 4}
-  - name: dwarf_Frame_4
+  - name: dwarf_Frame_3
     originalName: 
     pivot: {x: 0.38888887, y: 0}
     alignment: 9
@@ -210,7 +190,7 @@ ScriptedImporter:
       y: 226
       width: 18
       height: 20
-    spriteID: bc8471d48df610e43a608ce123c3094c
+    spriteID: 9b2916af4667bf84fb6087429565f302
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -219,7 +199,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 226}
-  - name: dwarf_Frame_5
+  - name: dwarf_Frame_4
     originalName: 
     pivot: {x: 0.35294116, y: 0}
     alignment: 9
@@ -227,10 +207,10 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 36
-      y: 84
+      y: 136
       width: 17
       height: 19
-    spriteID: 70568574fd594f04cb99d47baade802c
+    spriteID: bc8471d48df610e43a608ce123c3094c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -238,8 +218,8 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 84}
-  - name: dwarf_Frame_6
+    uvTransform: {x: 36, y: 136}
+  - name: dwarf_Frame_5
     originalName: 
     pivot: {x: 0.4210526, y: -0.052631576}
     alignment: 9
@@ -250,7 +230,7 @@ ScriptedImporter:
       y: 199
       width: 19
       height: 19
-    spriteID: 0b5b119aea71c054cb573cfebcefcacb
+    spriteID: 70568574fd594f04cb99d47baade802c
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -259,7 +239,7 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 199}
-  - name: dwarf_Frame_7
+  - name: dwarf_Frame_6
     originalName: 
     pivot: {x: 0.4210526, y: 0}
     alignment: 9
@@ -270,7 +250,7 @@ ScriptedImporter:
       y: 115
       width: 19
       height: 20
-    spriteID: 82c5d41ef841bdf43b60af681f0958fc
+    spriteID: 0b5b119aea71c054cb573cfebcefcacb
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -279,6 +259,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 115}
+  - name: dwarf_Frame_7
+    originalName: 
+    pivot: {x: 0.35294116, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 36
+      y: 163
+      width: 17
+      height: 19
+    spriteID: 82c5d41ef841bdf43b60af681f0958fc
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 36, y: 163}
   - name: dwarf_Frame_8
     originalName: 
     pivot: {x: 0.35294116, y: 0}
@@ -287,7 +287,7 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 36
-      y: 111
+      y: 190
       width: 17
       height: 19
     spriteID: 813eb437585587d41aae6e558a532d9a
@@ -298,7 +298,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 111}
+    uvTransform: {x: 36, y: 190}
   - name: dwarf_Frame_9
     originalName: 
     pivot: {x: 0.35294116, y: 0}
@@ -306,10 +306,10 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 138
+      x: 62
+      y: 57
       width: 17
-      height: 19
+      height: 18
     spriteID: 230599d4def434f4daf622ff44f9697a
     spriteBone: []
     spriteOutline: []
@@ -318,7 +318,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 138}
+    uvTransform: {x: 62, y: 57}
   - name: dwarf_Frame_10
     originalName: 
     pivot: {x: 0.35294116, y: 0}
@@ -326,8 +326,8 @@ ScriptedImporter:
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 192
+      x: 62
+      y: 83
       width: 17
       height: 18
     spriteID: 9b5ca1569c0c45947af90a0556147ed4
@@ -338,7 +338,7 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 192}
+    uvTransform: {x: 62, y: 83}
   - name: dwarf_Frame_11
     originalName: 
     pivot: {x: 0.35294116, y: 0}
@@ -347,9 +347,9 @@ ScriptedImporter:
     rect:
       serializedVersion: 2
       x: 36
-      y: 218
+      y: 217
       width: 17
-      height: 18
+      height: 19
     spriteID: 9452938deb07ad344b96c82da5efae1c
     spriteBone: []
     spriteOutline: []
@@ -358,18 +358,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 218}
+    uvTransform: {x: 36, y: 217}
   - name: dwarf_Frame_12
     originalName: 
-    pivot: {x: 0.35294116, y: 0}
+    pivot: {x: 0.47619045, y: -0.055555552}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 36
-      y: 165
-      width: 17
-      height: 19
+      x: 4
+      y: 143
+      width: 21
+      height: 18
     spriteID: b40fd9e66ecddb547977d3b327537b6e
     spriteBone: []
     spriteOutline: []
@@ -378,18 +378,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 36, y: 165}
+    uvTransform: {x: 4, y: 143}
   - name: dwarf_Frame_13
     originalName: 
-    pivot: {x: 0.65000004, y: -0.1875}
+    pivot: {x: 0.38888887, y: -0.055555552}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 62
-      y: 4
-      width: 20
-      height: 16
+      x: 36
+      y: 58
+      width: 18
+      height: 18
     spriteID: 8a136c773001a5f41a86c660af328b07
     spriteBone: []
     spriteOutline: []
@@ -398,17 +398,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 62, y: 4}
+    uvTransform: {x: 36, y: 58}
   - name: dwarf_Frame_14
     originalName: 
-    pivot: {x: 0.49999997, y: -0.055555552}
+    pivot: {x: 0.4210526, y: -0.055555552}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
       x: 62
-      y: 28
-      width: 14
+      y: 4
+      width: 19
       height: 18
     spriteID: 4e64124311cd67541bcb7e6dc17e076c
     spriteBone: []
@@ -418,17 +418,17 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 62, y: 28}
+    uvTransform: {x: 62, y: 4}
   - name: dwarf_Frame_15
     originalName: 
-    pivot: {x: 0.46153843, y: 0}
+    pivot: {x: 0.5, y: -0.052631576}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 62
-      y: 54
-      width: 13
+      x: 36
+      y: 31
+      width: 18
       height: 19
     spriteID: d068117217b0a6a4a867900bec61a589
     spriteBone: []
@@ -438,18 +438,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 62, y: 54}
+    uvTransform: {x: 36, y: 31}
   - name: dwarf_Frame_16
     originalName: 
-    pivot: {x: 0.46153843, y: 0}
+    pivot: {x: 0.5555555, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 62
-      y: 81
-      width: 13
-      height: 19
+      x: 36
+      y: 84
+      width: 18
+      height: 18
     spriteID: a78e325d6e18fb1419c976e165304e34
     spriteBone: []
     spriteOutline: []
@@ -458,18 +458,18 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 62, y: 81}
+    uvTransform: {x: 36, y: 84}
   - name: dwarf_Frame_17
     originalName: 
-    pivot: {x: 0.46153843, y: 0}
+    pivot: {x: 0.5, y: 0}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
       serializedVersion: 2
-      x: 62
-      y: 108
-      width: 13
-      height: 19
+      x: 36
+      y: 110
+      width: 18
+      height: 18
     spriteID: a1f99e9dde49bb04f91a53f1c4fc93c1
     spriteBone: []
     spriteOutline: []
@@ -478,7 +478,127 @@ ScriptedImporter:
     indices: 
     edges: []
     tessellationDetail: 0
-    uvTransform: {x: 62, y: 108}
+    uvTransform: {x: 36, y: 110}
+  - name: dwarf_Frame_18
+    originalName: 
+    pivot: {x: 0.35294116, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 30
+      width: 17
+      height: 19
+    spriteID: 8e6e956ecd4fe454fb643c46e41dd090
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 30}
+  - name: dwarf_Frame_19
+    originalName: 
+    pivot: {x: 0.65000004, y: -0.1875}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 4
+      width: 20
+      height: 16
+    spriteID: 04bce2e151a9fac4697a478dbdaa0f4a
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 4}
+  - name: dwarf_Frame_20
+    originalName: 
+    pivot: {x: 0.49999997, y: -0.055555552}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 109
+      width: 14
+      height: 18
+    spriteID: 4c4b19372351bd840bbfc6b670fea1c4
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 109}
+  - name: dwarf_Frame_21
+    originalName: 
+    pivot: {x: 0.46153843, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 135
+      width: 13
+      height: 19
+    spriteID: c2cc07ab9cefdbc47ab689957f87ffec
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 135}
+  - name: dwarf_Frame_22
+    originalName: 
+    pivot: {x: 0.46153843, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 162
+      width: 13
+      height: 19
+    spriteID: 97c11714d3bfa7640bc1801e35adcde6
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 162}
+  - name: dwarf_Frame_17
+    originalName: 
+    pivot: {x: 0.46153843, y: 0}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 62
+      y: 189
+      width: 13
+      height: 19
+    spriteID: 16842e889e4dd81458c4dc44a0fcb609
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 62, y: 189}
   - name: dwarf_Frame_18
     originalName: 
     pivot: {x: 0.7083333, y: 0}
@@ -490,7 +610,7 @@ ScriptedImporter:
       y: 4
       width: 24
       height: 19
-    spriteID: 8e6e956ecd4fe454fb643c46e41dd090
+    spriteID: 2146d9a6e6eed6446b0a1c1e19769824
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -510,7 +630,7 @@ ScriptedImporter:
       y: 31
       width: 24
       height: 19
-    spriteID: 04bce2e151a9fac4697a478dbdaa0f4a
+    spriteID: 02f91dee832be404791bd404d8666ea5
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -530,7 +650,7 @@ ScriptedImporter:
       y: 58
       width: 24
       height: 19
-    spriteID: 4c4b19372351bd840bbfc6b670fea1c4
+    spriteID: 2423c3a0a4ba02f48823723dd19ae286
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -539,46 +659,6 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 58}
-  - name: dwarf_Frame_21
-    originalName: 
-    pivot: {x: 0.47619045, y: -0.055555552}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 4
-      y: 143
-      width: 21
-      height: 18
-    spriteID: c2cc07ab9cefdbc47ab689957f87ffec
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 4, y: 143}
-  - name: dwarf_Frame_22
-    originalName: 
-    pivot: {x: 0.38888887, y: -0.055555552}
-    alignment: 9
-    border: {x: 0, y: 0, z: 0, w: 0}
-    rect:
-      serializedVersion: 2
-      x: 36
-      y: 31
-      width: 18
-      height: 18
-    spriteID: 97c11714d3bfa7640bc1801e35adcde6
-    spriteBone: []
-    spriteOutline: []
-    vertices: []
-    spritePhysicsOutline: []
-    indices: 
-    edges: []
-    tessellationDetail: 0
-    uvTransform: {x: 36, y: 31}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -604,14 +684,6 @@ ScriptedImporter:
         width: 18
         height: 22
       spriteId: 2c5269f407321ba42a9044fe5a82d302
-    - name: dwarf_Frame_2
-      frameIndex: 2
-      cellRect:
-        x: 11
-        y: 0
-        width: 17
-        height: 19
-      spriteId: 71d16f1c849ec944a9e4dd6205e7a064
     - name: dwarf_Frame_3
       frameIndex: 3
       cellRect:
@@ -619,7 +691,7 @@ ScriptedImporter:
         y: 1
         width: 18
         height: 19
-      spriteId: 9b2916af4667bf84fb6087429565f302
+      spriteId: 71d16f1c849ec944a9e4dd6205e7a064
     - name: dwarf_Frame_4
       frameIndex: 4
       cellRect:
@@ -627,7 +699,7 @@ ScriptedImporter:
         y: 0
         width: 18
         height: 20
-      spriteId: bc8471d48df610e43a608ce123c3094c
+      spriteId: 9b2916af4667bf84fb6087429565f302
     - name: dwarf_Frame_5
       frameIndex: 5
       cellRect:
@@ -635,7 +707,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 19
-      spriteId: 70568574fd594f04cb99d47baade802c
+      spriteId: bc8471d48df610e43a608ce123c3094c
     - name: dwarf_Frame_6
       frameIndex: 6
       cellRect:
@@ -643,7 +715,7 @@ ScriptedImporter:
         y: 1
         width: 19
         height: 19
-      spriteId: 0b5b119aea71c054cb573cfebcefcacb
+      spriteId: 70568574fd594f04cb99d47baade802c
     - name: dwarf_Frame_7
       frameIndex: 7
       cellRect:
@@ -651,7 +723,7 @@ ScriptedImporter:
         y: 0
         width: 19
         height: 20
-      spriteId: 82c5d41ef841bdf43b60af681f0958fc
+      spriteId: 0b5b119aea71c054cb573cfebcefcacb
     - name: dwarf_Frame_8
       frameIndex: 8
       cellRect:
@@ -659,7 +731,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 19
-      spriteId: 813eb437585587d41aae6e558a532d9a
+      spriteId: 82c5d41ef841bdf43b60af681f0958fc
     - name: dwarf_Frame_9
       frameIndex: 9
       cellRect:
@@ -667,7 +739,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 19
-      spriteId: 230599d4def434f4daf622ff44f9697a
+      spriteId: 813eb437585587d41aae6e558a532d9a
     - name: dwarf_Frame_10
       frameIndex: 10
       cellRect:
@@ -675,7 +747,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 18
-      spriteId: 9b5ca1569c0c45947af90a0556147ed4
+      spriteId: 230599d4def434f4daf622ff44f9697a
     - name: dwarf_Frame_11
       frameIndex: 11
       cellRect:
@@ -683,7 +755,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 18
-      spriteId: 9452938deb07ad344b96c82da5efae1c
+      spriteId: 9b5ca1569c0c45947af90a0556147ed4
     - name: dwarf_Frame_12
       frameIndex: 12
       cellRect:
@@ -691,71 +763,7 @@ ScriptedImporter:
         y: 0
         width: 17
         height: 19
-      spriteId: b40fd9e66ecddb547977d3b327537b6e
-    - name: dwarf_Frame_13
-      frameIndex: 13
-      cellRect:
-        x: 4
-        y: 3
-        width: 20
-        height: 16
-      spriteId: 8a136c773001a5f41a86c660af328b07
-    - name: dwarf_Frame_14
-      frameIndex: 14
-      cellRect:
-        x: 10
-        y: 1
-        width: 14
-        height: 18
-      spriteId: 4e64124311cd67541bcb7e6dc17e076c
-    - name: dwarf_Frame_15
-      frameIndex: 15
-      cellRect:
-        x: 11
-        y: 0
-        width: 13
-        height: 19
-      spriteId: d068117217b0a6a4a867900bec61a589
-    - name: dwarf_Frame_16
-      frameIndex: 16
-      cellRect:
-        x: 11
-        y: 0
-        width: 13
-        height: 19
-      spriteId: a78e325d6e18fb1419c976e165304e34
-    - name: dwarf_Frame_17
-      frameIndex: 17
-      cellRect:
-        x: 11
-        y: 0
-        width: 13
-        height: 19
-      spriteId: a1f99e9dde49bb04f91a53f1c4fc93c1
-    - name: dwarf_Frame_18
-      frameIndex: 18
-      cellRect:
-        x: 0
-        y: 0
-        width: 24
-        height: 19
-      spriteId: 8e6e956ecd4fe454fb643c46e41dd090
-    - name: dwarf_Frame_19
-      frameIndex: 19
-      cellRect:
-        x: 0
-        y: 0
-        width: 24
-        height: 19
-      spriteId: 04bce2e151a9fac4697a478dbdaa0f4a
-    - name: dwarf_Frame_20
-      frameIndex: 20
-      cellRect:
-        x: 0
-        y: 0
-        width: 24
-        height: 19
-      spriteId: 4c4b19372351bd840bbfc6b670fea1c4
+      spriteId: 9452938deb07ad344b96c82da5efae1c
     - name: dwarf_Frame_21
       frameIndex: 21
       cellRect:
@@ -763,7 +771,7 @@ ScriptedImporter:
         y: 1
         width: 21
         height: 18
-      spriteId: c2cc07ab9cefdbc47ab689957f87ffec
+      spriteId: b40fd9e66ecddb547977d3b327537b6e
     - name: dwarf_Frame_22
       frameIndex: 22
       cellRect:
@@ -771,7 +779,111 @@ ScriptedImporter:
         y: 1
         width: 18
         height: 18
+      spriteId: 8a136c773001a5f41a86c660af328b07
+    - name: dwarf_Frame_23
+      frameIndex: 23
+      cellRect:
+        x: 9
+        y: 1
+        width: 19
+        height: 18
+      spriteId: 4e64124311cd67541bcb7e6dc17e076c
+    - name: dwarf_Frame_24
+      frameIndex: 24
+      cellRect:
+        x: 8
+        y: 1
+        width: 18
+        height: 19
+      spriteId: d068117217b0a6a4a867900bec61a589
+    - name: dwarf_Frame_25
+      frameIndex: 25
+      cellRect:
+        x: 7
+        y: 0
+        width: 18
+        height: 18
+      spriteId: a78e325d6e18fb1419c976e165304e34
+    - name: dwarf_Frame_26
+      frameIndex: 26
+      cellRect:
+        x: 8
+        y: 0
+        width: 18
+        height: 18
+      spriteId: a1f99e9dde49bb04f91a53f1c4fc93c1
+    - name: dwarf_Frame_2
+      frameIndex: 2
+      cellRect:
+        x: 11
+        y: 0
+        width: 17
+        height: 19
+      spriteId: 8e6e956ecd4fe454fb643c46e41dd090
+    - name: dwarf_Frame_13
+      frameIndex: 13
+      cellRect:
+        x: 4
+        y: 3
+        width: 20
+        height: 16
+      spriteId: 04bce2e151a9fac4697a478dbdaa0f4a
+    - name: dwarf_Frame_14
+      frameIndex: 14
+      cellRect:
+        x: 10
+        y: 1
+        width: 14
+        height: 18
+      spriteId: 4c4b19372351bd840bbfc6b670fea1c4
+    - name: dwarf_Frame_15
+      frameIndex: 15
+      cellRect:
+        x: 11
+        y: 0
+        width: 13
+        height: 19
+      spriteId: c2cc07ab9cefdbc47ab689957f87ffec
+    - name: dwarf_Frame_16
+      frameIndex: 16
+      cellRect:
+        x: 11
+        y: 0
+        width: 13
+        height: 19
       spriteId: 97c11714d3bfa7640bc1801e35adcde6
+    - name: dwarf_Frame_17
+      frameIndex: 17
+      cellRect:
+        x: 11
+        y: 0
+        width: 13
+        height: 19
+      spriteId: 16842e889e4dd81458c4dc44a0fcb609
+    - name: dwarf_Frame_18
+      frameIndex: 18
+      cellRect:
+        x: 0
+        y: 0
+        width: 24
+        height: 19
+      spriteId: 2146d9a6e6eed6446b0a1c1e19769824
+    - name: dwarf_Frame_19
+      frameIndex: 19
+      cellRect:
+        x: 0
+        y: 0
+        width: 24
+        height: 19
+      spriteId: 02f91dee832be404791bd404d8666ea5
+    - name: dwarf_Frame_20
+      frameIndex: 20
+      cellRect:
+        x: 0
+        y: 0
+        width: 24
+        height: 19
+      spriteId: 2423c3a0a4ba02f48823723dd19ae286
     linkedCells: []
     parentIndex: -1
   platformSettings:

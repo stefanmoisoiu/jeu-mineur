@@ -478,6 +478,7 @@ MonoBehaviour:
   wallStickLayerMask:
     serializedVersion: 2
     m_Bits: 8
+  angleRange: 15
   wallStickAnimationName: Wall Stick
   showGizmos: 0
 --- !u!114 &7669921744109783274
@@ -596,6 +597,7 @@ Transform:
   - {fileID: 1453318310521277663}
   - {fileID: 4157290286554017323}
   - {fileID: 8569548235435694236}
+  - {fileID: 5605454009607184985}
   m_Father: {fileID: 6611665124835918110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1528211540393034897
@@ -881,7 +883,7 @@ GameObject:
   - component: {fileID: 5401757716463464543}
   - component: {fileID: 3519204406002323936}
   - component: {fileID: 930414645018992349}
-  - component: {fileID: 2852591511126772730}
+  - component: {fileID: 2239298312161215730}
   m_Layer: 6
   m_Name: Camera
   m_TagString: Untagged
@@ -1006,7 +1008,7 @@ MonoBehaviour:
   poiLayer:
     serializedVersion: 2
     m_Bits: 512
---- !u!114 &2852591511126772730
+--- !u!114 &2239298312161215730
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -17046,6 +17048,7 @@ GameObject:
   - component: {fileID: 8775126597326881508}
   - component: {fileID: 5335770729911269848}
   - component: {fileID: 3085741724623663459}
+  - component: {fileID: 3089390748039312844}
   m_Layer: 6
   m_Name: Flip Sprite
   m_TagString: Untagged
@@ -17163,6 +17166,22 @@ MonoBehaviour:
   stateManager: {fileID: 6846737646687674246}
   activeStates: 02000000
   rb: {fileID: 2958054563617303837}
+  flipSprite: {fileID: 4720633284788438406}
+--- !u!114 &3089390748039312844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5339376313544586324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d89bbee02143ca9a8386fd5d2fea3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateManager: {fileID: 6846737646687674246}
+  activeStates: 09000000
+  uncontrollableFall: {fileID: 7635343373906056745}
   flipSprite: {fileID: 4720633284788438406}
 --- !u!1 &5451860075149479056
 GameObject:
@@ -18257,6 +18276,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debug: {fileID: 3634688616546587093}
+  movement: {fileID: 7134268869128914306}
   maxHits: 2
 --- !u!114 &5599708340958932286
 MonoBehaviour:
@@ -18535,6 +18555,7 @@ MonoBehaviour:
   grounded: {fileID: 3564569547695131043}
   groundStick: {fileID: 1273985271164371088}
   grappling: {fileID: 8280977209559388108}
+  uncontrollableFall: {fileID: 7635343373906056745}
   pAnimator: {fileID: 2286398244325802652}
   speed: 0.75
   airControl: 0.7
@@ -28770,7 +28791,7 @@ MonoBehaviour:
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
-  m_PointLightOuterRadius: 3
+  m_PointLightOuterRadius: 5
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
@@ -28995,6 +29016,64 @@ Transform:
   - {fileID: 3618450806873322984}
   m_Father: {fileID: 6232301173940572254}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9025907213604360949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5605454009607184985}
+  - component: {fileID: 7635343373906056745}
+  m_Layer: 6
+  m_Name: Uncontrollable Fall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5605454009607184985
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025907213604360949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1564284353013845099}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7635343373906056745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9025907213604360949}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f98c0c2280b09184295687eb1667a254, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stateManager: {fileID: 6846737646687674246}
+  activeStates: 09000000
+  rb: {fileID: 2958054563617303837}
+  movement: {fileID: 7134268869128914306}
+  grounded: {fileID: 3564569547695131043}
+  animator: {fileID: 2286398244325802652}
+  fallDistanceUncontrollable: 10
+  fallSpeed: 15
+  sideCheckDistance: 0.3
+  sideCheckMask:
+    serializedVersion: 2
+    m_Bits: 135176
+  debug: 1
+  fallAnimation: Uncontrollable Fall
 --- !u!1 &9120894195580877021
 GameObject:
   m_ObjectHideFlags: 0
