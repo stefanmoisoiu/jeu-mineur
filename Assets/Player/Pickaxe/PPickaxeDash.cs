@@ -21,6 +21,7 @@ public class PPickaxeDash : MovementState
     [SerializeField] private float dashVel = 10f;
     [SerializeField] private AnimationCurve dashVelCurve;
     [SerializeField] private float dashLength = .75f;
+    [SerializeField] [Range(0, 1)] private float minDashVelDot = 0.5f;
     [SerializeField] [Range(0, 1)] private float dashAddedVelMult = 0.5f;
     
     [Header("Animation Properties")]
@@ -71,8 +72,9 @@ public class PPickaxeDash : MovementState
         }
         
         OnStartDash?.Invoke();
-        
-        float addedVel = Mathf.Max(0,Vector2.Dot(rb.velocity.normalized,_dashDir)) * rb.velocity.magnitude * dashAddedVelMult;
+
+        float dot = Mathf.Max(minDashVelDot, Vector2.Dot(rb.velocity.normalized, _dashDir));
+        float addedVel = dot * rb.velocity.magnitude * dashAddedVelMult;
         
         animator.PlayAnimation(dashAnimationName);
         

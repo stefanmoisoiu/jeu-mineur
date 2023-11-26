@@ -62,5 +62,5 @@ Material:
     - _SineMoveSpeed: 0.5
     - _SineMoveValue: 0.1
     m_Colors:
-    - _LightColor: {r: 0.4528302, g: 0.25038847, b: 0, a: 1}
+    - _LightColor: {r: 0.8301887, g: 0.44602296, b: 0, a: 1}
   m_BuildTextureStacks: []
