@@ -62,8 +62,8 @@ public class PUncontrollableFall : MovementState
         grounded.OnGroundCloseChanged -= TryStopUncontrollableFall;
         _maxHeight = transform.position.y;
         rb.isKinematic = false;
-        rb.velocity = Vector2.zero;
-        rb.position = grounded.CloseGroundHit.point + Vector2.up * 0.5f;
+        // rb.velocity = Vector2.zero;
+        // rb.position = grounded.CloseGroundHit.point + Vector2.up * 0.5f;
     }
 
     protected override void ActiveStateUpdate()

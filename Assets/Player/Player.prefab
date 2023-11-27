@@ -208,7 +208,8 @@ MonoBehaviour:
   colliderEvents: {fileID: 6664590386673884067}
   pickaxe: {fileID: 6732281535619972600}
   rb: {fileID: 2958054563617303837}
-  uncontrolledBounceLength: 0.25
+  uncontrolledBounceLength: 0.1
+  bounceVelConservation: 0.25
 --- !u!1 &1126465884165957622
 GameObject:
   m_ObjectHideFlags: 0
@@ -451,7 +452,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1564284353013845099}
+  m_Father: {fileID: 1703006486991291323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6928671163620535023
 MonoBehaviour:
@@ -591,11 +592,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1138025315076724546}
-  - {fileID: 5436132098549996686}
   - {fileID: 4789692576049507421}
-  - {fileID: 4555732145090359496}
   - {fileID: 1453318310521277663}
-  - {fileID: 4157290286554017323}
   - {fileID: 8569548235435694236}
   - {fileID: 5605454009607184985}
   m_Father: {fileID: 6611665124835918110}
@@ -6441,21 +6439,21 @@ MonoBehaviour:
   pickaxe: {fileID: 6732281535619972600}
   animator: {fileID: 2286398244325802652}
   debug: {fileID: 3634688616546587093}
-  detectionRadius: 7
+  detectionRadius: 6
   grappleObstacleCheckMask:
     serializedVersion: 2
     m_Bits: 26648
-  startVelocityMult: 1
+  startVelocityMult: 0.7
   grapplingDistanceSpring:
     target: 0
     currentPosition: 0
     velocity: 0
-    strength: 40
-    damping: 7
-  moveSpeed: 8
+    strength: 25
+    damping: 8
+  moveSpeed: 5
   gravityScale: 2
   damping: 0.99
-  angleTooLargeDamping: 0.9
+  angleTooLargeDamping: 0.75
   detachJumpForce: 5
   detachVelocityMult: 1
   stopAnimationVelocity: 1
@@ -16625,7 +16623,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1564284353013845099}
+  m_Father: {fileID: 1703006486991291323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8482645276798877428
 MonoBehaviour:
@@ -16855,6 +16853,9 @@ Transform:
   - {fileID: 8714058137170249480}
   - {fileID: 4645817856989231096}
   - {fileID: 1880555830143921528}
+  - {fileID: 5436132098549996686}
+  - {fileID: 4555732145090359496}
+  - {fileID: 4157290286554017323}
   m_Father: {fileID: 6611665124835918110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4583974936897719787
@@ -18119,7 +18120,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1564284353013845099}
+  m_Father: {fileID: 1703006486991291323}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6665324555469282084
 MonoBehaviour:
@@ -28979,7 +28980,8 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   dashLength: 0.3
-  dashAddedVelMult: 0.15
+  minDashVelDot: 0.5
+  dashAddedVelMult: 0.3
   dashAnimationName: Pickaxe Dash
 --- !u!1 &8715897011570028833
 GameObject:

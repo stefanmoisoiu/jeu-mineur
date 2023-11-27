@@ -10,6 +10,8 @@ public class PBouncyMushroom : MovementState
     
     [Header("Properties")]
     [SerializeField] private float uncontrolledBounceLength;
+    [SerializeField] [Range(0,1)] private float bounceVelConservation = 0.5f;
+    
 
     private float _uncontrolledBounceLength;
 
@@ -21,9 +23,13 @@ public class PBouncyMushroom : MovementState
 
     private void TryBounce(Collider2D other)
     {
+        if (IsActiveState) return;
         if(!other.gameObject.TryGetComponent(out BouncyMushroom bouncyMushroom)) return;
         stateManager.SetState(PStateManager.State.BouncyMushroom);
-        rb.velocity = other.transform.up * bouncyMushroom.Force;
+
+        float velocity = Mathf.Sqrt(rb.velocity.magnitude) * bounceVelConservation + bouncyMushroom.Force;
+        Debug.Log($"Bounce {velocity}");
+        rb.velocity = other.transform.up * velocity;
         _uncontrolledBounceLength = uncontrolledBounceLength;
     }
     

@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da399efd66c613a4d9aa696c24a6cee5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  force: 15
+  force: 17
   bounceAnimation:
     objectToAnimate: {fileID: 7980029091910799900}
     spriteRenderer: {fileID: 1946003967009250768}

@@ -27,7 +27,7 @@ public class BouncyMushroom : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.TryGetComponent(out Rigidbody2D rb)) return;
-        rb.velocity = transform.up * force;
+        // rb.velocity = transform.up * force;
         bounceAnimation.StopAnimation(this);
         bounceAnimation.StartAnimation(this);
         bounceSFX.Play();
