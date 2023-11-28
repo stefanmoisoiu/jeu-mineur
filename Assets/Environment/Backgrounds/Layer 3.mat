@@ -44,7 +44,7 @@ Material:
     - _Mult: 0.2
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Value: 3
+    - _Value: 6
     m_Colors: []
   m_BuildTextureStacks: []
 --- !u!114 &6270150334138846995

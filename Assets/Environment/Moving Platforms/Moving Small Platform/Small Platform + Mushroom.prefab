@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2250671519643566031, guid: babf27e928153ca43a23ccad58a9e2d4, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2250671519643566031, guid: babf27e928153ca43a23ccad58a9e2d4, type: 3}
+      propertyPath: m_UsedByEffector
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7055579791273959623, guid: babf27e928153ca43a23ccad58a9e2d4, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8589196328590582805, guid: babf27e928153ca43a23ccad58a9e2d4, type: 3}
       propertyPath: m_Name
       value: Small Platform + Mushroom

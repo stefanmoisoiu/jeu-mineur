@@ -207,9 +207,11 @@ MonoBehaviour:
   activeStates: 06000000
   colliderEvents: {fileID: 6664590386673884067}
   pickaxe: {fileID: 6732281535619972600}
+  animator: {fileID: 2286398244325802652}
   rb: {fileID: 2958054563617303837}
-  uncontrolledBounceLength: 0.1
-  bounceVelConservation: 0.25
+  uncontrolledBounceLength: 0.25
+  bounceVelConservation: 0.35
+  bounceAnimationName: Wall Bounce
 --- !u!1 &1126465884165957622
 GameObject:
   m_ObjectHideFlags: 0
@@ -471,6 +473,7 @@ MonoBehaviour:
   rb: {fileID: 2958054563617303837}
   inputManager: {fileID: 4639865335127513026}
   grounded: {fileID: 3564569547695131043}
+  movement: {fileID: 7134268869128914306}
   animator: {fileID: 2286398244325802652}
   jumpHForce: 5
   jumpForce: 10
@@ -16652,7 +16655,7 @@ MonoBehaviour:
   maxFallSpeed: 20
   gravityScale: 0.5
   slideAnimationName: Slide
-  stopSlideVelMult: 2
+  stopSlideVelMult: 1
 --- !u!1 &3874597992176356205
 GameObject:
   m_ObjectHideFlags: 0
@@ -18559,6 +18562,7 @@ MonoBehaviour:
   uncontrollableFall: {fileID: 7635343373906056745}
   pAnimator: {fileID: 2286398244325802652}
   speed: 0.75
+  airTooFastSpeedMult: 0.5
   airControl: 0.7
   maxSpeed: 5
   drag: 0.2

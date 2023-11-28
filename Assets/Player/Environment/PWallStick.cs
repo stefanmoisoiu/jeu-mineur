@@ -7,6 +7,8 @@ public class PWallStick : MovementState
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PInputManager inputManager;
     [SerializeField] private PGrounded grounded;
+    [SerializeField] private PMovement movement;
+    
     [SerializeField] private PAnimator animator;
     
     
@@ -39,6 +41,7 @@ public class PWallStick : MovementState
     {
         inputManager.OnJump += UnStick;
         if(grounded.IsGrounded) stateManager.SetState(PStateManager.State.Normal);
+        else if(movement.JumpBufferTimer > 0) UnStick();
     }
     protected override void OnStateExit()
     {

@@ -19,6 +19,8 @@ public class PMovement : MovementState
 
     [Header("Movement Properties")] [SerializeField]
     private float speed = 2f;
+    [SerializeField] [Range(0,1)] private float airTooFastSpeedMult = 0.5f;
+    
 
     [SerializeField] [Range(0, 1)] private float airControl = 0.5f;
     [SerializeField] private float maxSpeed = 5f;
@@ -33,6 +35,7 @@ public class PMovement : MovementState
 
     [SerializeField] [Range(0, 1)] private float jumpCooldownTime = 0.2f, jumpBufferTime = 0.1f, jumpCoyoteTime = 0.1f;
     private float _jumpBufferTimer, _jumpCoyoteTimer, _jumpCooldownTimer;
+    public float JumpBufferTimer => _jumpBufferTimer;
     public bool CanJump => _jumpCooldownTimer <= 0;
 
     public bool IsFullyOnGround => grounded.IsGrounded && CanJump;
@@ -145,16 +148,23 @@ public class PMovement : MovementState
     private float GetHorizontalAcceleration()
     {
         if (inputManager.MoveInput == 0) return 0;
-
-        if (Mathf.Abs(groundStick.HorizontalVelocity) <= maxSpeed ||
-            (int)Mathf.Sign(inputManager.MoveInput) != (int)Mathf.Sign(rb.velocity.x))
+        
+        bool tooFast = Mathf.Abs(groundStick.HorizontalVelocity) > maxSpeed;
+        bool movingAgainstVelocity = (int)Mathf.Sign(inputManager.MoveInput) != (int)Mathf.Sign(groundStick.HorizontalVelocity);
+        
+        float speedMult = IsFullyOnGround ? 1 : airControl;
+        
+        float targetAcceleration = 0;
+        if (tooFast)
         {
-            float targetAcceleration = inputManager.MoveInput * (IsFullyOnGround ? 1 : airControl) * speed;
-            targetAcceleration = Mathf.Clamp(groundStick.HorizontalVelocity + targetAcceleration, -maxSpeed, maxSpeed) - groundStick.HorizontalVelocity;
-            return targetAcceleration;
-        }
-
-        return 0;
+            if(!movingAgainstVelocity) return 0;
+            if(!IsFullyOnGround) speedMult *= airTooFastSpeedMult;
+        } 
+        targetAcceleration = inputManager.MoveInput * speed * speedMult;
+        if (!tooFast) targetAcceleration = Mathf.Clamp(groundStick.HorizontalVelocity + targetAcceleration, -maxSpeed, maxSpeed) - groundStick.HorizontalVelocity;
+        
+        
+        return targetAcceleration;
     }
     private float GetDrag()
     {

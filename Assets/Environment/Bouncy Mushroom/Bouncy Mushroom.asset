@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb5bd4a853c42e6bf27303d9bbb7142, type: 3}
   m_Name: Bouncy Mushroom
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 3e0a1944ac9106d499f833ec99657b66, type: 3}
+  - {fileID: 8300000, guid: fcb8e2bb4b187504bb4ec67a3610c625, type: 3}
+  - {fileID: 8300000, guid: 0e9f70c25a9f8484ba4b5ea62ff11614, type: 3}
   volume: 1
   pitch: 1
   pitchVariation: 0.1
