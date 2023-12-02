@@ -809,8 +809,8 @@ MonoBehaviour:
     m_Bits: 178184
   groundStartCheckDistance: 0.1
   airStartCheckDistance: 0.1
-  groundCheckDistance: 0.6
-  closeGroundCheckDistance: 0.8
+  groundCheckDistance: 0.7
+  closeGroundCheckDistance: 1
   debug: {fileID: 3634688616546587093}
   showGizmos: 1
 --- !u!1 &2015205746739394261
@@ -18562,13 +18562,14 @@ MonoBehaviour:
   uncontrollableFall: {fileID: 7635343373906056745}
   pAnimator: {fileID: 2286398244325802652}
   speed: 0.75
-  airTooFastSpeedMult: 0.5
+  airTooFastSpeedMult: 0.7
   airControl: 0.7
   maxSpeed: 5
   drag: 0.2
   airDragMult: 0.04
   tooFastDragMult: 0.25
   jumpForce: 7
+  jumpAddedVelMult: 0.5
   jumpCooldownTime: 0.3
   jumpBufferTime: 0.2
   jumpCoyoteTime: 0.15

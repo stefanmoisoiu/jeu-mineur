@@ -12,8 +12,12 @@ public class PUncontrollableFall : MovementState
     [SerializeField] private PAnimator animator;
     
     [Header("Properties")]
+    [SerializeField] private float minHVel = 1f;
+
+    
     [SerializeField] private float fallDistanceUncontrollable = 5f;
-    [SerializeField] private float fallSpeed = 10;
+    [SerializeField] private float accelerationPerSecond = 3f;
+    [SerializeField] private float maxFallSpeed = 30;
     [SerializeField] private float sideCheckDistance = 0.5f;
     [SerializeField] private LayerMask sideCheckMask;
     
@@ -24,6 +28,8 @@ public class PUncontrollableFall : MovementState
     private float _maxHeight;
     private float _startHVel;
     private bool _goingRight;
+    private float _currentFallSpeed;
+    private float _startGravityScale;
     public bool GoingRight => _goingRight;
     
     [Header("Animations")]
@@ -31,6 +37,7 @@ public class PUncontrollableFall : MovementState
 
     private void Start()
     {
+        _startGravityScale = rb.gravityScale;
         _maxHeight = transform.position.y;
     }
     private new void Update()
@@ -50,10 +57,13 @@ public class PUncontrollableFall : MovementState
     protected override void OnStateEnter()
     {
         grounded.OnGroundedChanged += TryStopUncontrollableFall;
-        _startHVel = Mathf.Abs(rb.velocity.x);
+        _startHVel = Mathf.Max(minHVel,Mathf.Abs(rb.velocity.x));
         _goingRight = rb.velocity.x > 0;
-        rb.isKinematic = true;
-        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -fallSpeed);
+        _currentFallSpeed = -Mathf.Min(0,rb.velocity.y);
+        _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
+        
+        rb.gravityScale = 0;
+        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
         animator.PlayAnimation(fallAnimation);
     }
 
@@ -61,13 +71,15 @@ public class PUncontrollableFall : MovementState
     {
         grounded.OnGroundCloseChanged -= TryStopUncontrollableFall;
         _maxHeight = transform.position.y;
-        rb.isKinematic = false;
-        // rb.velocity = Vector2.zero;
-        // rb.position = grounded.CloseGroundHit.point + Vector2.up * 0.5f;
+        rb.gravityScale = _startGravityScale;
     }
 
     protected override void ActiveStateUpdate()
     {
+        _currentFallSpeed += accelerationPerSecond * Time.deltaTime;
+        _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
+        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
+        
         CheckHitWall();
     }
 
@@ -85,12 +97,12 @@ public class PUncontrollableFall : MovementState
         if (leftHit.collider != null && !_goingRight)
         {
             _goingRight = true;
-            rb.velocity = new Vector2(_startHVel, -fallSpeed);
+            rb.velocity = new Vector2(_startHVel, -maxFallSpeed);
         }
         else if (rightHit.collider != null && _goingRight)
         {
             _goingRight = false;
-            rb.velocity = new Vector2(-_startHVel, -fallSpeed);
+            rb.velocity = new Vector2(-_startHVel, -maxFallSpeed);
         }
     }
 

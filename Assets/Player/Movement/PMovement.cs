@@ -32,6 +32,8 @@ public class PMovement : MovementState
 
     [Header("Jumping Properties")] [SerializeField]
     private float jumpForce = 5f;
+    [SerializeField] [Range(0,1)] private float jumpAddedVelMult = 0.5f;
+    
 
     [SerializeField] [Range(0, 1)] private float jumpCooldownTime = 0.2f, jumpBufferTime = 0.1f, jumpCoyoteTime = 0.1f;
     private float _jumpBufferTimer, _jumpCoyoteTimer, _jumpCooldownTimer;
@@ -134,7 +136,9 @@ public class PMovement : MovementState
         _jumpCooldownTimer = jumpCooldownTime;
         _jumpBufferTimer = 0;
         _jumpCoyoteTimer = 0;
-        rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+        
+        float addedVel = Mathf.Max(0,rb.velocity.y) * jumpAddedVelMult;
+        rb.velocity = new Vector2(rb.velocity.x, jumpForce + addedVel);
         
         OnJump?.Invoke();
         OnJumpStatic?.Invoke();

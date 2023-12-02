@@ -6,6 +6,7 @@ public class PGrounded : MonoBehaviour
     [Header("Ground Check Properties")]
     [SerializeField] private LayerMask groundLayer;
 
+    [SerializeField] private float LRPosOffset = 0.25f;
     [SerializeField] private float groundStartCheckDistance = 0f;
     [SerializeField] private float airStartCheckDistance = -0.3f;
     [SerializeField] private float groundCheckDistance = 0.2f;
@@ -39,7 +40,12 @@ public class PGrounded : MonoBehaviour
     {
         float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
         _groundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        
         _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
+        if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
+        if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
         
         IsGrounded = _groundHit.collider != null;
         IsGroundClose = _closeGroundHit.collider != null;
@@ -65,9 +71,18 @@ public class PGrounded : MonoBehaviour
         if (!showGizmos) return;
         Gizmos.color = Color.green;
         float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
-        Vector3 startPos = transform.position + Vector3.down * checkDistance;
-        Gizmos.DrawLine(startPos, startPos + Vector3.down * closeGroundCheckDistance);
+        
+        Vector3 centerStartPos = transform.position + Vector3.down * checkDistance;
+        Vector3 leftStartPos = transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance;
+        Vector3 rightStartPos = transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance;
+        
+        Gizmos.DrawLine(centerStartPos, centerStartPos + Vector3.down * closeGroundCheckDistance);
+        Gizmos.DrawLine(leftStartPos, leftStartPos + Vector3.down * closeGroundCheckDistance);
+        Gizmos.DrawLine(rightStartPos, rightStartPos + Vector3.down * closeGroundCheckDistance);
+        
         Gizmos.color = Color.red;
-        Gizmos.DrawLine(startPos, startPos + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(centerStartPos, centerStartPos + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(leftStartPos, leftStartPos + Vector3.down * groundCheckDistance);
+        Gizmos.DrawLine(rightStartPos, rightStartPos + Vector3.down * groundCheckDistance);
     }
 }
