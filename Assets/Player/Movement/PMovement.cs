@@ -76,10 +76,14 @@ public class PMovement : MovementState
         inputManager.OnSecondaryAction -= delegate { grappling.TryGrapple(out _); };
     }
 
-    protected override void ActiveStateUpdate()
+    private new void Update()
     {
         UpdateJumpTimers();
-        
+        base.Update();
+    }
+
+    protected override void ActiveStateUpdate()
+    {
         if (grounded.IsGrounded && _jumpBufferTimer > 0)
         {
             Jump();

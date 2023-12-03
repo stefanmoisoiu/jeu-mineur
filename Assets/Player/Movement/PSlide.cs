@@ -23,8 +23,9 @@ public class PSlide : MovementState
         [SerializeField] private string slideAnimationName = "Slide";
         private float _slideVelocity;
         
-        [Header("Stop Slide Properties")] [SerializeField] [Range(1,3)]
-        private float stopSlideVelMult = 2;
+        [Header("Stop Slide Properties")]
+        [SerializeField] [Range(1,3)] private float stopSlideAddedVel = 2;
+        [SerializeField] private float stopSlideVelMult = 2;
 
         
 
@@ -72,7 +73,9 @@ public class PSlide : MovementState
                 success = false;
                 if (CanSlide()) return;
                 success = true;
-                rb.velocity = groundStick.WorldRelativeVector(Vector2.right * _slideVelocity * stopSlideVelMult);
+                
+                float vel = (_slideVelocity + Mathf.Sign(_slideVelocity) * stopSlideAddedVel) * stopSlideVelMult;
+                rb.velocity = groundStick.WorldRelativeVector(vel * Vector2.right);
                 stateManager.SetState(PStateManager.State.Normal);
         }
 

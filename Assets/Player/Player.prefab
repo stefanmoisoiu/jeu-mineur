@@ -209,7 +209,7 @@ MonoBehaviour:
   pickaxe: {fileID: 6732281535619972600}
   animator: {fileID: 2286398244325802652}
   rb: {fileID: 2958054563617303837}
-  uncontrolledBounceLength: 0.25
+  uncontrolledBounceLength: 0.15
   bounceVelConservation: 0.35
   bounceAnimationName: Wall Bounce
 --- !u!1 &1126465884165957622
@@ -807,10 +807,13 @@ MonoBehaviour:
   groundLayer:
     serializedVersion: 2
     m_Bits: 178184
-  groundStartCheckDistance: 0.1
-  airStartCheckDistance: 0.1
-  groundCheckDistance: 0.7
-  closeGroundCheckDistance: 1
+  LRPosOffset: 0.2
+  groundStartCheckDistance: 0.05
+  airStartCheckDistance: 0.05
+  groundCheckDistance: 0.8
+  closeGroundCheckDistance: 1.2
+  stateManager: {fileID: 6846737646687674246}
+  LRCheckStates: 
   debug: {fileID: 3634688616546587093}
   showGizmos: 1
 --- !u!1 &2015205746739394261
@@ -901,7 +904,7 @@ Transform:
   m_GameObject: {fileID: 2205574743691975269}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0.006210327, y: 0.9987793, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -925,7 +928,7 @@ MonoBehaviour:
   m_LockStageInInspector: 
   m_StreamingVersion: 20170927
   m_Priority: 0
-  m_StandbyUpdate: 2
+  m_StandbyUpdate: 1
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 6611665124835918110}
   m_Lens:
@@ -6446,19 +6449,19 @@ MonoBehaviour:
   grappleObstacleCheckMask:
     serializedVersion: 2
     m_Bits: 26648
-  startVelocityMult: 0.7
+  startVelocityMult: 1
   grapplingDistanceSpring:
     target: 0
     currentPosition: 0
     velocity: 0
     strength: 25
     damping: 8
-  moveSpeed: 5
+  moveSpeed: 7
   gravityScale: 2
   damping: 0.99
   angleTooLargeDamping: 0.75
   detachJumpForce: 5
-  detachVelocityMult: 1
+  detachVelocityMult: 0.9
   stopAnimationVelocity: 1
   accelerationAnimationName: Grappling Acceleration
   decelerationAnimationName: Grappling Deceleration
@@ -16648,14 +16651,15 @@ MonoBehaviour:
   animator: {fileID: 2286398244325802652}
   debug: {fileID: 3634688616546587093}
   stopSlideAngle: 10
-  startSlideAngle: 50
+  startSlideAngle: 55
   slideLayer:
     serializedVersion: 2
     m_Bits: 8192
   maxFallSpeed: 20
   gravityScale: 0.5
   slideAnimationName: Slide
-  stopSlideVelMult: 1
+  stopSlideAddedVel: 2
+  stopSlideVelMult: 0.85
 --- !u!1 &3874597992176356205
 GameObject:
   m_ObjectHideFlags: 0
@@ -16857,6 +16861,7 @@ Transform:
   - {fileID: 4645817856989231096}
   - {fileID: 1880555830143921528}
   - {fileID: 5436132098549996686}
+  - {fileID: 6593562557532001009}
   - {fileID: 4555732145090359496}
   - {fileID: 4157290286554017323}
   m_Father: {fileID: 6611665124835918110}
@@ -17037,6 +17042,61 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6611665124835918110}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5248714104783285026
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6593562557532001009}
+  - component: {fileID: 5749156015622504847}
+  m_Layer: 6
+  m_Name: Spikes
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6593562557532001009
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248714104783285026}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1703006486991291323}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5749156015622504847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5248714104783285026}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766e490886eb4860a7dbdae54d0e9f78, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uncontrollableFall: {fileID: 7635343373906056745}
+  rb: {fileID: 2958054563617303837}
+  checkDistance: 0.5
+  checkMask:
+    serializedVersion: 2
+    m_Bits: 262144
+  checkRayCount: 10
+  checkRayInterval: 0
+  addedVelMult: 0.25
+  bounceForce: {x: 5, y: 3}
+  debug: 0
 --- !u!1 &5339376313544586324
 GameObject:
   m_ObjectHideFlags: 0
@@ -28865,7 +28925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ad980451443d70438faac0bc6c235a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_TrackedObjectOffset: {x: 0, y: 1, z: 0}
+  m_TrackedObjectOffset: {x: 0.006210351, y: 0.9987825, z: 0}
   m_LookaheadTime: 0
   m_LookaheadSmoothing: 0
   m_LookaheadIgnoreY: 0
@@ -29073,13 +29133,15 @@ MonoBehaviour:
   movement: {fileID: 7134268869128914306}
   grounded: {fileID: 3564569547695131043}
   animator: {fileID: 2286398244325802652}
+  minHVel: 2
   fallDistanceUncontrollable: 10
-  fallSpeed: 15
+  accelerationPerSecond: 20
+  maxFallSpeed: 35
   sideCheckDistance: 0.3
   sideCheckMask:
     serializedVersion: 2
     m_Bits: 135176
-  debug: 1
+  debug: 0
   fallAnimation: Uncontrollable Fall
 --- !u!1 &9120894195580877021
 GameObject:

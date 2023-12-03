@@ -29,6 +29,11 @@ public class ScriptableSFX : ScriptableObject
             string assetPath = UnityEditor.AssetDatabase.GUIDToAssetPath(guids[i]);
             clips[i] = UnityEditor.AssetDatabase.LoadAssetAtPath<AudioClip>(assetPath);
         }
+        // Mark this ScriptableObject as dirty because we have made changes that we want to save.
+        UnityEditor.EditorUtility.SetDirty(this);
+
+        // Save all changes made in the editor.
+        UnityEditor.AssetDatabase.SaveAssets();
     }
     #endif
 }

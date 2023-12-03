@@ -49,18 +49,27 @@ public class PUncontrollableFall : MovementState
     public void TryUncontrollableFall(out bool success)
     {
         success = false;
+        if(grounded.IsGrounded) return;
         if(_maxHeight - transform.position.y < fallDistanceUncontrollable) return;
         success = true;
+        
+        UncontrollableFall();
+    }
+    public void UncontrollableFall()
+    {
+        if(grounded.IsGrounded) return;
+        
+        _startHVel = Mathf.Max(minHVel,Mathf.Abs(rb.velocity.x));
+        _goingRight = rb.velocity.x > 0;
+        _currentFallSpeed = -Mathf.Min(0,rb.velocity.y);
+        _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
+        
         stateManager.SetState(PStateManager.State.UncontrollableFall);
     }
 
     protected override void OnStateEnter()
     {
         grounded.OnGroundedChanged += TryStopUncontrollableFall;
-        _startHVel = Mathf.Max(minHVel,Mathf.Abs(rb.velocity.x));
-        _goingRight = rb.velocity.x > 0;
-        _currentFallSpeed = -Mathf.Min(0,rb.velocity.y);
-        _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
         
         rb.gravityScale = 0;
         rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
@@ -83,10 +92,9 @@ public class PUncontrollableFall : MovementState
         CheckHitWall();
     }
 
-    private void TryStopUncontrollableFall(bool _, bool isGrounded)
+    private void TryStopUncontrollableFall(bool wasGrounded, bool isGrounded)
     {
-        if (isGrounded)
-            stateManager.SetState(PStateManager.State.Normal);
+        stateManager.SetState(PStateManager.State.Normal);
     }
 
     private void CheckHitWall()
