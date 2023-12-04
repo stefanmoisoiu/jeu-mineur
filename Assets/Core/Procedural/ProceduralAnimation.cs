@@ -85,11 +85,11 @@ public class ProceduralAnimation
     {
         int direction = 1;
         
-        float timer = 0;
+        float advancement = 0;
         while (true)
         {
-            timer += Time.deltaTime * direction;
-            if (timer > 1 || timer < 0)
+            advancement += Time.deltaTime * direction / animationLength;
+            if (advancement > 1 || advancement < 0)
             {
                 if (!loop)
                 {
@@ -100,16 +100,14 @@ public class ProceduralAnimation
                 switch (loopType)
                 {
                     case LoopType.Loop:
-                        timer = 0;
+                        advancement = 0;
                         break;
                     case LoopType.PingPong:
                         direction *= -1;
-                        timer = Mathf.Clamp01(timer);
+                        advancement = Mathf.Clamp01(advancement);
                         break;
                 }
             }
-            
-            float advancement = timer / animationLength;
             SetAnimation(advancement);
             yield return null;
         }

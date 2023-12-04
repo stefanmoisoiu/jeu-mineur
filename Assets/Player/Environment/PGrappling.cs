@@ -38,7 +38,9 @@ public class PGrappling : MovementState
     [SerializeField] private string accelerationAnimationName = "Grappling Acceleration";
     [SerializeField] private string decelerationAnimationName = "Grappling Deceleration";
     
-    
+    [Header("Preview")] [SerializeField]
+    private Transform previewPrefab;
+    [SerializeField] private ProceduralAnimation idlePreviewAnimation;
     
     private float _horizontalVelocity;
     private float _verticalVelocity;
@@ -54,6 +56,7 @@ public class PGrappling : MovementState
     private void Start()
     {
         _debugText = () => $"Grappling HVel: {Mathf.Round(_horizontalVelocity * 100) / 100} | VVel: {Mathf.Round(_verticalVelocity * 100) / 100}";
+        idlePreviewAnimation.StartAnimation(this);
     }
 
     protected override void OnStateEnter()
@@ -70,6 +73,25 @@ public class PGrappling : MovementState
         inputManager.OnJump -= Detach;
         inputManager.OnSecondaryAction -= Detach;
         debug.RemoveDebugText(_debugText);
+    }
+
+    private new void Update()
+    {
+        base.Update();
+        if (IsActiveState)
+        {
+            previewPrefab.gameObject.SetActive(false);
+        }
+        else
+        {
+            GrapplePoint[] grapplePoints = GetGrapplePoints();
+            
+            previewPrefab.gameObject.SetActive(grapplePoints.Length != 0);
+
+            if (grapplePoints.Length == 0) return;
+            GrapplePoint closestGrapplePoint = GetClosestGrapplePoint(grapplePoints);
+            previewPrefab.position = closestGrapplePoint.GrapplePivotPoint.position;
+        }
     }
     protected override void ActiveStateFixedUpdate()
     {
@@ -161,7 +183,7 @@ public class PGrappling : MovementState
         
         Vector3 perpendicularDirection = GetPerpendicularDirectionToPoint();
         float velocityConversion = Vector2.Dot(perpendicularDirection, rb.velocity.normalized);
-        _horizontalVelocity = startVelocityMult * rb.velocity.magnitude * Mathf.Sign(velocityConversion);
+        _horizontalVelocity = startVelocityMult * rb.velocity.magnitude * Mathf.Sign(rb.velocity.x);
         
         stateManager.SetState(PStateManager.State.Grappling);
     }

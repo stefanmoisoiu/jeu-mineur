@@ -12,7 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2cb5bd4a853c42e6bf27303d9bbb7142, type: 3}
   m_Name: Grappling
   m_EditorClassIdentifier: 
-  clips: []
+  clips:
+  - {fileID: 8300000, guid: 93fde672e58f562458033207675f0d5d, type: 3}
+  - {fileID: 8300000, guid: 1fbe5e56493c49a4798d8064bae8f79c, type: 3}
+  - {fileID: 8300000, guid: 94ba6c63713d9824a98106603df41143, type: 3}
+  - {fileID: 8300000, guid: 0f06e08989cf4924fa630800316ba8ba, type: 3}
   volume: 1
   pitch: 1
   pitchVariation: 0.1

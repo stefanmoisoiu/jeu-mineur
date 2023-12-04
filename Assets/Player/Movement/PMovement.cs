@@ -13,7 +13,7 @@ public class PMovement : MovementState
     [SerializeField] private PGrounded grounded;
     [SerializeField] private PGroundStick groundStick;
     [SerializeField] private PGrappling grappling;
-    [SerializeField] private PUncontrollableFall uncontrollableFall;
+    [SerializeField] private PUncontrollable uncontrollable;
     [SerializeField] private PAnimator pAnimator;
     
 
@@ -66,15 +66,16 @@ public class PMovement : MovementState
     protected override void OnStateEnter()
     {
         inputManager.OnJump += Jump;
-        inputManager.OnSecondaryAction += delegate { grappling.TryGrapple(out _); };
+        inputManager.OnSecondaryAction += TryGrapple;
     }
 
     protected override void OnStateExit()
     {
         inputManager.OnJump -= Jump;
         _jumpCooldownTimer = 0;
-        inputManager.OnSecondaryAction -= delegate { grappling.TryGrapple(out _); };
+        inputManager.OnSecondaryAction -= TryGrapple;
     }
+    private void TryGrapple() => grappling.TryGrapple(out _);
 
     private new void Update()
     {
@@ -89,7 +90,7 @@ public class PMovement : MovementState
             Jump();
             return;
         }
-        uncontrollableFall.TryUncontrollableFall(out bool uncontrollableFallSuccess);
+        uncontrollable.TryFallUncontrollable(out bool uncontrollableFallSuccess);
         if (uncontrollableFallSuccess) return;
         
         slide.TryStartSlide(out bool slideSuccess);

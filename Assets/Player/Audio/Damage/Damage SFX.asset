@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cb5bd4a853c42e6bf27303d9bbb7142, type: 3}
+  m_Name: Damage SFX
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: 661989783fb5679439d123455b609c9d, type: 3}
+  - {fileID: 8300000, guid: 7f2a4566558a0464cabd4ea98265eaef, type: 3}
+  - {fileID: 8300000, guid: 5ad6595b1eccc2843b8a196b88247b32, type: 3}
+  - {fileID: 8300000, guid: 574a40cf5337cd34d978d44bd3b8cd95, type: 3}
+  - {fileID: 8300000, guid: d3ed5353fd9a40b4886125077d9b650b, type: 3}
+  volume: 1
+  pitch: 1
+  pitchVariation: 0.1

@@ -44,15 +44,16 @@ public class PPickaxeDash : MovementState
     protected override void OnStateEnter()
     {
         pickaxe.OnPickaxeUsed += PickaxeDash;
-        inputManager.OnSecondaryAction += delegate { grappling.TryGrapple(out _); };
+        inputManager.OnSecondaryAction += TryGrapple;
     }
     protected override void OnStateExit()
     {
         if (_dashCoroutine != null) StopCoroutine(_dashCoroutine);
         pickaxe.OnPickaxeUsed -= PickaxeDash;
         rb.gravityScale = _startGravityScale;
-        inputManager.OnSecondaryAction -= delegate { grappling.TryGrapple(out _); };
+        inputManager.OnSecondaryAction -= TryGrapple;
     }
+    private void TryGrapple() => grappling.TryGrapple(out _);
 
     private IEnumerator DashCoroutine()
     {

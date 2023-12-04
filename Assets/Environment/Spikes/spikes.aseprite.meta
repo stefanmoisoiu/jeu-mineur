@@ -121,7 +121,7 @@ ScriptedImporter:
   animatedSpriteImportData:
   - name: spikes
     originalName: 
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.23076925}
     alignment: 9
     border: {x: 0, y: 0, z: 0, w: 0}
     rect:
@@ -129,7 +129,7 @@ ScriptedImporter:
       x: 4
       y: 4
       width: 64
-      height: 32
+      height: 52
     spriteID: 41a705cef698af04eaf013ee2aabb1a7
     spriteBone: []
     spriteOutline: []
@@ -152,9 +152,9 @@ ScriptedImporter:
       frameIndex: 0
       cellRect:
         x: 0
-        y: 0
+        y: 12
         width: 64
-        height: 32
+        height: 52
       spriteId: 41a705cef698af04eaf013ee2aabb1a7
     linkedCells: []
     parentIndex: -1
@@ -233,4 +233,4 @@ ScriptedImporter:
     androidETC2FallbackOverride: 0
   secondarySpriteTextures: []
   spritePackingTag: 
-  canvasSize: {x: 64, y: 32}
+  canvasSize: {x: 64, y: 64}
