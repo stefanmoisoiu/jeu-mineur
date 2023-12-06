@@ -25,7 +25,7 @@ public class PCamera : MonoBehaviour
         {
             offset += cameraComponent.GetOffset();
         }
-        _currentCamFramingTransposer.m_TrackedObjectOffset = offset + _startPlayerCamOffset;
+        if(_currentCamFramingTransposer != null) _currentCamFramingTransposer.m_TrackedObjectOffset = offset + _startPlayerCamOffset;
     }
 
     private void OnPOIChanged()

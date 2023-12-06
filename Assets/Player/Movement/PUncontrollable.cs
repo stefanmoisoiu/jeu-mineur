@@ -55,8 +55,8 @@ public class PUncontrollable : MovementState
     }
     public void TryUncontrollable(out bool success)
     {
-        success = false;
-        if(grounded.IsGrounded) return;
+        // success = false;
+        // if(grounded.IsGrounded) return;
         success = true;
         
         StartUncontrollable();
@@ -67,8 +67,6 @@ public class PUncontrollable : MovementState
         _goingRight = rb.velocity.x > 0;
         _currentFallSpeed = -rb.velocity.y;
         if(_currentFallSpeed > 0) _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
-        
-        Debug.Log($"Uncontrollable Fall: {_startHVel} | {_goingRight} | {_currentFallSpeed}");
         
         stateManager.SetState(PStateManager.State.UncontrollableFall);
     }

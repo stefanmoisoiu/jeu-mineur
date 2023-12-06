@@ -5,14 +5,15 @@ using UnityEngine;
 public class PGrounded : MonoBehaviour
 {
     [Header("Ground Check Properties")]
+    [SerializeField] private LayerMask notGroundLayer;
     [SerializeField] private LayerMask groundLayer;
-    [SerializeField] private float LRPosOffset = 0.25f;
+    // [SerializeField] private float LRPosOffset = 0.25f;
     [SerializeField] private float groundStartCheckDistance = 0f;
     [SerializeField] private float airStartCheckDistance = -0.3f;
     [SerializeField] private float groundCheckDistance = 0.2f;
     [SerializeField] private float closeGroundCheckDistance = 0.5f;
-    [SerializeField] private PStateManager stateManager;
-    [SerializeField] private PStateManager.State[] LRCheckStates;
+    // [SerializeField] private PStateManager stateManager;
+    // [SerializeField] private PStateManager.State[] LRCheckStates;
     
     
     [SerializeField] private PDebug debug;
@@ -27,7 +28,8 @@ public class PGrounded : MonoBehaviour
     public bool WasGroundClose { get; private set; }
     public bool IsGroundClose { get; private set; }
     
-    private RaycastHit2D _groundHit, _closeGroundHit;
+    private RaycastHit2D _groundHit, _closeGroundHit,_notGroundHit;
+    public RaycastHit2D NotGroundHit => _notGroundHit;
     public RaycastHit2D GroundHit => _groundHit;
     public RaycastHit2D CloseGroundHit => _closeGroundHit;
     
@@ -41,22 +43,24 @@ public class PGrounded : MonoBehaviour
 
     private void Update()
     {
-        float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
-        _groundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
-        _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-
-        if (LRCheck())
-        {
-            if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
-            if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        float checkStartDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
         
-        
-            if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-            if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-        }
+        _notGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, groundCheckDistance, notGroundLayer);
+        _groundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, groundCheckDistance, groundLayer);
+        _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
 
-        IsGrounded = _groundHit.collider != null;
-        IsGroundClose = _closeGroundHit.collider != null;
+        // if (LRCheck())
+        // {
+        //     if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        //     if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
+        //
+        //
+        //     if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
+        //     if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
+        // }
+
+        IsGrounded = _groundHit.collider != null && _notGroundHit.collider == null;
+        IsGroundClose = _closeGroundHit.collider != null && _notGroundHit.collider == null;
         
         if (IsGrounded != WasGrounded)
             OnGroundedChanged?.Invoke(WasGrounded,IsGrounded);
@@ -69,7 +73,7 @@ public class PGrounded : MonoBehaviour
             playerCloseGroundedEvents.GroundCloseChanged(WasGrounded,IsGrounded);
     }
 
-    private bool LRCheck() => LRCheckStates.Contains(stateManager.CurrentState);
+    // private bool LRCheck() => LRCheckStates.Contains(stateManager.CurrentState);
     private void LateUpdate()
     {
         WasGrounded = IsGrounded;
@@ -82,16 +86,16 @@ public class PGrounded : MonoBehaviour
         float checkDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
         
         Vector3 centerStartPos = transform.position + Vector3.down * checkDistance;
-        Vector3 leftStartPos = transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance;
-        Vector3 rightStartPos = transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance;
+        // Vector3 leftStartPos = transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance;
+        // Vector3 rightStartPos = transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance;
         
         Gizmos.DrawLine(centerStartPos, centerStartPos + Vector3.down * closeGroundCheckDistance);
 
-        if (LRCheck())
-        {
-            Gizmos.DrawLine(leftStartPos, leftStartPos + Vector3.down * closeGroundCheckDistance);
-            Gizmos.DrawLine(rightStartPos, rightStartPos + Vector3.down * closeGroundCheckDistance);
-        }
+        // if (LRCheck())
+        // {
+        //     Gizmos.DrawLine(leftStartPos, leftStartPos + Vector3.down * closeGroundCheckDistance);
+        //     Gizmos.DrawLine(rightStartPos, rightStartPos + Vector3.down * closeGroundCheckDistance);
+        // }
         
         Gizmos.color = Color.red;
         Gizmos.DrawLine(centerStartPos, centerStartPos + Vector3.down * groundCheckDistance);

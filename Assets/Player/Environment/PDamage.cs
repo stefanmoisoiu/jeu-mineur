@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PDamage : MonoBehaviour
 {
@@ -40,7 +39,7 @@ public class PDamage : MonoBehaviour
     private RaycastHit2D? CheckDamage(out bool success)
     {
         success = false;
-        if (stateManager.CurrentState == PStateManager.State.UncontrollableFall) return null;
+        // if (stateManager.CurrentState == PStateManager.State.UncontrollableFall) return null;
         for (int i = 0; i < checkRayCount; i++)
         {
             float angle = i * (360f / checkRayCount);

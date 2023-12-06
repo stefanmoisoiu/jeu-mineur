@@ -28,6 +28,8 @@ public class PGrappling : MovementState
     [SerializeField] private float gravityScale = 0.5f;
     [SerializeField] [Range(0,1)] private float damping = 0.95f;
     [SerializeField] [Range(0,1)] private float angleTooLargeDamping = 0.95f;
+    [SerializeField] private float maxVelocity = 8f;
+    
     
     [Header("Detaching")]
     [SerializeField] private float detachJumpForce = 10f;
@@ -106,6 +108,8 @@ public class PGrappling : MovementState
         _horizontalVelocity += GetGravityForce();
         _horizontalVelocity += GetDampingForce();
         _horizontalVelocity += GetHorizontalAcceleration();
+        
+        _horizontalVelocity = Mathf.Clamp(_horizontalVelocity,-maxVelocity,maxVelocity);
         
         _verticalVelocity += GetSpringForce();
         
