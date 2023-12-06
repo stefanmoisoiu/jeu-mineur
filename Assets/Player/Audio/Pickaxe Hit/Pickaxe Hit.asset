@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: Pickaxe Hit
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 063d9aeb387dcb54b8a4d767ee7b9bfa, type: 3}
+  - {fileID: 8300000, guid: fc05654b16481a846b6f342daf0277d5, type: 3}
+  - {fileID: 8300000, guid: 0d907d771aa57fc47baaa4fa0eb43f47, type: 3}
   volume: 1
   pitch: 1
   pitchVariation: 0.1
