@@ -25,7 +25,6 @@ public class PUncontrollable : MovementState
     private float _maxHeight;
     private float _startHVel;
     private bool _goingRight;
-    private float _currentFallSpeed;
     private float _startGravityScale;
     public bool GoingRight => _goingRight;
     
@@ -65,8 +64,6 @@ public class PUncontrollable : MovementState
     {
         _startHVel = Mathf.Max(minHVel,Mathf.Abs(rb.velocity.x));
         _goingRight = rb.velocity.x > 0;
-        _currentFallSpeed = -rb.velocity.y;
-        if(_currentFallSpeed > 0) _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
         
         stateManager.SetState(PStateManager.State.UncontrollableFall);
     }
@@ -76,7 +73,7 @@ public class PUncontrollable : MovementState
         grounded.OnGroundedChanged += TryStopUncontrollableFall;
         
         rb.gravityScale = 0;
-        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
+        // rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
         animator.PlayAnimation(fallAnimation);
     }
 
@@ -89,16 +86,21 @@ public class PUncontrollable : MovementState
 
     protected override void ActiveStateUpdate()
     {
-        _currentFallSpeed += accelerationPerSecond * Time.deltaTime;
-        _currentFallSpeed = Mathf.Min(maxFallSpeed,_currentFallSpeed);
-        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), -_currentFallSpeed);
+        
+        // X Vel
+        rb.velocity = new Vector2(_startHVel * (_goingRight ? 1 : -1), rb.velocity.y);
+        
+        // Y Vel
+        float fallSpeed = accelerationPerSecond * Time.deltaTime;
+        rb.velocity += Vector2.down * fallSpeed;
+        rb.velocity = new Vector2(rb.velocity.x, Mathf.Max(rb.velocity.y, -maxFallSpeed));
         
         CheckHitWall();
     }
 
     private void TryStopUncontrollableFall(bool wasGrounded, bool isGrounded)
     {
-        if(_currentFallSpeed < 0) return;
+        if(rb.velocity.y > 0) return;
         if(!isGrounded) return;
         stateManager.SetState(PStateManager.State.Normal);
     }
@@ -111,12 +113,12 @@ public class PUncontrollable : MovementState
         if (leftHit.collider != null && !_goingRight)
         {
             _goingRight = true;
-            rb.velocity = new Vector2(_startHVel, -maxFallSpeed);
+            // rb.velocity = new Vector2(_startHVel, -maxFallSpeed);
         }
         else if (rightHit.collider != null && _goingRight)
         {
             _goingRight = false;
-            rb.velocity = new Vector2(-_startHVel, -maxFallSpeed);
+            // rb.velocity = new Vector2(-_startHVel, -maxFallSpeed);
         }
     }
 

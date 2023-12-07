@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PDamage : MonoBehaviour
 {
@@ -6,7 +7,6 @@ public class PDamage : MonoBehaviour
     [SerializeField] private PUncontrollable uncontrollable;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private PFlashEffect flashEffect;
-    [SerializeField] private PStateManager stateManager;
     
     
     
@@ -30,6 +30,7 @@ public class PDamage : MonoBehaviour
     [Header("Debug")]
     [SerializeField] private bool debug;
 
+    public Action OnDamage;
     private void Update()
     {
         RaycastHit2D? hit = CheckDamage(out bool success);
@@ -60,9 +61,11 @@ public class PDamage : MonoBehaviour
         else xVel *= Mathf.Sign(rb.velocity.x);
         
         float yVel = hit.normal.y > -.25f ? bounceForce.y : -bounceForce.y;
+        float mag = rb.velocity.magnitude * addedVelMult;
+
+        Vector2 vel = new (xVel, yVel);
         
-        rb.velocity *= addedVelMult;
-        rb.velocity += new Vector2(xVel, yVel);
+        rb.velocity = vel + vel.normalized * mag;
         
         uncontrollable.TryUncontrollable(out _);
         flashEffect.Flash(1f);
@@ -70,6 +73,8 @@ public class PDamage : MonoBehaviour
 
         _canDamage = false;
         Invoke(nameof(ResetCanDamage),damageCooldownTime);
+        
+        OnDamage?.Invoke();
     }
 
     private void ResetCanDamage() => _canDamage = true;
