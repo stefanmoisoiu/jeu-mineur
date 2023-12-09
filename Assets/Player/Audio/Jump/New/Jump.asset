@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: Jump
   m_EditorClassIdentifier: 
   clips:
-  - {fileID: 8300000, guid: 15e3c0dbc9c807044b079cc3acfd082e, type: 3}
-  - {fileID: 8300000, guid: 40678ebf223c04141bde5eb48787833e, type: 3}
-  - {fileID: 8300000, guid: e712c2bb5e8322943a2b8338b031952a, type: 3}
-  - {fileID: 8300000, guid: cdf03a05b4271b742872a14c220ea365, type: 3}
-  - {fileID: 8300000, guid: 40f71c7071e193a419b631988962daab, type: 3}
-  - {fileID: 8300000, guid: 6b9f2d8ada6e4264d8e3bafedd6c3aa9, type: 3}
-  volume: 1.25
+  - {fileID: 8300000, guid: c0999a6dcd0dec5499e0433228ebd984, type: 3}
+  - {fileID: 8300000, guid: 5eac2f4755c5bdd45b37323261894045, type: 3}
+  - {fileID: 8300000, guid: f0127394531d3764aa02f0e0cf6fbaf3, type: 3}
+  - {fileID: 8300000, guid: f26e7f3841826924b89ab8de384c3737, type: 3}
+  - {fileID: 8300000, guid: 6374427e605cd6c4195cb2efc67c3fa8, type: 3}
+  - {fileID: 8300000, guid: 6149cc6dcfcb443468535601bcf78a0f, type: 3}
+  volume: 2
   pitch: 1
   pitchVariation: 0.1

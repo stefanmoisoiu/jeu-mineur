@@ -54,9 +54,12 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Enabled: 0
     - _MoveSpeed: 5
     - _Scale: 1.22
     - _Spark_Density: 4.69
+    - _Spark_Disabled_Density: 3
+    - _Spark_Enabled_Density: 3
     - _Threshold: 0.1
     m_Colors:
     - _Highlight_Color: {r: 7.999999, g: 5.558055, b: 0, a: 0}

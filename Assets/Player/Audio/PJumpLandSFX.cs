@@ -9,17 +9,17 @@ public class PJumpLandSFX : MovementState
 
         protected override void OnStateEnter()
         {
-                movement.OnJump += Play;
+                movement.OnJump += PlayJumpSfx;
                 grounded.OnGroundedChanged += Land;
         }
 
         protected override void OnStateExit()
         {
-                movement.OnJump -= Play;
+                movement.OnJump -= PlayJumpSfx;
                 grounded.OnGroundedChanged -= Land;
         }
 
-        private void Play() => jumpSfx.Play();
+        private void PlayJumpSfx() => jumpSfx.Play();
 
         private void Land(bool wasGrounded, bool isGrounded)
         {
