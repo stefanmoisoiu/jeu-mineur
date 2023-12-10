@@ -5,8 +5,9 @@ public class BouncyMushroom : MonoBehaviour
 {
     [Header("Bounce Properties")]
     [SerializeField] private float force;
-
+    [SerializeField] private bool additiveForce;
     public float Force => force;
+    public bool AdditiveForce => additiveForce;
     
     [Header("Visual")]
     [SerializeField] private ProceduralAnimation bounceAnimation;

@@ -33,7 +33,7 @@ public class PBouncyMushroom : MovementState
         float velocity = Mathf.Sqrt(rb.velocity.magnitude) * bounceVelConservation + bouncyMushroom.Force;
 
         Vector2 direction = other.transform.up;
-        Vector2 addedVelocity = Vector3.ProjectOnPlane(rb.velocity, direction);
+        Vector2 addedVelocity = bouncyMushroom.AdditiveForce ? Vector3.ProjectOnPlane(rb.velocity, direction) : Vector2.zero;
         rb.velocity = direction * velocity + addedVelocity;
         _uncontrolledBounceLength = uncontrolledBounceLength;
     }

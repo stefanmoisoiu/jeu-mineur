@@ -24,6 +24,11 @@ public class PDamage : MonoBehaviour
     
     [Header("Audio")]
     [SerializeField] private ScriptableSFX damageSFX;
+    
+    [Header("Camera Shake")]
+    [SerializeField] private ScriptableCameraShake cameraShake;
+
+    
 
     
     
@@ -73,6 +78,8 @@ public class PDamage : MonoBehaviour
 
         _canDamage = false;
         Invoke(nameof(ResetCanDamage),damageCooldownTime);
+        
+        cameraShake.Shake();
         
         OnDamage?.Invoke();
     }

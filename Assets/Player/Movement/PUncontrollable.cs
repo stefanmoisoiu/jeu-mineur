@@ -10,6 +10,8 @@ public class PUncontrollable : MovementState
     [SerializeField] private PGrounded grounded;
     [SerializeField] private PGroundStick groundStick;
     [SerializeField] private PAnimator animator;
+    [SerializeField] private PUnconscious unconscious;
+    
     
     [Header("Start Fall Properties")]
     [SerializeField] private float fallDistanceUncontrollable = 10f;
@@ -21,6 +23,8 @@ public class PUncontrollable : MovementState
     [SerializeField] private float minFallHVel = 2f;
     [SerializeField] private float accelerationPerSecond = 10f;
     [SerializeField] private float maxFallSpeed = 35;
+    [SerializeField] private float fallDistanceToUnconscious = 30f;
+    
     
     [Header("Wall Bounce Properties")]
     [SerializeField] private float sideCheckDistance = 0.3f;
@@ -90,7 +94,11 @@ public class PUncontrollable : MovementState
         if (IsOnSlope()) return;
         
         success = true;
-        stateManager.SetState(PStateManager.State.Normal);
+        
+        if (Mathf.Abs(transform.position.y - _startUncontrollableHeight) > fallDistanceToUnconscious)
+            stateManager.SetState(PStateManager.State.Unconscious);
+        else
+            stateManager.SetState(PStateManager.State.Normal);
     }
 
     protected override void OnStateEnter()
