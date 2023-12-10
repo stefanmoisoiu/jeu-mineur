@@ -177,6 +177,7 @@ namespace SimpleAudioManager
             {
                 yield return new WaitForSecondsRealtime(0.25f);
                 PlaySong(0);
+                SetIntensity(2);
             }
         }
 

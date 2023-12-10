@@ -30,7 +30,13 @@ public class PUnconscious : MovementState
         _shakeReset = true;
         
         rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
         animator.PlayAnimation(unconsciousAnimation);
+    }
+
+    protected override void OnStateExit()
+    {
+        rb.isKinematic = false;
     }
 
     protected override void ActiveStateUpdate()

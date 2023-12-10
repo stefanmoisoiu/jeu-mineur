@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1727db5f4f489848a541c9857af5ff1, type: 3}
   m_Name: Layer 1
   m_EditorClassIdentifier: 
-  reverbTail: 5.143
+  reverbTail: 4.5
   intensityClips:
-  - {fileID: 8300000, guid: 61d04606673c6e34ba54355e72516e36, type: 3}
-  - {fileID: 8300000, guid: d6cf78ee7d1fa624886f8df62b0eb0b5, type: 3}
-  - {fileID: 8300000, guid: ef3705cadf34df7439205938064ca941, type: 3}
+  - {fileID: 8300000, guid: 7905606e29ccff64684418ef935eedfc, type: 3}
+  - {fileID: 8300000, guid: 07c0fbf02ae155f46b5e1bdc2b42e3de, type: 3}
+  - {fileID: 8300000, guid: 2d5869603ac87bf4e99665cc99159780, type: 3}
