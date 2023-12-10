@@ -67,7 +67,7 @@ public class PDamage : MonoBehaviour
         
         rb.velocity = vel + vel.normalized * mag;
         
-        uncontrollable.TryUncontrollable(out _);
+        uncontrollable.StartUncontrollable();
         flashEffect.Flash(1f);
         damageSFX.Play();
 

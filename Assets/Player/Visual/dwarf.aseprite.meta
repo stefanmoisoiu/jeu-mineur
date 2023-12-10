@@ -659,6 +659,26 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     uvTransform: {x: 4, y: 58}
+  - name: dwarf_Frame_2
+    originalName: 
+    pivot: {x: 0.5, y: -0.111111104}
+    alignment: 9
+    border: {x: 0, y: 0, z: 0, w: 0}
+    rect:
+      serializedVersion: 2
+      x: 89
+      y: 28
+      width: 22
+      height: 9
+    spriteID: e03eaba4f4356ed4a8cc4a13e75fade8
+    spriteBone: []
+    spriteOutline: []
+    vertices: []
+    spritePhysicsOutline: []
+    indices: 
+    edges: []
+    tessellationDetail: 0
+    uvTransform: {x: 89, y: 28}
   spriteSheetImportData: []
   asepriteLayers:
   - layerIndex: 0
@@ -884,6 +904,14 @@ ScriptedImporter:
         width: 24
         height: 19
       spriteId: 2423c3a0a4ba02f48823723dd19ae286
+    - name: dwarf_Frame_27
+      frameIndex: 27
+      cellRect:
+        x: 6
+        y: 1
+        width: 22
+        height: 9
+      spriteId: e03eaba4f4356ed4a8cc4a13e75fade8
     linkedCells: []
     parentIndex: -1
   platformSettings:

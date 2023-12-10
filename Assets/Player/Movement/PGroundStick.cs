@@ -13,7 +13,6 @@ public class PGroundStick : MovementState
         
         [Header("Stick Properties")]
         [SerializeField] private float onGroundColliderHeight = 0.5f;
-        private float _startGravityScale;
         private float _startPlayerCapsuleOffsetY;
         private float _startPlayerCapsuleHeight;
         private float _playerHeight = 1;
@@ -33,11 +32,9 @@ public class PGroundStick : MovementState
 
         private void Start()
         {
-                _startGravityScale = rb.gravityScale;
                 _startPlayerCapsuleHeight = capsuleCollider.size.y;
                 _startPlayerCapsuleOffsetY = capsuleCollider.offset.y;
                 _debugText = () => $"Stick To Ground: {StickToGround()} | HVel: {Mathf.Round(HorizontalVelocity * 100) / 100}";
-                
         }
 
         private bool StickToGround()
@@ -58,7 +55,6 @@ public class PGroundStick : MovementState
                 grounded.OnGroundedChanged -= LandedVelocityUpdate;
                 OnUpQuaternionChanged -= UpdateVelocityQuaternion;
                 
-                rb.gravityScale = _startGravityScale;
                 capsuleCollider.size = new Vector2(capsuleCollider.size.x, _startPlayerCapsuleHeight);
                 capsuleCollider.offset = new Vector2(capsuleCollider.offset.x, _startPlayerCapsuleOffsetY);
                 debug.RemoveDebugText(_debugText);
@@ -66,7 +62,6 @@ public class PGroundStick : MovementState
 
         protected override void ActiveStateUpdate()
         {
-                UpdateGravityScale();
                 UpdateColliderSize();
         }
 
@@ -108,13 +103,6 @@ public class PGroundStick : MovementState
                 stickToGroundSpring.target = targetY;
                 stickToGroundSpring.UpdateSpring(Time.fixedDeltaTime);
                 rb.position += Vector2.up * stickToGroundSpring.velocity;
-        }
-        /// <summary>
-        /// Updates the gravity scale according to the ground.
-        /// </summary>
-        private void UpdateGravityScale()
-        {
-                rb.gravityScale = StickToGround() ? 0 : _startGravityScale;
         }
         /// <summary>
         /// Updates the collider size according to the ground.

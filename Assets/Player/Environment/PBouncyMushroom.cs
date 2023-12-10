@@ -31,7 +31,10 @@ public class PBouncyMushroom : MovementState
         stateManager.SetState(PStateManager.State.BouncyMushroom);
 
         float velocity = Mathf.Sqrt(rb.velocity.magnitude) * bounceVelConservation + bouncyMushroom.Force;
-        rb.velocity = other.transform.up * velocity;
+
+        Vector2 direction = other.transform.up;
+        Vector2 addedVelocity = Vector3.ProjectOnPlane(rb.velocity, direction);
+        rb.velocity = direction * velocity + addedVelocity;
         _uncontrolledBounceLength = uncontrolledBounceLength;
     }
     
