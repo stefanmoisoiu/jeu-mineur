@@ -16,13 +16,14 @@ public class PPickaxeDash : MovementState
     [SerializeField] private PAnimator animator;
     [SerializeField] private Rigidbody2D rb;
     
-    
     [Header("Pickaxe Dash Properties")]
     [SerializeField] private float dashVel = 10f;
     [SerializeField] private AnimationCurve dashVelCurve;
     [SerializeField] private float dashLength = .75f;
     [SerializeField] [Range(0, 1)] private float minDashVelDot = 0.5f;
     [SerializeField] [Range(0, 1)] private float dashAddedVelMult = 0.5f;
+    [SerializeField] private float startWallStickCheckTime = 0.2f;
+    
     
     [Header("Animation Properties")]
     [SerializeField] private string dashAnimationName = "Pickaxe Dash";
@@ -89,9 +90,12 @@ public class PPickaxeDash : MovementState
                 stateManager.SetState(PStateManager.State.Normal);
                 yield break;
             }
-            
-            wallStick.TryWallStick(out bool wallStickSuccess);
-            if (wallStickSuccess) yield break;
+
+            if (timer > startWallStickCheckTime)
+            {
+                wallStick.TryWallStick(out bool wallStickSuccess);
+                if (wallStickSuccess) yield break;
+            }
             
             railing.TryAttachToNearbyRailing(out bool railingSuccess);
             if (railingSuccess) yield break;

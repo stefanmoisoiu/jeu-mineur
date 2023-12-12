@@ -65,17 +65,17 @@ MonoBehaviour:
   - m_EditModeType: 1
     m_Knots:
     - Position:
-        x: 7
+        x: 14.09
         y: 0
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -1.4
+        z: -3.42
       TangentOut:
         x: 0
         y: 0
-        z: 1.4
+        z: 3.42
       Rotation:
         value:
           x: 0.50000036
@@ -83,17 +83,17 @@ MonoBehaviour:
           z: -0.50000036
           w: -0.49999964
     - Position:
-        x: -7
+        x: -20.11
         y: 0
         z: 0
       TangentIn:
         x: -0
         y: -0
-        z: -1.4
+        z: -3.42
       TangentOut:
         x: 0
         y: 0
-        z: 1.4
+        z: 3.42
       Rotation:
         value:
           x: 0.5000004
@@ -106,63 +106,63 @@ MonoBehaviour:
       m_DistanceToInterpolation:
       - Distance: 0
         T: 0
-      - Distance: 0.17898273
+      - Distance: 0.43722916
         T: 0.03448276
-      - Distance: 0.42305946
+      - Distance: 1.0334749
         T: 0.06896552
-      - Distance: 0.72740984
+      - Distance: 1.7769585
         T: 0.10344828
-      - Distance: 1.0872111
+      - Distance: 2.655902
         T: 0.13793103
-      - Distance: 1.4976425
+      - Distance: 3.6585274
         T: 0.1724138
-      - Distance: 1.9538808
+      - Distance: 4.773052
         T: 0.20689656
-      - Distance: 2.4511046
+      - Distance: 5.9876995
         T: 0.2413793
-      - Distance: 2.9844933
+      - Distance: 7.2906904
         T: 0.27586207
-      - Distance: 3.549223
+      - Distance: 8.670244
         T: 0.31034482
-      - Distance: 4.1404734
+      - Distance: 10.114584
         T: 0.3448276
-      - Distance: 4.7534213
+      - Distance: 11.611929
         T: 0.37931034
-      - Distance: 5.383247
+      - Distance: 13.150503
         T: 0.41379312
-      - Distance: 6.025126
+      - Distance: 14.718522
         T: 0.44827586
-      - Distance: 6.674238
+      - Distance: 16.304209
         T: 0.4827586
-      - Distance: 7.3257613
+      - Distance: 17.895788
         T: 0.51724136
-      - Distance: 7.974874
+      - Distance: 19.481476
         T: 0.55172414
-      - Distance: 8.616754
+      - Distance: 21.049496
         T: 0.5862069
-      - Distance: 9.246577
+      - Distance: 22.588066
         T: 0.62068963
-      - Distance: 9.859527
+      - Distance: 24.085415
         T: 0.6551724
-      - Distance: 10.450777
+      - Distance: 25.529755
         T: 0.6896552
-      - Distance: 11.015506
+      - Distance: 26.909307
         T: 0.7241379
-      - Distance: 11.548895
+      - Distance: 28.2123
         T: 0.7586207
-      - Distance: 12.04612
+      - Distance: 29.426949
         T: 0.79310346
-      - Distance: 12.502359
+      - Distance: 30.541477
         T: 0.82758623
-      - Distance: 12.912788
+      - Distance: 31.544096
         T: 0.86206895
-      - Distance: 13.272591
+      - Distance: 32.423042
         T: 0.8965517
-      - Distance: 13.576941
+      - Distance: 33.166527
         T: 0.9310345
-      - Distance: 13.821018
+      - Distance: 33.76277
         T: 0.9655172
-      - Distance: 14
+      - Distance: 34.2
         T: 1
     - Mode: 0
       Tension: 0.5
@@ -302,8 +302,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   meshFilter: {fileID: 552479849782822641}
   spline: {fileID: 568979884472747015}
-  width: 0.25
-  precision: 100
+  width: 0.2
+  precision: 5
   debug: 0
   sphereSize: 0.1
 --- !u!114 &481880748923314070
@@ -320,14 +320,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spline: {fileID: 568979884472747015}
   movingPlatform: {fileID: 5995992197327282870, guid: d4354f35deeaf9a49b3f8fb291fde16d, type: 3}
-  invertX: 1
-  invertY: 1
-  yOffset: 0
-  platformCount: 1
-  platformSpeed: 1
-  platformAddedRotation: 90
-  rotateAlongSpline: 1
-  flipX: 0
+  platformCount: 3
   platformAdvancementCurve:
     serializedVersion: 2
     m_Curve:
@@ -352,4 +345,15 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  platformMoveType: 0
+  platformMoveDuration: 1
+  platformMoveSpeed: 1
+  platformAddedAdvancement: 0
+  platformAddedPosition: 0
+  invertX: 1
+  invertY: 1
+  yOffset: 0
+  rotateAlongSpline: 1
+  platformAddedRotation: 90
+  flipPlatformX: 0
   debug: 1

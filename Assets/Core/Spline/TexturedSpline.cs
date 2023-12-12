@@ -97,7 +97,7 @@ public class TexturedSpline : MonoBehaviour
             verts.AddRange(new []{p1,p2,p3,p4});
             tris.AddRange(new []{t1,t2,t3,t4,t5,t6});
 
-            float distance = Vector3.Distance(p1, p3) / (width);
+            float distance = Vector3.Distance(p1, p3) / width / 1.625f;
             float uvDistance = uvOffset + distance;
             
             uvs.AddRange(new []{new Vector2(uvOffset,0),new Vector2(uvOffset,1),new Vector2(uvDistance,0),new Vector2(uvDistance,1)});

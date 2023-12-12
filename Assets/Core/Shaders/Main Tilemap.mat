@@ -41,8 +41,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Rock_Scale: 0.75
-    - _Rock_Step: 0.98
+    - _Rock_Noise_Force: 0.86
+    - _Rock_Noise_Scale: 0.25
+    - _Rock_Scale: 0.1
+    - _Rock_Step: 0.52
     m_Colors:
     - _Color_Dark: {r: 0.4509804, g: 0.24313726, b: 0.22352941, a: 1}
     - _Color_Light: {r: 0.89411765, g: 0.6509804, b: 0.44705883, a: 1}
@@ -50,7 +52,7 @@ Material:
     - _Color_Outline: {r: 0.09411765, g: 0.078431375, b: 0.14509805, a: 1}
     - _Color_Special: {r: 0.6509434, g: 0.39052588, b: 0.2794144, a: 1}
     - _Rock_Scale: {r: 0.5, g: 1, b: 0, a: 0}
-    - _Rock_Size: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Rock_Size: {r: 0.2, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &8795609213668116540
 MonoBehaviour:
