@@ -229,6 +229,15 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""923bc38d-082b-4b59-8781-ab6ef16ebbd9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -286,6 +295,28 @@ public partial class @Controls: IInputActionCollection2, IDisposable
                     ""action"": ""Game Pad Look Direction"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""fb509aa2-302f-4767-b9d7-ab8854fa9073"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2e3af2db-c0d4-47c2-af13-bbd6afee888f"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -303,6 +334,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         m_Actions_Main = m_Actions.FindAction("Main", throwIfNotFound: true);
         m_Actions_Secondary = m_Actions.FindAction("Secondary", throwIfNotFound: true);
         m_Actions_GamePadLookDirection = m_Actions.FindAction("Game Pad Look Direction", throwIfNotFound: true);
+        m_Actions_Pause = m_Actions.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -437,6 +469,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
     private readonly InputAction m_Actions_Main;
     private readonly InputAction m_Actions_Secondary;
     private readonly InputAction m_Actions_GamePadLookDirection;
+    private readonly InputAction m_Actions_Pause;
     public struct ActionsActions
     {
         private @Controls m_Wrapper;
@@ -444,6 +477,7 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         public InputAction @Main => m_Wrapper.m_Actions_Main;
         public InputAction @Secondary => m_Wrapper.m_Actions_Secondary;
         public InputAction @GamePadLookDirection => m_Wrapper.m_Actions_GamePadLookDirection;
+        public InputAction @Pause => m_Wrapper.m_Actions_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Actions; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -462,6 +496,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @GamePadLookDirection.started += instance.OnGamePadLookDirection;
             @GamePadLookDirection.performed += instance.OnGamePadLookDirection;
             @GamePadLookDirection.canceled += instance.OnGamePadLookDirection;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IActionsActions instance)
@@ -475,6 +512,9 @@ public partial class @Controls: IInputActionCollection2, IDisposable
             @GamePadLookDirection.started -= instance.OnGamePadLookDirection;
             @GamePadLookDirection.performed -= instance.OnGamePadLookDirection;
             @GamePadLookDirection.canceled -= instance.OnGamePadLookDirection;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IActionsActions instance)
@@ -504,5 +544,6 @@ public partial class @Controls: IInputActionCollection2, IDisposable
         void OnMain(InputAction.CallbackContext context);
         void OnSecondary(InputAction.CallbackContext context);
         void OnGamePadLookDirection(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

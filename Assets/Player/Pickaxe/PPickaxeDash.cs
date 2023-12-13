@@ -57,10 +57,7 @@ public class PPickaxeDash : MovementState
     private void TryGrapple() => grappling.TryGrapple(out _);
 
     private IEnumerator DashCoroutine()
-    {
-        wallStick.TryWallStick(out bool startWallStickSuccess);
-        if (startWallStickSuccess) yield break;
-            
+    {   
         railing.TryAttachToNearbyRailing(out bool startRailingSuccess);
         if (startRailingSuccess) yield break;
         

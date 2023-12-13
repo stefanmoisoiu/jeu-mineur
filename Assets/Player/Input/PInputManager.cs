@@ -26,6 +26,8 @@ public class PInputManager : MonoBehaviour
     public Action OnSecondaryAction,OnStopSecondaryAction;
     public bool SecondaryAction { get; private set; }
 
+    public Action OnPause;
+
     private Camera _cam;
 
     public enum ControlType
@@ -45,37 +47,46 @@ public class PInputManager : MonoBehaviour
     }
     private void OnEnable()
     {
-        _controls = new Controls();
-        _controls.Enable();
-        
-        _controls.Movement.Move.performed += ctx => MoveInput = ctx.ReadValue<float>();
-        _controls.Movement.Vertical.performed += ctx => Verticalnput = ctx.ReadValue<float>();
-        _controls.Movement.Vertical.performed += delegate(InputAction.CallbackContext ctx)
+        if (_controls == null)
         {
-            if(ctx.ReadValue<float>() < -.5f) OnDownPress?.Invoke();
-        };
+            _controls = new Controls();
+            _controls.Enable();
+        
+            _controls.Movement.Move.performed += ctx => MoveInput = ctx.ReadValue<float>();
+            _controls.Movement.Vertical.performed += ctx => Verticalnput = ctx.ReadValue<float>();
+            _controls.Movement.Vertical.performed += delegate(InputAction.CallbackContext ctx)
+            {
+                if(ctx.ReadValue<float>() < -.5f) OnDownPress?.Invoke();
+            };
         
         
-        _controls.Movement.Jump.started += _ => OnJump?.Invoke();
-        _controls.Movement.Jump.canceled += _ => OnStopJump?.Invoke();
+            _controls.Movement.Jump.started += _ => OnJump?.Invoke();
+            _controls.Movement.Jump.canceled += _ => OnStopJump?.Invoke();
         
-        _controls.Movement.Jump.started += _ => Jump = true;
-        _controls.Movement.Jump.canceled += _ => Jump = false;
+            _controls.Movement.Jump.started += _ => Jump = true;
+            _controls.Movement.Jump.canceled += _ => Jump = false;
         
-        _controls.Actions.Main.started += _ => OnMainAction?.Invoke();
-        _controls.Actions.Main.canceled += _ => OnStopMainAction?.Invoke();
+            _controls.Actions.Main.started += _ => OnMainAction?.Invoke();
+            _controls.Actions.Main.canceled += _ => OnStopMainAction?.Invoke();
         
-        _controls.Actions.Main.started += _ => MainAction = true;
-        _controls.Actions.Main.canceled += _ => MainAction = false;
+            _controls.Actions.Main.started += _ => MainAction = true;
+            _controls.Actions.Main.canceled += _ => MainAction = false;
         
-        _controls.Actions.Secondary.started += _ => OnSecondaryAction?.Invoke();
-        _controls.Actions.Secondary.canceled += _ => OnStopSecondaryAction?.Invoke();
+            _controls.Actions.Secondary.started += _ => OnSecondaryAction?.Invoke();
+            _controls.Actions.Secondary.canceled += _ => OnStopSecondaryAction?.Invoke();
         
-        _controls.Actions.Secondary.started += _ => SecondaryAction = true;
-        _controls.Actions.Secondary.canceled += _ => SecondaryAction = false;
+            _controls.Actions.Secondary.started += _ => SecondaryAction = true;
+            _controls.Actions.Secondary.canceled += _ => SecondaryAction = false;
         
-        _controls.Movement.GamePadMoveDirection.performed += ctx => GamePadMoveDirection = ctx.ReadValue<Vector2>();
-        _controls.Actions.GamePadLookDirection.performed += ctx => GamePadLookDirection = ctx.ReadValue<Vector2>();
+            _controls.Movement.GamePadMoveDirection.performed += ctx => GamePadMoveDirection = ctx.ReadValue<Vector2>();
+            _controls.Actions.GamePadLookDirection.performed += ctx => GamePadLookDirection = ctx.ReadValue<Vector2>();
+        
+            _controls.Actions.Pause.started += _ => OnPause?.Invoke();
+        }
+        else
+        {
+            _controls.Enable();
+        }
     }
 
     public Vector2 GetLookDirection()
@@ -93,7 +104,17 @@ public class PInputManager : MonoBehaviour
         }
         return Vector2.zero;
     }
-
+    public void SetInputActive(bool active)
+    {
+        if (active)
+        {
+            _controls.Enable();
+        }
+        else
+        {
+            _controls.Disable();
+        }
+    }
     private void OnDisable()
     {
         _controls?.Disable();

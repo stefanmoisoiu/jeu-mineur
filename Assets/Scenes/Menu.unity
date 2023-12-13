@@ -497,90 +497,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 532975173}
   text: {fileID: 1786900467}
-  normal:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1
-    characterSpacing: 0
-  highlighted:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1.15
-    characterSpacing: 10
-  pressed:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 0.9
-    characterSpacing: -5
+  normal: {fileID: 11400000, guid: d1bf61d2653b3c545b50315b44b80260, type: 2}
+  hovered: {fileID: 11400000, guid: 72db6eb12ad6ac542bf3643aee8107c6, type: 2}
+  pressed: {fileID: 11400000, guid: e2bd4b9f51ec073488d1c9ddffc08d4a, type: 2}
 --- !u!1 &852490902
 GameObject:
   m_ObjectHideFlags: 0
@@ -732,7 +651,7 @@ GameObject:
   - component: {fileID: 858467518}
   - component: {fileID: 858467517}
   m_Layer: 5
-  m_Name: Main Menu
+  m_Name: Main Menu Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -835,14 +754,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c7eca180b52b14a9339594fbeac6d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  optionsMenu: {fileID: 1421420614}
-  progressBar: {fileID: 923530326}
-  progressBarSlider: {fileID: 923530328}
-  gameSceneName: new Game
+  startGameProgressBarObject: {fileID: 923530326}
+  startGameProgressBar: {fileID: 923530328}
   buttonsToLock:
   - {fileID: 532975173}
   - {fileID: 1421420616}
   - {fileID: 2094083136}
+  settingsSceneName: Settings Menu
+  gameSceneName: new Game
 --- !u!1 &923530326
 GameObject:
   m_ObjectHideFlags: 0
@@ -1038,7 +957,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: Settings
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 62e055488d1d04f4a8f2497dbb71dbb1, type: 2}
   m_sharedMaterial: {fileID: 8454670857398045400, guid: 62e055488d1d04f4a8f2497dbb71dbb1, type: 2}
@@ -1115,6 +1034,71 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1043984180}
   m_CullTransparentMesh: 1
+--- !u!1001 &1227533034
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2835356142403474774, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5291770407087042786, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: m_Name
+      value: SimpleAudioManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821381029293141470, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: _songs.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8821381029293141470, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
+      propertyPath: _songs.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 122fce1a0001eb3498fb60b420da8b4f, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c993680f0c660864db5a35e62cd0b631, type: 3}
 --- !u!1 &1341584233
 GameObject:
   m_ObjectHideFlags: 0
@@ -1340,7 +1324,7 @@ GameObject:
   - component: {fileID: 1421420616}
   - component: {fileID: 1421420618}
   m_Layer: 5
-  m_Name: Options
+  m_Name: Settings
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1412,7 +1396,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 858467521}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: OptionsButton
+        m_MethodName: SettingsButton
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1444,90 +1428,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1421420616}
   text: {fileID: 1043984182}
-  normal:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1
-    characterSpacing: 0
-  highlighted:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1.15
-    characterSpacing: 10
-  pressed:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 0.9
-    characterSpacing: -5
+  normal: {fileID: 11400000, guid: d1bf61d2653b3c545b50315b44b80260, type: 2}
+  hovered: {fileID: 11400000, guid: 72db6eb12ad6ac542bf3643aee8107c6, type: 2}
+  pressed: {fileID: 11400000, guid: e2bd4b9f51ec073488d1c9ddffc08d4a, type: 2}
 --- !u!1 &1573060590
 GameObject:
   m_ObjectHideFlags: 0
@@ -2088,90 +1991,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 2094083136}
   text: {fileID: 1386054525}
-  normal:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1
-    characterSpacing: 0
-  highlighted:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 1.15
-    characterSpacing: 10
-  pressed:
-    length: 0.1
-    advancementCurve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0
-        inSlope: 2
-        outSlope: 2
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      - serializedVersion: 3
-        time: 1
-        value: 1
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 0
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    scale: 0.9
-    characterSpacing: -5
+  normal: {fileID: 11400000, guid: d1bf61d2653b3c545b50315b44b80260, type: 2}
+  hovered: {fileID: 11400000, guid: 72db6eb12ad6ac542bf3643aee8107c6, type: 2}
+  pressed: {fileID: 11400000, guid: e2bd4b9f51ec073488d1c9ddffc08d4a, type: 2}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -2181,3 +2003,4 @@ SceneRoots:
   - {fileID: 1341584236}
   - {fileID: 1844676936}
   - {fileID: 937416290}
+  - {fileID: 1227533034}
