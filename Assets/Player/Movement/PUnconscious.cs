@@ -32,11 +32,14 @@ public class PUnconscious : MovementState
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
         animator.PlayAnimation(unconsciousAnimation);
+
+        inputManager.OnJump += Shake;
     }
 
     protected override void OnStateExit()
     {
         rb.isKinematic = false;
+        inputManager.OnJump -= Shake;
     }
 
     protected override void ActiveStateUpdate()
@@ -48,7 +51,12 @@ public class PUnconscious : MovementState
 
         if (!_shakeReset) return;
         if (movementDir == 0) return;
-        
+        Shake();
+    }
+
+    private void Shake()
+    {
+        if (_unconsciousShakeCount <= 0) return;
         _shakeReset = false;
         _unconsciousShakeCount--;
         shakeCameraShake.Shake();
@@ -57,7 +65,6 @@ public class PUnconscious : MovementState
             stateManager.SetState(PStateManager.State.Normal);
             return;
         }
-        
     }
     private int GetMovementDir()
     {

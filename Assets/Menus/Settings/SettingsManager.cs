@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -26,10 +27,26 @@ public class SettingsManager : MonoBehaviour
     [Header("Properties")]
     [SerializeField] private string settingsSceneName = "Settings Menu";
 
-    [SerializeField] private Vector2 masterVolumeRange = new Vector2(-80, 0);
-    [SerializeField] private Vector2 musicVolumeRange = new Vector2(-80, 0);
-    [SerializeField] private Vector2 sfxVolumeRange = new Vector2(-80, 0);
+    [SerializeField] private Vector2 masterVolumeRange = new (-80, 0);
+    [SerializeField] private Vector2 musicVolumeRange = new (-80, 0);
+    [SerializeField] private Vector2 sfxVolumeRange = new (-80, 0);
     
+    
+    public static Action OnOpenSettings, OnCloseSettings;
+    public static bool SettingsOpen { get; private set; }
+
+    private void OnEnable()
+    {
+        SettingsOpen = true;
+        OnOpenSettings?.Invoke();
+    }
+
+    private void OnDisable()
+    {
+        SettingsOpen = false;
+        OnCloseSettings?.Invoke();
+    }
+
     public void CloseSettingsButton()
     {
         SceneManager.UnloadSceneAsync(settingsSceneName);

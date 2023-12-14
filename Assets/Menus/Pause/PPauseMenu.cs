@@ -13,7 +13,7 @@ public class PPauseMenu : MonoBehaviour
     private void Start()
     {
         inputManager.OnPause += OpenPauseMenu;
-        PauseManager.OnResume += ClosePauseMenu;
+        PauseManager.OnClosePause += ClosePauseMenu;
     }
 
     private void OpenPauseMenu()
@@ -26,6 +26,5 @@ public class PPauseMenu : MonoBehaviour
     {
         inputManager.SetInputActive(true);
         Time.timeScale = 1;
-        SceneManager.UnloadSceneAsync(pauseSceneName);
     }
 }
