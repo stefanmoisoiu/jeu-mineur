@@ -26,10 +26,11 @@ public class SettingsManager : MonoBehaviour
     
     [Header("Properties")]
     [SerializeField] private string settingsSceneName = "Settings Menu";
-
-    [SerializeField] private Vector2 masterVolumeRange = new (-80, 0);
-    [SerializeField] private Vector2 musicVolumeRange = new (-80, 0);
-    [SerializeField] private Vector2 sfxVolumeRange = new (-80, 0);
+    
+    private static readonly string MasterVolumeSaveKey = "masterVolume";
+    private static readonly string MusicVolumeSaveKey = "musicVolume";
+    private static readonly string SfxVolumeSaveKey = "sfxVolume";
+    [SerializeField] private ScriptableSFX previewSFX;
     
     
     public static Action OnOpenSettings, OnCloseSettings;
@@ -39,32 +40,102 @@ public class SettingsManager : MonoBehaviour
     {
         SettingsOpen = true;
         OnOpenSettings?.Invoke();
+        
+        LoadSavedSettings();
     }
 
     private void OnDisable()
     {
         SettingsOpen = false;
         OnCloseSettings?.Invoke();
+        
+        SaveSettings();
     }
 
     public void CloseSettingsButton()
     {
         SceneManager.UnloadSceneAsync(settingsSceneName);
     }
-    
-    public void UpdateMasterVolume()
+
+    private void LoadSavedSettings()
     {
-        masterGroup.audioMixer.SetFloat("masterVolume", Mathf.Lerp(masterVolumeRange.x,masterVolumeRange.y,1-Mathf.Pow(1-masterSlider.value / masterSlider.maxValue,4)));
-        masterVolumeText.text = masterSlider.value.ToString();
+        try
+        {
+            ushort masterVolume = ES3.Load<ushort>(MasterVolumeSaveKey);
+            SetMasterVolume(masterVolume);
+        }
+        catch
+        {
+            SetMasterVolume(masterSlider.maxValue);
+        }
+        
+        try
+        {
+            ushort musicVolume = ES3.Load<ushort>(MusicVolumeSaveKey);
+            SetMusicVolume(musicVolume);
+        }
+        catch
+        {
+            SetMusicVolume(musicSlider.maxValue);
+        }
+        
+        try
+        {
+            ushort sfxVolume = ES3.Load<ushort>(SfxVolumeSaveKey);
+            SetSFXVolume(sfxVolume);
+        }
+        catch
+        {
+            SetSFXVolume(sfxSlider.maxValue);
+        }
     }
-    public void UpdateMusicVolume()
+    private void SaveSettings()
     {
-        musicGroup.audioMixer.SetFloat("musicVolume", Mathf.Lerp(musicVolumeRange.x,musicVolumeRange.y, 1-Mathf.Pow(1-musicSlider.value / musicSlider.maxValue,4)));
+        ES3.Save(MasterVolumeSaveKey, (ushort)masterSlider.value);
+        ES3.Save(MusicVolumeSaveKey, (ushort)musicSlider.value);
+        ES3.Save(SfxVolumeSaveKey, (ushort)sfxSlider.value);
+    }
+    
+    public void MasterVolumeChanged()
+    {
+        SetMasterVolume(masterSlider.value);
+        previewSFX.Play();
+    }
+    public void MusicVolumeChanged()
+    {
+        SetMusicVolume(musicSlider.value);
+    }
+    public void SFXVolumeChanged()
+    {
+        SetSFXVolume(sfxSlider.value);
+        previewSFX.Play();
+    }
+    
+    private void SetSFXVolume(float value)
+    {
+        float advancement = 1 - Mathf.Pow(1 - value / 10, 4);
+        float volume = Mathf.Lerp(-80, 0, advancement);
+        sfxGroup.audioMixer.SetFloat("sfxVolume", volume);
+        
+        sfxSlider.SetValueWithoutNotify(value);
+        sfxVolumeText.text = sfxSlider.value.ToString();
+    }
+    private void SetMusicVolume(float value)
+    {
+        float advancement = 1 - Mathf.Pow(1 - value / 10, 4);
+        float volume = Mathf.Lerp(-80, 0, advancement);
+        musicGroup.audioMixer.SetFloat("musicVolume", volume);
+        
+        musicSlider.SetValueWithoutNotify(value);
         musicVolumeText.text = musicSlider.value.ToString();
     }
-    public void UpdateSFXVolume()
+    private void SetMasterVolume(float value)
     {
-        sfxGroup.audioMixer.SetFloat("sfxVolume", Mathf.Lerp(sfxVolumeRange.x,sfxVolumeRange.y, 1-Mathf.Pow(1-sfxSlider.value / sfxSlider.maxValue,4)));
-        sfxVolumeText.text = sfxSlider.value.ToString();
+        float advancement = 1 - Mathf.Pow(1 - value / 10, 4);
+        float volume = Mathf.Lerp(-80, 0, advancement);
+        masterGroup.audioMixer.SetFloat("masterVolume", volume);
+        
+        masterSlider.SetValueWithoutNotify(value);
+        masterVolumeText.text = masterSlider.value.ToString();
     }
 }

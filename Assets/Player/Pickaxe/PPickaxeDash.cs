@@ -42,6 +42,12 @@ public class PPickaxeDash : MovementState
         _startGravityScale = rb.gravityScale;
     }
 
+    private void OnDisable()
+    {
+        pickaxe.OnPickaxeUsed -= PickaxeDash;
+        inputManager.OnSecondaryAction -= TryGrapple;
+    }
+
     protected override void OnStateEnter()
     {
         pickaxe.OnPickaxeUsed += PickaxeDash;

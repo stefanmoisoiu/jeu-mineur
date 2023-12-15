@@ -3,6 +3,8 @@ using UnityEngine;
 public class PAnimator : MonoBehaviour
 {
     [SerializeField] private Animator animator;
+    [SerializeField] private Animator[] otherAnimators;
+    
     [SerializeField] private PDebug debug;
     private PDebug.DebugText _debugText;
     
@@ -21,5 +23,6 @@ public class PAnimator : MonoBehaviour
         if (_currentAnimation == animationName) return;
         _currentAnimation = animationName;
         animator.Play(animationName);
+        foreach (Animator otherAnimator in otherAnimators) otherAnimator.Play(animationName);
     }
 }

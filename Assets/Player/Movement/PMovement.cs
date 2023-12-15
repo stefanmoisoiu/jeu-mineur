@@ -57,10 +57,19 @@ public class PMovement : MovementState
 
     public Action OnJump;
     public static Action OnJumpStatic;
-    private void Start()
+    private void OnEnable()
     {
         inputManager.OnJump += RestartBufferTimer;
         grounded.OnGroundedChanged += RestartCoyoteTimer;
+    }
+
+    private void OnDisable()
+    {
+        inputManager.OnJump -= RestartBufferTimer;
+        grounded.OnGroundedChanged -= RestartCoyoteTimer;
+        
+        inputManager.OnJump -= Jump;
+        inputManager.OnSecondaryAction -= TryGrapple;
     }
 
     protected override void OnStateEnter()

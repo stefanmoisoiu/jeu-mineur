@@ -1585,9 +1585,7 @@ MonoBehaviour:
   musicVolumeText: {fileID: 1503248390}
   sfxVolumeText: {fileID: 232765273}
   settingsSceneName: Settings Menu
-  masterVolumeRange: {x: -80, y: 0}
-  musicVolumeRange: {x: -80, y: 0}
-  sfxVolumeRange: {x: -80, y: 0}
+  previewSFX: {fileID: 11400000, guid: dd04af49ab796d841899af5675881ca3, type: 2}
 --- !u!1 &616393560
 GameObject:
   m_ObjectHideFlags: 0
@@ -1755,7 +1753,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 537547186}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: UpdateSFXVolume
+        m_MethodName: SFXVolumeChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2127,7 +2125,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 537547186}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: UpdateMusicVolume
+        m_MethodName: MusicVolumeChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2357,7 +2355,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 537547186}
         m_TargetAssemblyTypeName: SettingsManager, Assembly-CSharp
-        m_MethodName: UpdateMasterVolume
+        m_MethodName: MasterVolumeChanged
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

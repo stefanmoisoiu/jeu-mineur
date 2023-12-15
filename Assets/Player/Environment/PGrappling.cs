@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -59,6 +60,12 @@ public class PGrappling : MovementState
     {
         _debugText = () => $"Grappling HVel: {Mathf.Round(_horizontalVelocity * 100) / 100} | VVel: {Mathf.Round(_verticalVelocity * 100) / 100}";
         idlePreviewAnimation.StartAnimation(this);
+    }
+
+    private void OnDisable()
+    {
+        inputManager.OnJump -= Detach;
+        inputManager.OnSecondaryAction -= Detach;
     }
 
     protected override void OnStateEnter()

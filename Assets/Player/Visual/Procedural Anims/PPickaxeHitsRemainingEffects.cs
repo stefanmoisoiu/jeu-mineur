@@ -21,19 +21,31 @@ public class PPickaxeHitsRemainingEffects : MonoBehaviour
     {
         _previousHitsRemaining = pickaxe.MaxHits;
         _baseLightIntensity = light2D.intensity;
-        
-        pickaxe.OnPickaxeUsed += hitsRemaining =>
-        {
-            if (_lerpCoroutine != null)
-                StopCoroutine(_lerpCoroutine);
-            _lerpCoroutine = StartCoroutine(LerpCoroutine(hitsRemaining));
-        };
-        pickaxe.OnPickaxeReset += () =>
-        {
-            if (_lerpCoroutine != null)
-                StopCoroutine(_lerpCoroutine);
-            _lerpCoroutine = StartCoroutine(LerpCoroutine(pickaxe.MaxHits));
-        };
+    }
+
+    private void OnEnable()
+    {
+        pickaxe.OnPickaxeUsed += PlayHitsRemainingLerp;
+        pickaxe.OnPickaxeReset += PlayLerpReset;
+    }
+
+    private void OnDisable()
+    {
+        pickaxe.OnPickaxeUsed -= PlayHitsRemainingLerp;
+        pickaxe.OnPickaxeReset -= PlayLerpReset;
+    }
+
+    private void PlayLerpReset()
+    {
+        if (_lerpCoroutine != null)
+            StopCoroutine(_lerpCoroutine);
+        _lerpCoroutine = StartCoroutine(LerpCoroutine(pickaxe.MaxHits));
+    }
+    private void PlayHitsRemainingLerp(int hitsRemaining)
+    {
+        if (_lerpCoroutine != null)
+            StopCoroutine(_lerpCoroutine);
+        _lerpCoroutine = StartCoroutine(LerpCoroutine(hitsRemaining));
     }
 
     private IEnumerator LerpCoroutine(int hitsRemaining)

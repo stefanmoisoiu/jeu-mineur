@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PFlashEffect : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer;
+    [SerializeField] private SpriteRenderer[] spriteRenderers;
     [SerializeField] private float flashPerSecond = 0.5f;
     
     private Material _mat;
@@ -14,8 +14,14 @@ public class PFlashEffect : MonoBehaviour
 
     private void Start()
     {
-        _mat = spriteRenderer.material;
-        _mat.SetFloat(FlashHash, 0);
+        // _mat = spriteRenderer.material;
+        // _mat.SetFloat(FlashHash, 0);
+        
+        foreach (SpriteRenderer spriteRenderer in spriteRenderers)
+        {
+            _mat = spriteRenderer.material;
+            _mat.SetFloat(FlashHash, 0);
+        }
     }
 
     public void Flash(float duration)

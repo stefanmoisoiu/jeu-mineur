@@ -6,7 +6,7 @@ using UnityEngine;
 public class ConnectToUGS : MonoBehaviour
 {
     [SerializeField] private bool connectOnStart;
-    public Action OnConnected;
+    public static Action OnConnected;
 
     private void Start()
     {
@@ -20,6 +20,9 @@ public class ConnectToUGS : MonoBehaviour
         await UnityServices.InitializeAsync();
         await AuthenticationService.Instance.SignInAnonymouslyAsync();
         Debug.Log("Connected to Unity Game Services successfully!");
+        
+        CachedCloudData.UpdateCachedValues();
+        
         OnConnected?.Invoke();
     }
 }

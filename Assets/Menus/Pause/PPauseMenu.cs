@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -8,12 +9,18 @@ public class PPauseMenu : MonoBehaviour
     
     [Header("Properties")]
     [SerializeField] private string pauseSceneName = "Pause Menu";
-    
 
-    private void Start()
+    private void OnEnable()
     {
         inputManager.OnPause += OpenPauseMenu;
         PauseManager.OnClosePause += ClosePauseMenu;
+    }
+
+    private void OnDisable()
+    {
+        inputManager.OnPause -= OpenPauseMenu;
+        PauseManager.OnClosePause -= ClosePauseMenu;
+        Time.timeScale = 1;
     }
 
     private void OpenPauseMenu()

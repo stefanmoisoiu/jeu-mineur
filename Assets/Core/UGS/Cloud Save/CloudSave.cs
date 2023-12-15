@@ -1,5 +1,7 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using JetBrains.Annotations;
 using UnityEngine;
 using Unity.Services.CloudSave;
 using Unity.Services.CloudSave.Models;
@@ -8,13 +10,14 @@ public static class CloudSave
 {
     public delegate void CloudSaveCallback();
     
-    public static async  void Save(string key, object value, CloudSaveCallback callback = null)
+    public static async void Save(string key, object value, CloudSaveCallback callback = null)
     {
         Dictionary<string,object> data = new() { { key, value } };
         await CloudSaveService.Instance.Data.Player.SaveAsync(data);
         callback?.Invoke();
     }
     
+    [ItemCanBeNull]
     public static async Task<T> Load<T>(string key, CloudSaveCallback callback = null)
     {
         
@@ -24,12 +27,27 @@ public static class CloudSave
         if (!data.TryGetValue(key, out Item item))
         {
             callback?.Invoke();
-            return default;
+            throw new Exception("Key not found in cloud save data");
         }
 
         callback?.Invoke();
         
         return item.Value.GetAs<T>();
+    }
+    public static async Task<Item> Load(string key, CloudSaveCallback callback = null)
+    {
+        HashSet<string> keys = new() { key };
+        Dictionary<string,Item> data = await CloudSaveService.Instance.Data.Player.LoadAsync(keys);
+        
+        if (!data.TryGetValue(key, out Item item))
+        {
+            callback?.Invoke();
+            throw new Exception("Key not found in cloud save data");
+        }
+
+        callback?.Invoke();
+        
+        return item;
     }
 
     public static async Task<T[]> LoadMultiple<T>(string[] keys, CloudSaveCallback callback = null)
@@ -54,6 +72,16 @@ public static class CloudSave
 
         callback?.Invoke();
         return values.ToArray();
+    }
+    public static async Task<Dictionary<string,Item>> LoadMultiple(string[] keys, CloudSaveCallback callback = null)
+    {
+        HashSet<string> keySet = new();
+        foreach (string key in keys) keySet.Add(key);
+        
+        Dictionary<string,Item> data = await CloudSaveService.Instance.Data.Player.LoadAsync(keySet);
+        
+        callback?.Invoke();
+        return data;
     }
     
     public static async Task<T> SaveOrLoad<T> (string key, T value, CloudSaveCallback callback = null)

@@ -10,7 +10,6 @@ public class PUncontrollable : MovementState
     [SerializeField] private PGrounded grounded;
     [SerializeField] private PGroundStick groundStick;
     [SerializeField] private PAnimator animator;
-    [SerializeField] private PUnconscious unconscious;
     
     
     [Header("Start Fall Properties")]
@@ -52,6 +51,11 @@ public class PUncontrollable : MovementState
     [Header("Animations")]
     [SerializeField] private string fallAnimation = "Fall";
     [SerializeField] private string slideAnimation = "Dead";
+    
+    [Header("Audio")]
+    [SerializeField] private ScriptableSFX splatSfx;
+
+    
 
     public Action OnStartUncontrollable, OnStartSlide;
     
@@ -96,9 +100,14 @@ public class PUncontrollable : MovementState
         success = true;
         
         if (Mathf.Abs(transform.position.y - _startUncontrollableHeight) > fallDistanceToUnconscious)
+        {
+            splatSfx.Play();
             stateManager.SetState(PStateManager.State.Unconscious);
+        }
         else
+        {
             stateManager.SetState(PStateManager.State.Normal);
+        }
     }
 
     protected override void OnStateEnter()
@@ -147,6 +156,8 @@ public class PUncontrollable : MovementState
         rb.velocity *= startSlideVelMult;
         
         animator.PlayAnimation(slideAnimation);
+        
+        splatSfx.Play();
         
         OnStartSlide?.Invoke();
     }
