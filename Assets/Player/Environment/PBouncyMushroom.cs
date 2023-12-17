@@ -14,6 +14,8 @@ public class PBouncyMushroom : MovementState
     [SerializeField] private float uncontrolledBounceLength;
     [SerializeField] [Range(0,1)] private float bounceVelConservation = 0.5f;
     [SerializeField] private string bounceAnimationName = "Bounce";
+    [SerializeField] private float maxProjectedVelocity = 3f;
+    
     
 
     private float _uncontrolledBounceLength;
@@ -34,6 +36,7 @@ public class PBouncyMushroom : MovementState
 
         Vector2 direction = other.transform.up;
         Vector2 addedVelocity = bouncyMushroom.AdditiveForce ? Vector3.ProjectOnPlane(rb.velocity, direction) : Vector2.zero;
+        addedVelocity = Vector2.ClampMagnitude(addedVelocity, maxProjectedVelocity);
         rb.velocity = direction * velocity + addedVelocity;
         _uncontrolledBounceLength = uncontrolledBounceLength;
     }
