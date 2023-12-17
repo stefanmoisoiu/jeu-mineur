@@ -23,7 +23,17 @@ public class PData : MonoBehaviour
 
     private void Start()
     {
-        bool pickaxeObtained = ES3.Load(PickaxeObtainedKey, false);
+        bool pickaxeObtained = false;
+        try
+        {
+            pickaxeObtained = ES3.Load(PickaxeObtainedKey, false);
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
+        
+        Debug.Log($"Pickaxe obtained: {pickaxeObtained}");
         
         if (pickaxeObtained)
             EnablePickaxe();
@@ -85,9 +95,17 @@ public class PData : MonoBehaviour
     }
     private void LoadPlayerPosition()
     {
-        Vector2 pos = ES3.Load<Vector2>(PlayerPositionKey);
-        playerRb.position = pos;
-        playerRb.transform.position = pos;
+        try
+        {
+            Vector2 pos = ES3.Load<Vector2>(PlayerPositionKey);
+            playerRb.position = pos;
+            playerRb.transform.position = pos;
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
+
         playerRb.velocity = Vector2.zero;
     }
 }

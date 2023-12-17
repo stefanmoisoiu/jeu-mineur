@@ -8,7 +8,17 @@ public class ObtainPickaxe : MonoBehaviour
 
     private void Awake()
     {
-        bool pickaxeObtained = ES3.Load(PickaxeObtainedKey, false);
+        bool pickaxeObtained = false;
+
+        try
+        {
+            pickaxeObtained = ES3.Load(PickaxeObtainedKey, false);
+        }
+        catch (Exception e)
+        {
+            // ignored
+        }
+        
         if (pickaxeObtained)
             Destroy(gameObject);
     }
@@ -16,8 +26,15 @@ public class ObtainPickaxe : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        ES3.Save(PickaxeObtainedKey, true);
-        OnPickaxeObtained?.Invoke();
-        Destroy(gameObject);
+        try
+        {
+            ES3.Save(PickaxeObtainedKey, true);
+            OnPickaxeObtained?.Invoke();
+            Destroy(gameObject);
+        }
+        catch (Exception e)
+        {
+            Debug.LogError(e);
+        }
     }
 }

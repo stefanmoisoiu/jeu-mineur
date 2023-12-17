@@ -22,7 +22,7 @@ public class SaveLastScreenshot : MonoBehaviour
 
     private void SaveScreenshot()
     {
-        ES3.Save(LastScreenshotKey, screenshotter.TakeScreenshot());
+        ES3.Save(LastScreenshotKey, screenshotter.TakeScreenshot().EncodeToPNG());
         Debug.Log("Saved screenshot");
     }
 }

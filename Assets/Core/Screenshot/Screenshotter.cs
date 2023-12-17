@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Screenshotter : MonoBehaviour
 {
-    public byte[] TakeScreenshot()
+    public Texture2D TakeScreenshot()
     {
         Camera mainCam = Camera.main;
         
@@ -26,7 +26,7 @@ public class Screenshotter : MonoBehaviour
         RenderTexture.active = null;
         
         Destroy(renderTexture);
-        
-        return screenShot.EncodeToPNG();
+
+        return screenShot;
     }
 }
