@@ -31,6 +31,9 @@ public class SettingsManager : MonoBehaviour
     private static readonly string MusicVolumeSaveKey = "musicVolume";
     private static readonly string SfxVolumeSaveKey = "sfxVolume";
     [SerializeField] private ScriptableSFX previewSFX;
+
+    [SerializeField] private Selectable mainFocus;
+    
     
     
     public static Action OnOpenSettings, OnCloseSettings;
@@ -40,6 +43,8 @@ public class SettingsManager : MonoBehaviour
     {
         SettingsOpen = true;
         OnOpenSettings?.Invoke();
+        
+        mainFocus.Select();
         
         LoadSavedSettings();
     }

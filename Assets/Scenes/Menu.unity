@@ -612,10 +612,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 2094083136}
+    m_SelectOnDown: {fileID: 1421420616}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1107,6 +1107,7 @@ MonoBehaviour:
   - {fileID: 532975173}
   - {fileID: 1421420616}
   - {fileID: 2094083136}
+  mainFocus: {fileID: 532975173}
   settingsSceneName: Settings Menu
   gameSceneName: new Game
 --- !u!114 &858467522
@@ -2027,7 +2028,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_FirstSelected: {fileID: 0}
+  m_FirstSelected: {fileID: 532975171}
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1341584236
@@ -3019,10 +3020,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1421420616}
+    m_SelectOnDown: {fileID: 532975173}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -9,6 +10,8 @@ public class MenuManager : MonoBehaviour
     [SerializeField] private GameObject startGameProgressBarObject;
     [SerializeField] private Slider startGameProgressBar;
     [SerializeField] private Button[] buttonsToLock;
+    [SerializeField] private Selectable mainFocus;
+    
     
     [Header("Properties")]
     [SerializeField] private string settingsSceneName = "Settings Menu";
@@ -16,14 +19,33 @@ public class MenuManager : MonoBehaviour
 
     
     public void PlayButton() => StartGame();
-    public void SettingsButton() => SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
+    public void SettingsButton()
+    {
+        SetButtons(false);
+        SceneManager.LoadScene(settingsSceneName, LoadSceneMode.Additive);
+    }
     public void QuitButton() => Application.Quit();
+
+    private void OnEnable()
+    {
+        SettingsManager.OnCloseSettings += SettingsClosed;
+    }
+
+    private void OnDisable()
+    {
+        SettingsManager.OnCloseSettings -= SettingsClosed;
+    }
 
     private void StartGame()
     {
-        SetLockedButtonsState(true);
+        SetButtons(false);
         StartCoroutine(StartGameLoadScene(gameSceneName));
-        SetLockedButtonsState(false);
+        SetButtons(true);
+    }
+    private void SettingsClosed()
+    {
+        SetButtons(true);
+        mainFocus.Select();
     }
 
     private IEnumerator StartGameLoadScene(string sceneName)
@@ -39,11 +61,8 @@ public class MenuManager : MonoBehaviour
         startGameProgressBarObject.SetActive(false);
     }
     
-    public void SetLockedButtonsState(bool locked)
+    public void SetButtons(bool enable)
     {
-        foreach (Button button in buttonsToLock)
-        {
-            button.interactable = !locked;
-        }
+        foreach (Button button in buttonsToLock) button.interactable = enable;
     }
 }

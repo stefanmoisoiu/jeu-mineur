@@ -404,73 +404,6 @@ MonoBehaviour:
   jumpVel: 10
   railingDrag: 0.975
   showGizmos: 0
---- !u!1 &1278447532849665170
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4953312052372654886}
-  - component: {fileID: 2431005299138979025}
-  - component: {fileID: 3443400161037916311}
-  m_Layer: 6
-  m_Name: Health
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4953312052372654886
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278447532849665170}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 6611665124835918110}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2431005299138979025
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278447532849665170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afb50c943f04479abcd521f8b8b4cf74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2958054563617303837}
-  pDeath: {fileID: 3443400161037916311}
-  colliderEvents: {fileID: 6664590386673884067}
-  checkpointLayerMask:
-    serializedVersion: 2
-    m_Bits: 256
---- !u!114 &3443400161037916311
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1278447532849665170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4068a4122101dc6429fcfdb229c18435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colliderEvents: {fileID: 6664590386673884067}
-  deathLayerMask:
-    serializedVersion: 2
-    m_Bits: 128
 --- !u!1 &1442780876121484048
 GameObject:
   m_ObjectHideFlags: 0
@@ -857,7 +790,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notGroundLayer:
     serializedVersion: 2
-    m_Bits: 262144
+    m_Bits: 0
   groundLayer:
     serializedVersion: 2
     m_Bits: 178184
@@ -1178,7 +1111,6 @@ Transform:
   - {fileID: 1564284353013845099}
   - {fileID: 1703006486991291323}
   - {fileID: 6164236978785400873}
-  - {fileID: 4953312052372654886}
   - {fileID: 6316640210973583372}
   - {fileID: 6693647808861358623}
   - {fileID: 1463089872317837273}
@@ -18889,7 +18821,7 @@ MonoBehaviour:
   airDragMult: 0.04
   tooFastDragMult: 0.7
   jumpForce: 7
-  jumpAddedVelMult: 0.5
+  jumpAddedVelMult: 0.2
   jumpCooldownTime: 0.3
   jumpBufferTime: 0.2
   jumpCoyoteTime: 0.15

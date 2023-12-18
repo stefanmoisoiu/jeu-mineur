@@ -175,10 +175,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 1860927335}
+    m_SelectOnDown: {fileID: 884995641}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -295,10 +295,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: -1
+    m_Mode: 4
     m_WrapAround: 0
-    m_SelectOnUp: {fileID: 0}
-    m_SelectOnDown: {fileID: 0}
+    m_SelectOnUp: {fileID: 521176001}
+    m_SelectOnDown: {fileID: 1860927335}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
@@ -1010,6 +1010,11 @@ MonoBehaviour:
   pauseSceneName: Pause Menu
   settingsSceneName: Settings Menu
   mainMenuSceneName: Menu
+  buttonsToDisableOnSettings:
+  - {fileID: 884995641}
+  - {fileID: 1860927335}
+  - {fileID: 521176001}
+  mainFocus: {fileID: 884995641}
 --- !u!1 &2044112823
 GameObject:
   m_ObjectHideFlags: 0
