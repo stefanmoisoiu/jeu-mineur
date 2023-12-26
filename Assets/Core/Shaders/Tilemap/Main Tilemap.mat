@@ -1,0 +1,106 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Main Tilemap
+  m_Shader: {fileID: -6465566751694194690, guid: f318a1e012ee2574f9efa141c789481c, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords: []
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _MainTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Darken: 0
+    - _L1_Rock_Noise_Force: 1
+    - _L1_Rock_Noise_Scale: 0.1
+    - _L1_Rock_Scale: 0.09
+    - _L1_Rock_Step: 0.71
+    - _L1_Small_Rocks_Density: 1
+    - _L1_Small_Rocks_Noise_Force: 0.5
+    - _L1_Small_Rocks_Noise_Scale: 0.5
+    - _L1_Small_Rocks_Scale: 0.55
+    - _L1_Small_Rocks_Step: 0.9995
+    - _L2_Outline_Size: 1.4
+    - _L2_Outlines_Power: 1.16
+    - _L2_Special_Outline_Max_Dist: 6
+    - _L2_Special_Outline_Size: 0.125
+    - _L2_Special_Scale: 1
+    - _L2_Special_Size: 1.5
+    - _Layer: 0
+    - _Rock_Noise_Force: 0.86
+    - _Rock_Noise_Scale: 0.25
+    - _Rock_Scale: 0.1
+    - _Rock_Step: 0.52
+    - _Small_Rocks_Density: 0.06
+    - _Small_Rocks_Noise_Force: 0.5
+    - _Small_Rocks_Noise_Scale: 0.5
+    - _Small_Rocks_Scale: 10
+    - _Small_Rocks_Step: 0.999
+    m_Colors:
+    - _Color_Dark: {r: 0.4509804, g: 0.24313726, b: 0.22352941, a: 1}
+    - _Color_Light: {r: 0.89411765, g: 0.6509804, b: 0.44705883, a: 1}
+    - _Color_Medium: {r: 0.72156864, g: 0.43529412, b: 0.3137255, a: 1}
+    - _Color_Outline: {r: 0.09411765, g: 0.078431375, b: 0.14509805, a: 1}
+    - _Color_Special: {r: 0.6509434, g: 0.39052588, b: 0.2794144, a: 1}
+    - _Color_Special_2: {r: 0.6981132, g: 0.4167188, b: 0.29307583, a: 1}
+    - _L1_Color_Dark: {r: 0.4509804, g: 0.24313726, b: 0.22352941, a: 1}
+    - _L1_Color_Light: {r: 0.89411765, g: 0.6509804, b: 0.44705883, a: 1}
+    - _L1_Color_Medium: {r: 0.72156864, g: 0.43529412, b: 0.3137255, a: 1}
+    - _L1_Color_Outline: {r: 0.09411765, g: 0.078431375, b: 0.14509805, a: 1}
+    - _L1_Color_Special: {r: 0.5943396, g: 0.36410308, b: 0.26633143, a: 1}
+    - _L1_Color_Special_2: {r: 0.8490566, g: 0.50890255, b: 0.36445355, a: 1}
+    - _L1_Rock_Size: {r: 0.2, g: 1, b: 0, a: 0}
+    - _L2_Color_Close: {r: 0.70358664, g: 0.78434414, b: 0.9150943, a: 1}
+    - _L2_Color_Dark: {r: 0.3529412, g: 0.4117647, b: 0.53333336, a: 1}
+    - _L2_Color_Light: {r: 0.8, g: 0.85490197, b: 0.94509804, a: 1}
+    - _L2_Color_Medium: {r: 0.6148096, g: 0.69886, b: 0.8301887, a: 1}
+    - _L2_Color_Outline: {r: 0.09411765, g: 0.078431375, b: 0.14509805, a: 1}
+    - _L2_Color_Special: {r: 0.7965468, g: 0.8532255, b: 0.9433962, a: 1}
+    - _PlayerPosition: {r: 4.8, g: -1.69, b: 0, a: 0}
+    - _Rock_Scale: {r: 0.5, g: 1, b: 0, a: 0}
+    - _Rock_Size: {r: 0.2, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
+--- !u!114 &8795609213668116540
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
