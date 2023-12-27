@@ -97,7 +97,7 @@ namespace SimpleAudioManager
         public void PlaySong(PlaySongOptions pOptions)
         {
             //  Updates the data collection
-            _UpdateSongData();
+            // _UpdateSongData();
 
             //  Confirm song exists, clip exists
             if (_data == null || _data.Count == 0 || _data.Count <= pOptions.song) return;
@@ -106,6 +106,7 @@ namespace SimpleAudioManager
             //  Do our best to match intensity
             if (_data[pOptions.song].intensityClips.Count <= pOptions.intensity) pOptions.intensity = _data[pOptions.song].intensityClips.Count - 1;
 
+            
             //  Get the next available audio source
             if (_currentSourceIndex != -1)
             {
@@ -117,8 +118,10 @@ namespace SimpleAudioManager
             }
 
             //  Change the current source to the next available source
+            
             _currentSourceIndex = _GetNextSourceIndex();
             AudioSource _nextSource = _currentSource;
+            
 
             //  Apply the provided options
             _currentSongIndex = pOptions.song;
@@ -172,6 +175,10 @@ namespace SimpleAudioManager
                 DestroyImmediate(gameObject);
                 return;
             }
+            
+            _UpdateSongData();
+            
+            
             if (playOnAwake) StartCoroutine(_delay());
             IEnumerator _delay()
             {

@@ -2,10 +2,11 @@ using System;
 using System.Collections;
 using SimpleAudioManager;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LayerManager : MonoBehaviour
 {
-    [SerializeField] private Material[] layerMaterials;
+    [SerializeField] private Material[] layerMats;
     [SerializeField] private float transitionLength = 0.75f;
     [SerializeField] private Manager audioManager;
     
@@ -14,6 +15,11 @@ public class LayerManager : MonoBehaviour
 
     private int _currentLayer = 0;
     private static readonly int Layer = Shader.PropertyToID("_Layer");
+
+    private void Start()
+    {
+        foreach (Material layerMat in layerMats) layerMat.SetFloat(Layer, _currentLayer);
+    }
 
     private void Update()
     {
@@ -24,7 +30,6 @@ public class LayerManager : MonoBehaviour
     public void SetLayer(int layer)
     {
         if (layer == _currentLayer) return;
-        
         audioManager.PlaySong(layer);
         
         if(_transitionCoroutine != null) StopCoroutine(_transitionCoroutine);
@@ -40,10 +45,7 @@ public class LayerManager : MonoBehaviour
         {
             advancement += Time.deltaTime / transitionLength;
 
-            foreach (Material layerMaterial in layerMaterials)    
-            {
-                layerMaterial.SetFloat(Layer, Mathf.Lerp(previousLayer, newLayer, advancement));
-            }
+            foreach (Material layerMat in layerMats) layerMat.SetFloat(Layer, Mathf.Lerp(previousLayer, newLayer, advancement));
             
             yield return null;
         }
