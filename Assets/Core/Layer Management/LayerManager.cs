@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using SimpleAudioManager;
+using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,6 +10,12 @@ public class LayerManager : MonoBehaviour
     [SerializeField] private Material[] layerMats;
     [SerializeField] private float transitionLength = 0.75f;
     [SerializeField] private Manager audioManager;
+
+    [HorizontalGroup]
+    [SerializeField] private int editorLayer = 0;
+    [HorizontalGroup]
+    [Button] private void SetEditorLayer() => SetLayer(editorLayer);
+    
     
     
     private Coroutine _transitionCoroutine;
