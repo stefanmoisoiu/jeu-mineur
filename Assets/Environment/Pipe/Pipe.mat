@@ -54,12 +54,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Length: 18.647808
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _StartWidthLength: 1
     - _StrechForce: 0.2
-    - _StrechForceMult: 0
+    - _StrechForceMult: 1
     - _StretchAdvancement: 5
-    - _StretchPosition: 0
+    - _StretchPosition: 7.44
     - _Stretch_Width: 1
     m_Colors: []
   m_BuildTextureStacks: []

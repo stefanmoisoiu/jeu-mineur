@@ -55,7 +55,7 @@ Material:
     - _L2_Warp_Force: 0.1
     - _L2_Warp_Scale: 0.5
     - _L2_Width: 0.06
-    - _Layer: 1
+    - _Layer: 0
     - _Parallax_Max: 0.6
     - _Parallax_Min: 0.6
     - _Parallax_Mult: 0.5

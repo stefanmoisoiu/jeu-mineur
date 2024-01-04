@@ -55,7 +55,7 @@ Material:
     - _L2_Special_Outline_Size: 0.125
     - _L2_Special_Scale: 1
     - _L2_Special_Size: 1.5
-    - _Layer: 1
+    - _Layer: 0
     - _Rock_Noise_Force: 0.86
     - _Rock_Noise_Scale: 0.25
     - _Rock_Scale: 0.1

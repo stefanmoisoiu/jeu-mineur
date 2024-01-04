@@ -22,6 +22,8 @@ public class TexturedSpline : MonoBehaviour
     
     float3[] leftNormals;
     float3[] rightNormals;
+    
+    public float MaxLength { get; private set; }
 
     private void OnEnable()
     {
@@ -120,6 +122,8 @@ private void BuildMesh()
     mesh.SetUVs(0,uvs);
     mesh.SetNormals(normals);
     meshFilter.mesh = mesh;
+    
+    MaxLength = uvOffset;
 }
 
     private void OnDrawGizmos()
