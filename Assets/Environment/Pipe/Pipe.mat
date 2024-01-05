@@ -55,11 +55,13 @@ Material:
     m_Ints: []
     m_Floats:
     - _Length: 5
+    - _SplineLength: 1
     - _StartWidthLength: 0.25
     - _StrechForce: 0.25
     - _StrechForceMult: 1
+    - _StretchAdvancement: 0
     - _StretchPosition: -200
-    - _StretchWidth: 2
+    - _StretchWidth: 0.5
     - _Stretch_Width: 2
     m_Colors: []
   m_BuildTextureStacks: []

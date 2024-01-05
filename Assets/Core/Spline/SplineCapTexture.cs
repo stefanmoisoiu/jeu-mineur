@@ -21,18 +21,19 @@ public class SplineCapTexture : MonoBehaviour
     
     [Header("Properties")]
     [SerializeField] private bool rotateWithSpline = true;
+    [SerializeField] private bool flipFirst = false;
     [SerializeField] private float addedRotation;
     [SerializeField] private float addedDistance;
 
     #if UNITY_EDITOR
     private void OnEnable()
     {
-        Spline.Changed += UpdateCapSpline;
+        // Spline.Changed += UpdateCapSpline;
     }
 
     private void OnDisable()
     {
-        Spline.Changed -= UpdateCapSpline;
+        // Spline.Changed -= UpdateCapSpline;
     }
     #endif
 
@@ -58,7 +59,7 @@ public class SplineCapTexture : MonoBehaviour
         if (rotateWithSpline)
         {
             _capObjectStart.transform.up = -startTangent;
-            _capObjectStart.transform.Rotate(0, 0, addedRotation);
+            _capObjectStart.transform.Rotate(0, 0, addedRotation * (flipFirst ? -1 : 1));
         }
         _capObjectEnd = Instantiate(capObjectType == CapObjectType.Same ? edgeObject : edgeObjectEnd, transform);
         

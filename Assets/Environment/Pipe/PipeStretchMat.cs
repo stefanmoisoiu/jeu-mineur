@@ -2,15 +2,17 @@ using System;
 using System.Collections;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Splines;
+
 public class PipeStretchMat : MonoBehaviour
 {
-    [SerializeField] private TexturedSpline texturedSpline;
+    [SerializeField] private SplineContainer splineContainer;
     [SerializeField] private MeshRenderer meshRenderer;
     [SerializeField] private Material pipeMat;
     
     
-    private static readonly int Length = Shader.PropertyToID("_Length");
-    private static readonly int StretchPosition = Shader.PropertyToID("_StretchPosition");
+    private static readonly int SplineLength = Shader.PropertyToID("_SplineLength");
+    private static readonly int StretchAdvancement = Shader.PropertyToID("_StretchAdvancement");
     private static readonly int StretchWidth = Shader.PropertyToID("_StretchWidth");
     
 
@@ -18,18 +20,13 @@ public class PipeStretchMat : MonoBehaviour
     {
         meshRenderer.material = new Material(pipeMat);
         UpdateLength();
-        SetStretchPosition(0);
+        SetStretchAdvancement(0);
     }
 
     [Button("Manual Update")]
     private void UpdateLength() =>
-        meshRenderer.material.SetFloat(Length, texturedSpline.MaxUVOffset);
+        meshRenderer.material.SetFloat(SplineLength, splineContainer.Spline.GetLength());
     
-    public void SetStretchPosition(float stretchPosition)
-    {
-        float stretchAdvancement = Mathf.Clamp01(stretchPosition / texturedSpline.MaxUVOffset);
-        float addedPosition = (stretchAdvancement - 0.5f) * meshRenderer.material.GetFloat(StretchWidth) * 2;
-        
-        meshRenderer.material.SetFloat(StretchPosition, stretchPosition + addedPosition);
-    }
+    public void SetStretchAdvancement(float strechAdvancement) =>
+        meshRenderer.material.SetFloat(StretchAdvancement, strechAdvancement);
 }

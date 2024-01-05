@@ -6,6 +6,8 @@ public class PPipe : MovementState
     [Header("References")]
     [SerializeField] private ColliderEvents colliderEvents;
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private Collider2D col;
+    
     [SerializeField] private PMovement movement;
     [SerializeField] private PPickaxe pickaxe;
     
@@ -22,7 +24,16 @@ public class PPipe : MovementState
     [SerializeField] private float exitVerticalSpeed = 2;
     [SerializeField] private float exitJumpVerticalSpeed = 5;
     [SerializeField] private float enterPipeCooldown = 0.2f;
+    [SerializeField] private float highJumpBufferTime = 0.2f;
+    private float _highJumpBufferTimer;
+    
     private float _enterPipeCooldownTimer;
+    
+    [Header("Audio")]
+    [SerializeField] private ScriptableSFX enterPipeSFX;
+    [SerializeField] private ScriptableSFX exitPipeSFX;
+
+    
     
     
     public Action OnEnterPipe, OnExitPipe;
@@ -45,6 +56,12 @@ public class PPipe : MovementState
     private new void Update()
     {
         _enterPipeCooldownTimer -= Time.deltaTime;
+        _highJumpBufferTimer -= Time.deltaTime;
+        if (movement.JumpBufferTimer > 0 && _highJumpBufferTimer > 0)
+        {
+            rb.velocity += Vector2.up * (exitJumpVerticalSpeed - exitVerticalSpeed);
+            _highJumpBufferTimer = 0;
+        }
         base.Update();
     }
 
@@ -52,12 +69,24 @@ public class PPipe : MovementState
     {
         rb.velocity = Vector2.zero;
         rb.isKinematic = true;
+        col.enabled = false;
+        enterPipeSFX.Play();
     }
 
     protected override void OnStateExit()
     {
+        if (_currentPipe != null)
+        {
+            _currentPipe.OnPipePositionChanged -= UpdatePipePosition;
+            _currentPipe.OnPipeExited -= ExitPipe;
+            _currentPipe.StopMovingStretchPosition();
+            _currentPipe = null;
+        }
         pickaxe.ResetPickaxe();
         _enterPipeCooldownTimer = enterPipeCooldown;
+        rb.isKinematic = false;
+        col.enabled = true;
+        exitPipeSFX.Play();
     }
 
     private void TryEnterPipe(Collider2D other)
@@ -77,6 +106,9 @@ public class PPipe : MovementState
         _currentPipe.OnPipePositionChanged += UpdatePipePosition;
         _currentPipe.OnPipeExited += ExitPipe;
         
+        rb.velocity = Vector2.zero;
+        rb.isKinematic = true;
+        col.enabled = false;
         
         _currentPipe.MoveStretchPosition(forward, moveSpeed);
         stateManager.SetState(PStateManager.State.Pipe);
@@ -91,14 +123,13 @@ public class PPipe : MovementState
     private void ExitPipe(Vector2 exitPosition, Vector2 exitDirection)
     {
         rb.transform.position = exitPosition;
-        rb.position = exitPosition;
-        rb.isKinematic = false;
-        
         rb.velocity = exitDirection * exitSpeed;
         rb.velocity += Vector2.up * (movement.JumpBufferTimer > 0 ? exitJumpVerticalSpeed : exitVerticalSpeed);
         
         _currentPipe.OnPipePositionChanged -= UpdatePipePosition;
         _currentPipe.OnPipeExited -= ExitPipe;
+        
+        if(movement.JumpBufferTimer <= 0) _highJumpBufferTimer = highJumpBufferTime;
         
         _currentPipe = null;
         

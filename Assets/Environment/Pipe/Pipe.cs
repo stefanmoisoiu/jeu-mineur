@@ -11,7 +11,6 @@ public class Pipe : MonoBehaviour
     [SerializeField] private SplineContainer spline;
     public Spline Spline => spline.Spline;
     [SerializeField] private PipeStretchMat pipeStretchMat;
-    [SerializeField] private TexturedSpline texturedSpline;
     [SerializeField] private CinemachineVirtualCamera pipeCam;
     [SerializeField] private Transform pipeCameraTarget;
     
@@ -33,17 +32,21 @@ public class Pipe : MonoBehaviour
         if (_moveStretchPositionCoroutine != null) StopCoroutine(_moveStretchPositionCoroutine);
         _moveStretchPositionCoroutine = StartCoroutine(MoveStretchPositionCoroutine(forward,speed));
     }
+    public void StopMovingStretchPosition()
+    {
+        if (_moveStretchPositionCoroutine != null) StopCoroutine(_moveStretchPositionCoroutine);
+        pipeStretchMat.SetStretchAdvancement(0);
+    }
     private IEnumerator MoveStretchPositionCoroutine(bool forward, float speed)
     {
         pipeCam.Priority = 2000;
         float advancement = 0;
         while (advancement < 1)
         {
-            advancement += Time.deltaTime * speed / texturedSpline.MaxUVOffset;
+            advancement += Time.deltaTime * speed / spline.Spline.GetLength();
             float dirAdvancement = forward ? advancement : 1 - advancement;
             
-            float position = dirAdvancement * texturedSpline.MaxUVOffset;
-            pipeStretchMat.SetStretchPosition(position);
+            pipeStretchMat.SetStretchAdvancement(dirAdvancement);
             
             Spline.Evaluate(dirAdvancement, out float3 currentPosition, out _, out _);
             Vector2 worldPosition = (Vector3)currentPosition + transform.position;
@@ -57,9 +60,29 @@ public class Pipe : MonoBehaviour
         
         Vector2 exitDirection2D = ((Vector3)exitDirection).normalized * (forward ? 1 : -1);
         Vector2 exitPosition2D = (Vector3)exitPosition + transform.position;
-        exitPosition2D += exitDirection2D * 0.3f;
+        exitPosition2D += exitDirection2D * 0.5f;
         
         pipeCam.Priority = -1000;
         OnPipeExited?.Invoke(exitPosition2D, exitDirection2D);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if (spline != null)
+        {
+            spline.Spline.Evaluate(0, out float3 startPosition, out float3 startTangent, out _);
+            spline.Spline.Evaluate(1, out float3 endPosition, out float3 endTangent, out _);
+
+            Vector3 sDir = -((Vector3)startTangent).normalized;
+            Vector3 sPos = (Vector3)startPosition + transform.position + sDir * 0.5f;
+            Gizmos.DrawWireSphere(sPos, 0.1f);
+            Gizmos.DrawLine(sPos, sPos + sDir * 0.3f);
+            
+            Vector3 eDir = ((Vector3)endTangent).normalized;
+            Vector3 ePos = (Vector3)endPosition + transform.position + eDir * 0.5f;
+            Gizmos.DrawWireSphere(ePos, 0.1f);
+            Gizmos.DrawLine(ePos, ePos + eDir * 0.3f);
+        }
     }
 }
