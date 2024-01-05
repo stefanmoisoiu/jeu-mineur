@@ -12,4 +12,11 @@ public class PlayerProceduralAnimManager : MonoBehaviour
                 proceduralAnim.StopAnimation();
         }
     }
+    public void StopAllProceduralAnimations()
+    {
+        foreach (PlayerProceduralAnim proceduralAnim in anims)
+        {
+            proceduralAnim.StopAnimation();
+        }
+    }
 }

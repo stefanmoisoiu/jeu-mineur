@@ -1,0 +1,16 @@
+{
+    "name": "CoreAudio",
+    "rootNamespace": "",
+    "references": [
+        "GUID:cb19eae1ea6cf1f49a54b60a3182920c"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

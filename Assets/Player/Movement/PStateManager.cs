@@ -17,6 +17,7 @@ public class PStateManager : MonoBehaviour
         Dynamite,
         UncontrollableFall,
         Unconscious,
+        Pipe,
     }
     public State CurrentState { get; private set; }
     

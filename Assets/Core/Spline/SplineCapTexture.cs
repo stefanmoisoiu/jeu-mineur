@@ -1,5 +1,3 @@
-#if UNITY_EDITOR
-using System;
 using System.Linq;
 using Sirenix.OdinInspector;
 using Unity.Mathematics;
@@ -9,16 +7,24 @@ using UnityEngine.Splines;
 [ExecuteInEditMode]
 public class SplineCapTexture : MonoBehaviour
 {
+    public enum CapObjectType
+    {
+        Same,
+        Different
+    }
     [Header("References")]
-    [SerializeField] private GameObject edgeObject;
+    [SerializeField] private CapObjectType capObjectType;
+    [ShowIf("@capObjectType == CapObjectType.Same")][SerializeField] private GameObject edgeObject;
+    [ShowIf("@capObjectType == CapObjectType.Different")][SerializeField] private GameObject edgeObjectStart, edgeObjectEnd;
     [SerializeField] private SplineContainer spline;
-    private GameObject _capObject1, _capObject2;
+    [SerializeField] [HideInInspector] private GameObject _capObjectStart, _capObjectEnd;
     
     [Header("Properties")]
     [SerializeField] private bool rotateWithSpline = true;
     [SerializeField] private float addedRotation;
     [SerializeField] private float addedDistance;
 
+    #if UNITY_EDITOR
     private void OnEnable()
     {
         Spline.Changed += UpdateCapSpline;
@@ -28,39 +34,40 @@ public class SplineCapTexture : MonoBehaviour
     {
         Spline.Changed -= UpdateCapSpline;
     }
+    #endif
 
     private void UpdateCapSpline(Spline arg1, int arg2, SplineModification arg3) => UpdateCap();
 
     [Button("Manual Update")]
     private void UpdateCap()
     {
-        if(_capObject1 != null) DestroyImmediate(_capObject1);
-        if(_capObject2 != null) DestroyImmediate(_capObject2);
+        if(_capObjectStart != null) DestroyImmediate(_capObjectStart);
+        if(_capObjectEnd != null) DestroyImmediate(_capObjectEnd);
         
         if(spline == null) return;
         if(spline.Spline.Knots.Count() < 2) return;
         if(spline.Spline.Closed) return;
         
-        spline.Evaluate(0, out float3 startPosition, out float3 startTangent, out float3 startNormal);
-        spline.Evaluate(1, out float3 endPosition, out float3 endTangent, out float3 endNormal);
-        
-        _capObject1 = Instantiate(edgeObject, transform);
-        _capObject1.name = "Start Cap";
-        _capObject1.transform.position = startPosition - startTangent * addedDistance;
+        spline.Evaluate(0, out float3 startPosition, out float3 startTangent, out _);
+        spline.Evaluate(1, out float3 endPosition, out float3 endTangent, out _);
+
+        _capObjectStart = Instantiate(capObjectType == CapObjectType.Same ? edgeObject : edgeObjectStart, transform);
+
+        _capObjectStart.name = "Start Cap";
+        _capObjectStart.transform.position = startPosition - startTangent * addedDistance;
         if (rotateWithSpline)
         {
-            _capObject1.transform.up = -startTangent;
-            _capObject1.transform.Rotate(0, 0, addedRotation);
+            _capObjectStart.transform.up = -startTangent;
+            _capObjectStart.transform.Rotate(0, 0, addedRotation);
         }
+        _capObjectEnd = Instantiate(capObjectType == CapObjectType.Same ? edgeObject : edgeObjectEnd, transform);
         
-        _capObject2 = Instantiate(edgeObject, transform);
-        _capObject2.name = "End Cap";
-        _capObject2.transform.position = endPosition + endTangent * addedDistance;
+        _capObjectEnd.name = "End Cap";
+        _capObjectEnd.transform.position = endPosition + endTangent * addedDistance;
         if (rotateWithSpline)
         {
-            _capObject2.transform.up = endTangent;
-            _capObject2.transform.Rotate(0, 0, addedRotation);
+            _capObjectEnd.transform.up = endTangent;
+            _capObjectEnd.transform.Rotate(0, 0, addedRotation);
         }
     }
 }
-#endif

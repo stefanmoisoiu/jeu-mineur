@@ -2,15 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraShake : PCameraComponent
+public class CameraShake : MonoBehaviour
 {
     private static CameraShake _instance;
-    private List<ShakeOffset> offsets = new ();
+    private static List<ShakeOffset> offsets = new ();
     private void Awake()
     {
         _instance = this;
     }
-    public override Vector3 GetOffset()
+    public static Vector3 GetOffset()
     {
         Vector3 offset = Vector3.zero;
         foreach (ShakeOffset shakeOffset in offsets)
@@ -43,7 +43,7 @@ public class CameraShake : PCameraComponent
         }
         offsets.Remove(shakeOffset);
     }
-    internal class ShakeOffset
+    private class ShakeOffset
     {
         public Vector3 Offset = Vector3.zero;
     }

@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class PBouncyMushroom : MovementState
 {
@@ -21,9 +22,14 @@ public class PBouncyMushroom : MovementState
     private float _uncontrolledBounceLength;
 
 
-    private void Start()
+    private void OnEnable()
     {
         colliderEvents.OnTriggerEnterValue += TryBounce;
+    }
+
+    private void OnDisable()
+    {
+        colliderEvents.OnTriggerEnterValue -= TryBounce;
     }
 
     private void TryBounce(Collider2D other)

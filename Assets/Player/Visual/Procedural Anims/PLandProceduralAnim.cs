@@ -4,21 +4,22 @@ public class PLandProceduralAnim : PlayerProceduralAnim
 {
     [SerializeField] private ProceduralAnimation anim;
     [SerializeField] private PGrounded grounded;
-    
 
-    private void Start()
+
+    private void OnEnable()
     {
-        grounded.OnGroundedChanged += (bool wasGrounded, bool isGrounded) =>
-        {
-            if (!wasGrounded && isGrounded)
-                StartAnimation(PlayAnim);
-        };
+        grounded.OnGroundedChanged += TryPlayAnim;
     }
 
-    private void PlayAnim()
+    private void OnDisable()
     {
-        anim.StopAnimation(this);
-        anim.StartAnimation(this);
+        grounded.OnGroundedChanged -= TryPlayAnim;
+    }
+
+    private void TryPlayAnim(bool wasGrounded, bool isGrounded)
+    {
+        if (!wasGrounded && isGrounded)
+            StartAnimation(() => anim.StartAnimation(this));
     }
 
     internal override void StopAnimation()

@@ -42,17 +42,19 @@ public class ProceduralAnimation
 
     private Coroutine _animationCoroutine;
 
-    public void StartAnimation(MonoBehaviour monoBehaviour)
+    public ProceduralAnimation StartAnimation(MonoBehaviour monoBehaviour)
     {
         SetAnimation(0);
         if (_animationCoroutine != null) monoBehaviour.StopCoroutine(_animationCoroutine);
         _animationCoroutine = monoBehaviour.StartCoroutine(AnimateCoroutine());
+        return this;
     }
 
-    public void StopAnimation(MonoBehaviour monoBehaviour)
+    public ProceduralAnimation StopAnimation(MonoBehaviour monoBehaviour)
     {
         SetAnimation(1);
         if (_animationCoroutine != null) monoBehaviour.StopCoroutine(_animationCoroutine);
+        return this;
     }
 
     public void Reset()

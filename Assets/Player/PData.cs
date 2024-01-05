@@ -9,15 +9,21 @@ public class PData : MonoBehaviour
     [SerializeField] private PPickaxe pickaxe;
     [SerializeField] private GameObject backpackPickaxe;
     
-    
-    
     private static string PickaxeObtainedKey = "pickaxeObtained";
     private static string PlayerPositionKey = "playerPosition";
     
     private Vector2 _playerPosition;
+    
+    [Header("Properties")]
+    [SerializeField] private bool saveAndLoadInEditor;
+    
+
+    
 
     private void Awake()
     {
+        if (!saveAndLoadInEditor && Application.isEditor) return;
+        
         LoadPlayerPosition();
     }
 
@@ -32,6 +38,9 @@ public class PData : MonoBehaviour
         {
             // ignored
         }
+
+        if (!saveAndLoadInEditor && Application.isEditor)
+            pickaxeObtained = true;
         
         Debug.Log($"Pickaxe obtained: {pickaxeObtained}");
         

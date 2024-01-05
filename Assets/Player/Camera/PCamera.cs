@@ -4,7 +4,6 @@ using UnityEngine;
 public class PCamera : MonoBehaviour
 {
     [SerializeField] private CinemachineVirtualCamera playerCam;
-    [SerializeField] private PCameraComponent[] cameraComponents;
     [SerializeField] private PCameraPointOfInterest cameraPointOfInterest;
     private CinemachineVirtualCamera _currentCam;
     private CinemachineFramingTransposer _currentCamFramingTransposer;
@@ -20,11 +19,7 @@ public class PCamera : MonoBehaviour
 
     private void LateUpdate()
     {
-        Vector3 offset = Vector3.zero;
-        foreach (PCameraComponent cameraComponent in cameraComponents)
-        {
-            offset += cameraComponent.GetOffset();
-        }
+        Vector3 offset = CameraShake.GetOffset();
         if(_currentCamFramingTransposer != null) _currentCamFramingTransposer.m_TrackedObjectOffset = offset + _startPlayerCamOffset;
     }
 

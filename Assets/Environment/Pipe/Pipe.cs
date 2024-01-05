@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Cinemachine;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Splines;
 
@@ -10,9 +12,15 @@ public class Pipe : MonoBehaviour
     public Spline Spline => spline.Spline;
     [SerializeField] private PipeStretchMat pipeStretchMat;
     [SerializeField] private TexturedSpline texturedSpline;
+    [SerializeField] private CinemachineVirtualCamera pipeCam;
+    [SerializeField] private Transform pipeCameraTarget;
+    
     
     
     private Coroutine _moveStretchPositionCoroutine;
+
+    public Action<Vector2> OnPipePositionChanged; // position
+    public Action<Vector2,Vector2> OnPipeExited; // exit position, exit direction, exit speed
 
     private void Update()
     {
@@ -27,14 +35,31 @@ public class Pipe : MonoBehaviour
     }
     private IEnumerator MoveStretchPositionCoroutine(bool forward, float speed)
     {
+        pipeCam.Priority = 2000;
         float advancement = 0;
         while (advancement < 1)
         {
-            advancement += Time.deltaTime / texturedSpline.MaxLength * speed;
+            advancement += Time.deltaTime * speed / texturedSpline.MaxUVOffset;
+            float dirAdvancement = forward ? advancement : 1 - advancement;
             
-            float position = (forward ? advancement : 1 - advancement) * texturedSpline.MaxLength;
+            float position = dirAdvancement * texturedSpline.MaxUVOffset;
             pipeStretchMat.SetStretchPosition(position);
+            
+            Spline.Evaluate(dirAdvancement, out float3 currentPosition, out _, out _);
+            Vector2 worldPosition = (Vector3)currentPosition + transform.position;
+            
+            pipeCameraTarget.position = worldPosition;
+            
+            OnPipePositionChanged?.Invoke(worldPosition);
             yield return null;
         }
+        Spline.Evaluate(forward ? 1 : 0, out float3 exitPosition, out float3 exitDirection, out _);
+        
+        Vector2 exitDirection2D = ((Vector3)exitDirection).normalized * (forward ? 1 : -1);
+        Vector2 exitPosition2D = (Vector3)exitPosition + transform.position;
+        exitPosition2D += exitDirection2D * 0.3f;
+        
+        pipeCam.Priority = -1000;
+        OnPipeExited?.Invoke(exitPosition2D, exitDirection2D);
     }
 }

@@ -4,17 +4,21 @@ public class PickaxeDashProceduralAnim : PlayerProceduralAnim
 {
     [SerializeField] private ProceduralAnimation anim;
     [SerializeField] private PPickaxeDash pickaxeDash;
-    
 
-    private void Start()
+
+    private void OnEnable()
     {
-        pickaxeDash.OnStartDash += () => StartAnimation(PlayAnim);
+        pickaxeDash.OnStartDash += PlayAnim;
+    }
+
+    private void OnDisable()
+    {
+        pickaxeDash.OnStartDash -= PlayAnim;
     }
 
     private void PlayAnim()
     {
-        anim.StopAnimation(this);
-        anim.StartAnimation(this);
+        StartAnimation(() => anim.StartAnimation(this));
     }
 
     internal override void StopAnimation()

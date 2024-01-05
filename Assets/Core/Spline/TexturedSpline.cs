@@ -7,6 +7,10 @@ using UnityEngine.Splines;
 [ExecuteInEditMode]
 public class TexturedSpline : MonoBehaviour
 {
+    public float MaxUVOffset => _maxUVOffset;
+    [SerializeField] [HideInInspector] private float _maxUVOffset;
+    
+#if UNITY_EDITOR
     [Header("References")]
     [SerializeField] private MeshFilter meshFilter;
     [SerializeField] private SplineContainer spline;
@@ -17,13 +21,14 @@ public class TexturedSpline : MonoBehaviour
     [SerializeField] private bool debug;
     [SerializeField] private float sphereSize = 0.1f;
 
-    float3[] leftVertices;
-    float3[] rightVertices;
+    private float3[] _leftVertices;
+    private float3[] _rightVertices;
+
+    private float3[] _leftNormals;
+    private float3[] _rightNormals;
     
-    float3[] leftNormals;
-    float3[] rightNormals;
-    
-    public float MaxLength { get; private set; }
+
+
 
     private void OnEnable()
     {
@@ -46,11 +51,11 @@ public class TexturedSpline : MonoBehaviour
     }
     private void UpdatePoints()
     {
-        leftVertices = new float3[precision];
-        rightVertices = new float3[precision];
+        _leftVertices = new float3[precision];
+        _rightVertices = new float3[precision];
         
-        leftNormals = new float3[precision];
-        rightNormals = new float3[precision];
+        _leftNormals = new float3[precision];
+        _rightNormals = new float3[precision];
         
         for(int i = 0; i < precision; i++)
         {
@@ -59,11 +64,11 @@ public class TexturedSpline : MonoBehaviour
             float3 right = math.cross(forward, new float3(0,0,-1));
             right = new Vector3(right.x, right.y, right.z).normalized;
             float3 localPosition = transform.InverseTransformPoint(position);
-            leftVertices[i] = localPosition + right * width;
-            rightVertices[i] = localPosition - right * width;
+            _leftVertices[i] = localPosition + right * width;
+            _rightVertices[i] = localPosition - right * width;
             
-            leftNormals[i] = right;
-            rightNormals[i] = -right;
+            _leftNormals[i] = right;
+            _rightNormals[i] = -right;
         }
     }
 private void BuildMesh()
@@ -80,20 +85,20 @@ private void BuildMesh()
 
     for(int i = 1; i < precision; i++)
     {
-        Vector3 p1 = leftVertices[i-1];
-        Vector3 p2 = rightVertices[i-1];
+        Vector3 p1 = _leftVertices[i-1];
+        Vector3 p2 = _rightVertices[i-1];
         Vector3 p3;
         Vector3 p4;
 
         if (i == precision && spline.Spline.Closed)
         {
-            p3 = leftVertices[0];
-            p4 = rightVertices[0];
+            p3 = _leftVertices[0];
+            p4 = _rightVertices[0];
         }
         else
         {
-            p3 = leftVertices[i];
-            p4 = rightVertices[i];
+            p3 = _leftVertices[i];
+            p4 = _rightVertices[i];
         }
 
         int offset = 4 * (i - 1);
@@ -109,7 +114,7 @@ private void BuildMesh()
         verts.AddRange(new []{p1,p2,p3,p4});
         tris.AddRange(new []{t1,t2,t3,t4,t5,t6});
 
-        normals.AddRange(new []{(Vector3)leftNormals[i-1],(Vector3)rightNormals[i-1],(Vector3)leftNormals[i],(Vector3)rightNormals[i]});
+        normals.AddRange(new []{(Vector3)_leftNormals[i-1],(Vector3)_rightNormals[i-1],(Vector3)_leftNormals[i],(Vector3)_rightNormals[i]});
 
         float distance = Vector3.Distance(p1, p3) / width / 1.625f;
         float uvDistance = uvOffset + distance;
@@ -123,7 +128,7 @@ private void BuildMesh()
     mesh.SetNormals(normals);
     meshFilter.mesh = mesh;
     
-    MaxLength = uvOffset;
+    _maxUVOffset = uvOffset;
 }
 
     private void OnDrawGizmos()
@@ -136,8 +141,9 @@ private void BuildMesh()
         Gizmos.color = Color.white;
         for (int i = 0; i < precision; i++)
         {
-            Gizmos.DrawSphere(transform.position + (Vector3)leftVertices[i],sphereSize);
-            Gizmos.DrawSphere(transform.position + (Vector3)rightVertices[i],sphereSize);
+            Gizmos.DrawSphere(transform.position + (Vector3)_leftVertices[i],sphereSize);
+            Gizmos.DrawSphere(transform.position + (Vector3)_rightVertices[i],sphereSize);
         }
     }
+    #endif
 }

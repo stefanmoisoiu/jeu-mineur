@@ -30,10 +30,14 @@ MonoBehaviour:
     referenceMode: 2
     serializationDepthLimit: 64
     assemblyNames:
-    - Assembly-CSharp
-    - Assembly-CSharp-firstpass
     - Cinemachine
+    - Core
+    - CoreAudio
+    - Environment
+    - ES3
+    - Menus
     - Notes
+    - PlayerCore
     showAdvancedSettings: 0
   addMgrToSceneAutomatically: 0
   autoUpdateReferences: 1

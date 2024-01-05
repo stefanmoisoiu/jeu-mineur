@@ -56,7 +56,6 @@ public class PMovement : MovementState
     [Header("Debug")] [SerializeField] private bool debug;
 
     public Action OnJump;
-    public static Action OnJumpStatic;
     private void OnEnable()
     {
         inputManager.OnJump += RestartBufferTimer;
@@ -136,7 +135,7 @@ public class PMovement : MovementState
     }
     private void RestartBufferTimer()
     {
-        if (_jumpCooldownTimer > 0 || (_jumpCoyoteTimer <= 0 && !grounded.IsGrounded))
+        if (_jumpCooldownTimer > 0 || _jumpCoyoteTimer <= 0)
             _jumpBufferTimer = jumpBufferTime;
     }
     private void Jump()
@@ -155,7 +154,7 @@ public class PMovement : MovementState
         rb.velocity = new Vector2(rb.velocity.x, jumpForce + addedVel);
         
         OnJump?.Invoke();
-        OnJumpStatic?.Invoke();
+        PlayerMainEvents.OnPlayerJump?.Invoke();
     }
 
     #endregion

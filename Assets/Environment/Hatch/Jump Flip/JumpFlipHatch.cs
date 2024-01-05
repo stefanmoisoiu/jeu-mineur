@@ -8,6 +8,6 @@ public class JumpFlipHatch : Hatch
     private void Start()
     {
         SetState(startOpened, false);
-        PMovement.OnJumpStatic += () => SetState(!IsOpened);
+        PlayerMainEvents.OnPlayerJump += () => SetState(!IsOpened);
     }
 }
