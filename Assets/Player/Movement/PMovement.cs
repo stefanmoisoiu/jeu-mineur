@@ -127,12 +127,14 @@ public class PMovement : MovementState
         _jumpCoyoteTimer -= Time.deltaTime;
         _jumpCooldownTimer -= Time.deltaTime;
     }
+    public void RemoveCoyoteTimer() => _jumpCoyoteTimer = 0;
     private void RestartCoyoteTimer(bool wasGrounded, bool isGrounded)
     {
         if (!CanJump || isGrounded)
             return;
         _jumpCoyoteTimer = jumpCoyoteTime;
     }
+    public void RemoveBufferTimer() => _jumpBufferTimer = 0;
     private void RestartBufferTimer()
     {
         if (_jumpCooldownTimer > 0 || _jumpCoyoteTimer <= 0)

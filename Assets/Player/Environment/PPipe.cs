@@ -7,6 +7,9 @@ public class PPipe : MovementState
     [SerializeField] private ColliderEvents colliderEvents;
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private Collider2D col;
+    [SerializeField] private PInputManager inputManager;
+    [SerializeField] private PGrounded grounded;
+    
     
     [SerializeField] private PMovement movement;
     [SerializeField] private PPickaxe pickaxe;
@@ -40,11 +43,13 @@ public class PPipe : MovementState
     private void OnEnable()
     {
         colliderEvents.OnTriggerEnterValue += TryEnterPipe;
+        inputManager.OnJump += TryLateHighJump;
     }
 
     private void OnDisable()
     {
         colliderEvents.OnTriggerEnterValue -= TryEnterPipe;
+        inputManager.OnJump -= TryLateHighJump;
 
         if (_currentPipe != null)
         {
@@ -57,12 +62,15 @@ public class PPipe : MovementState
     {
         _enterPipeCooldownTimer -= Time.deltaTime;
         _highJumpBufferTimer -= Time.deltaTime;
-        if (movement.JumpBufferTimer > 0 && _highJumpBufferTimer > 0)
-        {
-            rb.velocity += Vector2.up * (exitJumpVerticalSpeed - exitVerticalSpeed);
-            _highJumpBufferTimer = 0;
-        }
         base.Update();
+    }
+    private void TryLateHighJump()
+    {
+        if (_highJumpBufferTimer <= 0) return;
+        rb.velocity += Vector2.up * exitJumpVerticalSpeed;
+        _highJumpBufferTimer = 0;
+        movement.RemoveCoyoteTimer();
+        grounded.UpdateGrounded();
     }
 
     protected override void OnStateEnter()
@@ -118,7 +126,7 @@ public class PPipe : MovementState
 
     private void UpdatePipePosition(Vector2 position)
     {
-        Debug.Log(position);
+        
     }
     private void ExitPipe(Vector2 exitPosition, Vector2 exitDirection)
     {
@@ -130,6 +138,8 @@ public class PPipe : MovementState
         _currentPipe.OnPipeExited -= ExitPipe;
         
         if(movement.JumpBufferTimer <= 0) _highJumpBufferTimer = highJumpBufferTime;
+        movement.RemoveCoyoteTimer();
+        movement.RemoveBufferTimer();
         
         _currentPipe = null;
         

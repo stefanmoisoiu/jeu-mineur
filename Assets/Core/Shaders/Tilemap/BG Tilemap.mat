@@ -85,7 +85,7 @@ Material:
     - _L2_Color_Medium: {r: 0.6148096, g: 0.69886, b: 0.8301887, a: 1}
     - _L2_Color_Outline: {r: 0.09411765, g: 0.078431375, b: 0.14509805, a: 1}
     - _L2_Color_Special: {r: 0.7965468, g: 0.8532255, b: 0.9433962, a: 1}
-    - _PlayerPosition: {r: 94.5, g: 354.5, b: 0, a: 0}
+    - _PlayerPosition: {r: 89.5, g: 377.5, b: 0, a: 0}
     - _Rock_Scale: {r: 0.5, g: 1, b: 0, a: 0}
     - _Rock_Size: {r: 0.2, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

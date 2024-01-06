@@ -36,6 +36,7 @@ public class Pipe : MonoBehaviour
     {
         if (_moveStretchPositionCoroutine != null) StopCoroutine(_moveStretchPositionCoroutine);
         pipeStretchMat.SetStretchAdvancement(0);
+        pipeCam.Priority = -1000;
     }
     private IEnumerator MoveStretchPositionCoroutine(bool forward, float speed)
     {

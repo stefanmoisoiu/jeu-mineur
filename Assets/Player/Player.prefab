@@ -369,12 +369,19 @@ MonoBehaviour:
   activeStates: 0b000000
   colliderEvents: {fileID: 6664590386673884067}
   rb: {fileID: 2958054563617303837}
+  col: {fileID: 6008528976587184582}
+  inputManager: {fileID: 4639865335127513026}
+  grounded: {fileID: 3564569547695131043}
   movement: {fileID: 7134268869128914306}
   pickaxe: {fileID: 6732281535619972600}
-  moveSpeed: 20
-  exitSpeed: 10
-  exitVerticalSpeed: 2
+  moveSpeed: 10
+  exitSpeed: 8
+  exitVerticalSpeed: 4
   exitJumpVerticalSpeed: 10
+  enterPipeCooldown: 0.2
+  highJumpBufferTime: 0.2
+  enterPipeSFX: {fileID: 11400000, guid: febe22a45b01147448635f26b7154ed7, type: 2}
+  exitPipeSFX: {fileID: 11400000, guid: 6182a903ee614294f81950eb5b4b1d43, type: 2}
 --- !u!1 &1442780876121484048
 GameObject:
   m_ObjectHideFlags: 0
@@ -839,7 +846,6 @@ GameObject:
   - component: {fileID: 6316640210973583372}
   - component: {fileID: 5613834490682516755}
   - component: {fileID: 7970016068168434404}
-  - component: {fileID: 5401757716463464543}
   - component: {fileID: 3519204406002323936}
   - component: {fileID: 930414645018992349}
   - component: {fileID: 2239298312161215730}
@@ -918,26 +924,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerCam: {fileID: 5613834490682516755}
-  cameraComponents:
-  - {fileID: 3519204406002323936}
-  - {fileID: 5401757716463464543}
   cameraPointOfInterest: {fileID: 930414645018992349}
---- !u!114 &5401757716463464543
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2205574743691975269}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c07e9791c33b1ec43b7fec8432b3c80f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rb: {fileID: 2958054563617303837}
-  fallLookAheadStart: 5
-  fallLookAheadEnd: 15
-  fallLookAhead: 0
 --- !u!114 &3519204406002323936
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17109,9 +17096,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 262144
   checkRayCount: 8
-  addedVelMult: 0.1
+  addedVelMult: 0.075
   damageCooldownTime: 0.1
-  bounceForce: {x: 5, y: 10}
+  bounceForce: {x: 5, y: 7}
   damageSFX: {fileID: 11400000, guid: 3e33f7bbca5448e4eb72b4a1b0c1b3bf, type: 2}
   cameraShake: {fileID: 11400000, guid: 3e50a9c86430dc244911668e615ab8ac, type: 2}
   debug: 0
@@ -17983,7 +17970,7 @@ MonoBehaviour:
   enterPipeAnim:
     objectToAnimate: {fileID: 6257127756765020089}
     spriteRenderer: {fileID: 0}
-    animationLength: 0.35
+    animationLength: 0.2
     loop: 0
     loopType: 0
     scale: 1

@@ -34,7 +34,6 @@ public class PGrounded : MonoBehaviour
     public RaycastHit2D CloseGroundHit => _closeGroundHit;
     
     public Action<bool,bool> OnGroundedChanged, OnGroundCloseChanged;
-
     private void Start()
     {
         _debugText = () => $"Grounded: {IsGrounded} | GroundClose: {IsGroundClose}";
@@ -43,21 +42,16 @@ public class PGrounded : MonoBehaviour
 
     private void Update()
     {
+        UpdateGrounded();
+    }
+
+    public void UpdateGrounded()
+    {
         float checkStartDistance = IsGrounded ? groundStartCheckDistance : airStartCheckDistance;
         
         _notGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, groundCheckDistance, notGroundLayer);
         _groundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, groundCheckDistance, groundLayer);
         _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.down * checkStartDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-
-        // if (LRCheck())
-        // {
-        //     if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
-        //     if (_groundHit.collider == null) _groundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, groundCheckDistance, groundLayer);
-        //
-        //
-        //     if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.left * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-        //     if (_closeGroundHit.collider == null) _closeGroundHit = Physics2D.Raycast(transform.position + Vector3.right * LRPosOffset + Vector3.down * checkDistance, Vector2.down, closeGroundCheckDistance, groundLayer);
-        // }
 
         IsGrounded = _groundHit.collider != null && _notGroundHit.collider == null;
         IsGroundClose = _closeGroundHit.collider != null && _notGroundHit.collider == null;
